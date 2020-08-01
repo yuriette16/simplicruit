@@ -1,0 +1,2 @@
+class SkillRequirementsController < ApplicationController
+end
