@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_01_052903) do
+ActiveRecord::Schema.define(version: 2020_08_01_073159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_08_01_052903) do
 
   create_table "job_applications", force: :cascade do |t|
     t.string "candidate_name"
-    t.datetime "apply_date"
+    t.datetime "interview_date"
     t.string "resume_result"
     t.text "videotranscript"
     t.jsonb "video_result"
@@ -55,6 +55,9 @@ ActiveRecord::Schema.define(version: 2020_08_01_052903) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email"
+    t.text "address"
+    t.string "phone"
+    t.string "gender"
     t.index ["position_id"], name: "index_job_applications_on_position_id"
   end
 
