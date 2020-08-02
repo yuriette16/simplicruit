@@ -11,7 +11,7 @@ class JobApplicationsController < ApplicationController
   private
 
   def find_job_application
-    @job_applications = JobApplication.find(params[:id])
-    authorize @job_applications
+    @job_application = JobApplication.find(params[:id])
+    authorize @job_application
   end
 end

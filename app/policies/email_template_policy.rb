@@ -1,4 +1,4 @@
-class QuestionnairesPolicy < ApplicationPolicy
+class EmailTemplatesPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -10,10 +10,6 @@ class QuestionnairesPolicy < ApplicationPolicy
   end
 
   def update?
-    true
-  end
-
-  def destroy?
     true
   end
 end
