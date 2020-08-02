@@ -8,44 +8,44 @@
 require 'faker'
 
 require 'open-uri'
-# puts 'Creat a new user...farrah@simplicruit.com'
-# main_user = User.create(
-#   name: 'Farrah',
-#   email: 'farrah@simplicruit.com',
-#   password: '123456')
-# puts 'Finished'
+puts 'Creat a new user...farrah@simplicruit.com'
+main_user = User.create(
+  name: 'Farrah',
+  email: 'farrah@simplicruit.com',
+  password: '123456')
+puts 'Finished'
 
-# puts 'Create position 1...'
-# positions = Position.create(
-#     title: 'Customer Service Representative',
-#     due_date: Faker::Date.in_date_period(year: 2020, month: 10),
-#     target_hire_number: 10
-# )
-# puts 'Finished'
+puts 'Create position 1...'
+positions = Position.create(
+    title: 'Customer Service Representative',
+    due_date: Faker::Date.in_date_period(year: 2020, month: 10),
+    target_hire_number: 10
+)
+puts 'Finished'
 
-# puts 'Create a position 2...'
-# positions = Position.create(
-#     title: 'Call Center Representative',
-#     due_date: Faker::Date.in_date_period(year: 2020, month: 12),
-#     target_hire_number: 20
-# )
-# puts 'Finished'
+puts 'Create a position 2...'
+positions = Position.create(
+    title: 'Call Center Representative',
+    due_date: Faker::Date.in_date_period(year: 2020, month: 12),
+    target_hire_number: 20
+)
+puts 'Finished'
 
-# puts 'Create a position 3 ...'
-# positions = Position.create(
-#     title: 'Operations Manager',
-#     due_date: Faker::Date.in_date_period(year: 2020, month: 12),
-#     target_hire_number: 1
-# )
-# puts 'Finished'
+puts 'Create a position 3 ...'
+positions = Position.create(
+    title: 'Operations Manager',
+    due_date: Faker::Date.in_date_period(year: 2020, month: 12),
+    target_hire_number: 1
+)
+puts 'Finished'
 
-# puts 'Create a position 4...'
-# positions = Position.create(
-#     title: 'Member Services Specialist',
-#     due_date: Faker::Date.in_date_period(year: 2020, month: 10),
-#     target_hire_number: 3
-# )
-# puts 'Finished'
+puts 'Create a position 4...'
+positions = Position.create(
+    title: 'Member Services Specialist',
+    due_date: Faker::Date.in_date_period(year: 2020, month: 10),
+    target_hire_number: 3
+)
+puts 'Finished'
 
 puts 'Create a job_application <testing one> for Customer Service Representative...'
 test_position = JobApplication.create(
@@ -115,7 +115,6 @@ positions = JobApplication.create(
 )
 end
 puts 'Finished'
-
 
 
 #interview date will seed after.
