@@ -6,6 +6,6 @@ class JobApplicationPolicy < ApplicationPolicy
   end
 
   def show?
-      true
+    true
   end
 end
