@@ -1,6 +1,8 @@
 class JobApplication < ApplicationRecord
   belongs_to :position
-  has_one_attached :resume, :video
+  has_many :questionnaires, dependent: :destroy
 
-  validates :candidate_name, :email, :apply_date, :resume, :video, :status, presence: true
+  has_one_attached :resume
+  has_one_attached :video
+  validates :candidate_name, :email, presence: true
 end
