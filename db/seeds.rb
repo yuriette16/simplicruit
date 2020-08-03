@@ -122,14 +122,16 @@
 require 'csv'
 puts 'Create the question database'
 csv_text =File.read(Rails.root.join('lib','seeds','questions.csv'))
-csv = CSV.parese(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
+csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
 
 csv.each do |row|
-  t. = Question.new
-  t.key_name = row['question']
-  t.second_key = row['category']
+  t = Question.new
+  t.question = row['question']
+  t.category = row['category']
   t.save
 end
+puts 'Finished'
+
 
 
 
