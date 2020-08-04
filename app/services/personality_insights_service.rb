@@ -1,5 +1,3 @@
-require 'excon'
-
 class PersonalityInsightsService
   # Send a profile request to Personality
   def profile(data)
