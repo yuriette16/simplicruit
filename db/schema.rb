@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_02_164429) do
+ActiveRecord::Schema.define(version: 2020_08_04_124648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2020_08_02_164429) do
     t.integer "skill_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "json_name"
     t.index ["position_id"], name: "index_skill_requirements_on_position_id"
   end
 
