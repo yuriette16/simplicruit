@@ -152,7 +152,6 @@ csv.each do |row|
 end
 puts 'Finished'
 
-
 puts 'Create a job_application <testing one> for Customer Service Representative...'
 position = JobApplication.find(1)
 position.videotranscript = File.open(Rails.root.join('lib','seeds','video_transcript.txt'))
