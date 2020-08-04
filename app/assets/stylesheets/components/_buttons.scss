@@ -1,0 +1,45 @@
+.btn-application{
+  display: flex;
+}
+
+.btn-application-analysis{
+  border: none;
+  margin: 16px 16px 16px 0;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0;
+  text-decoration: none;
+  color: #67c5ff;
+  background-color: transparent;
+  outline: none;
+}
+
+.btn-application-analysis:before{
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 4px;
+  top:100%;
+  left: 0;
+  border-radius: 3px;
+  background:#67c5ff;
+  transition: .2s;
+}
+
+.btn-application-analysis:hover:before{
+  top: -webkit-calc(100% - 3px);
+  top: calc(100% - 3px);
+}
+
+.btn-evaluation-form{
+  &.hidden{
+    display: none;
+  }
+}
+
+.btn-video-analysis{
+  &.hidden{
+    display: none;
+  }
+}

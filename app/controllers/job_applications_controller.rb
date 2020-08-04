@@ -1,3 +1,5 @@
+require 'json'
+
 class JobApplicationsController < ApplicationController
   before_action :find_job_application, only: [:show]
 

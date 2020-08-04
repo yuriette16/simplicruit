@@ -24,6 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { displayApplication } from '../components/buttons';
 import { updateSidebar} from '../components/sidebar';
 
 // Internal imports, e.g:
@@ -32,5 +33,6 @@ import { updateSidebar} from '../components/sidebar';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  displayApplication();
   updateSidebar();
 });
