@@ -1,0 +1,28 @@
+<div class="container">
+  <div class ="medium-font"><b><%= @job_application.candidate_name %></b></div>
+  <div class="card-application">
+    <div class="card-application-container">
+      <div class="card-application-personal-info-left">
+        <div><b>Position:</b> <%= @job_application.position.title %></div>
+        <div><b>Gender:</b> <%= @job_application.gender %></div>
+        <div><b>Address:</b> <%= @job_application.address %></div>
+      </div>
+      <div class="card-application-personal-info-right">
+        <div><i class="fas fa-envelope"></i>&thinsp;<%= @job_application.email %></div>
+        <div><i class="fas fa-phone"></i>&thinsp;<%= @job_application.phone %></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-application">
+    <button class="btn-evaluation-form btn-application-analysis">Evaluation Form</button>
+    <button class="btn-video-analysis btn-application-analysis">Video Analysis</button>
+  </div>
+
+  <div class="evaluation-form-tab">
+    <%= render "evaluation" %>
+  </div>
+  <div class="video-analysis-tab hidden">
+    <%= render "video_analysis" %>
+  </div>
+</div

@@ -24,6 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { displayApplication } from '../components/buttons';
 import { updateSidebar} from '../components/sidebar';
 import { getCurrentDate } from '../components/datetime';
 // Internal imports, e.g:
@@ -32,6 +33,7 @@ import { getCurrentDate } from '../components/datetime';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  displayApplication();
   updateSidebar();
   getCurrentDate();
 });

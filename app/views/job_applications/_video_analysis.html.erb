@@ -1,0 +1,36 @@
+<div class="video-analysis-overall">
+  <div class="overall-score"><h4>Overall Score: <b>N/100pt</b></h3></div>
+  <div class="video-analysis-result">
+    <div class="personality output-stats-column">
+      <h4>Personality</h4>
+      <% @job_application.video_result["personality"].each do |personality|  %>
+        <%  percentile = (personality["percentile"] * 100).round(1) %>
+        <div class="percent-bar-and-score">
+          <div class="personality-name percent-bar-main">
+            <%= personality["name"]  %>
+          </div>
+          <div class="percent-bar">
+            <div class="percent-bar--meter" style="-webkit-transform: translate(<%= percentile %>%); transform: translate(<%= percentile %>%)">
+              <div class="percent-bar--ball"></div>
+              <div class="percent-bar-and-score--number"><%= percentile %></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="needs output-stats-column">
+      <h4>Needs</h4>
+      <% @job_application.video_result["needs"].each do |need|  %>
+        <%= need["name"] %>
+        <%= need["percentile"] %>
+      <% end %>
+    </div>
+    <div class="values output-stats-column">
+      <h4>Values</h4>
+      <% @job_application.video_result["values"].each do |value| %>
+        <%= value["name"]  %>
+        <%= value["percentile"]  %>
+      <% end %>
+    </div>
+  </div>
+</div>
