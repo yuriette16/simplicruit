@@ -159,8 +159,15 @@ application.videotranscript = File.read(Rails.root.join('lib','seeds','video_tra
 json = File.read(Rails.root.join('lib','seeds','personality.json'))
 # result = JSON.parse(json)
 # application.video_result  == result
-application.video.attach(io: File.open('public/video.mp4'), filename: 'interview.mp4')
+application.video.attach(io: File.open('public/demo.mp4'), filename: 'interview.mp4')
 application.save!
 puts 'Finished'
+
+puts 'Make farrah@simplicruit.com as admin.'
+user= User.where(email: 'farrah@simplicruit.com').first
+user.admin = true
+user.save!
+puts'Finished'
+
 
 
