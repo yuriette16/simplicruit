@@ -1,0 +1,119 @@
+
+.cards {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    margin: 24px auto;
+    max-width: 1200px;
+    width: 100%;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.card {
+
+    background-color:#ffffff6b;
+    margin: 0.5em auto;
+    padding: 0;
+    width: 96%;
+    background: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    height:auto;
+}
+
+
+@media all and (min-width: 768px) {
+    .card {
+        margin: 1em 0;
+        width: calc(96% / 2);
+        background-color:#ffffff6b;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .card {
+        width: calc(96% / 3);
+        background-color:#ffffff6b;
+        border-radius: 6px;
+        padding:19px;
+  }
+  .cards::after{
+        content: "";
+        display: block;
+        width: calc(96% / 3);
+    }
+  }
+
+@media all and (min-width: 1240px) {
+    .card-head{
+      display:flex;
+      flex-direction:row;
+      justify-content:space-between;
+
+    }
+    .card-duedate {
+      font-size:16px;
+      color: #002943;
+    }
+
+    .card-info{
+      font-size:15px;
+    }
+}
+
+.card-title {
+  font-size:18px;
+  color:#001223;
+  background-color:#f3f3f3;
+  padding:5px 0;
+  border-radius:4px;
+}
+
+.candidates-info {
+  margin-bottom:16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.candidates-info .name a {
+  color:#101010;
+}
+
+.btn-seeall {
+  width:80px;
+  text-align: left;
+  padding:0 6px;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+
+
+.btn-seeall a {
+  color:#001223;
+}
+.fa-meh{
+  font-size:26px;
+  margin-right:4px;
+  color: #ff7f0d;
+  position:relative;
+  top:2px;
+}
+
+.fa-user {
+  position: relative;
+  bottom: 1px;
+  font-size: 12px;
+  color: #34465ae3;
+  margin-left: 4px;
+  }
+
+  .fa-angle-right {
+    margin-right:6px;
+  }
+.small {
+  margin-right:0;
+}
