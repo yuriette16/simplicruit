@@ -1,0 +1,37 @@
+.content-area {
+  margin-left:200px;
+  padding-left:30px;
+  margin-right: 48px;
+}
+
+.content-area h1 {
+  font-family: 'Heebo', sans-serif;
+  font-size: 32px;
+  color:#00101b;
+}
+
+.heading {
+  margin-top:24px;
+}
+
+.head-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+#dtText, .fa-calendar-check {
+  font-size: 18px;
+}
+
+.fa-filter{
+  color:#134261;
+  position:relative;
+  top:8px;
+}
+
+.fa-calendar-check {
+  margin-left:5px;
+  font-size: 16px;
+  color:#424242;
+}
