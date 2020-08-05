@@ -165,6 +165,7 @@ puts 'Finished'
 
 puts 'Make farrah@simplicruit.com as admin.'
 user= User.where(email: 'farrah@simplicruit.com').first
+user.password = '123456'
 user.admin = true
 user.save!
 puts'Finished'
