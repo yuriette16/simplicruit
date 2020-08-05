@@ -1,4 +1,5 @@
 class AnalysisVideoJob < ApplicationJob
+
   # def perform(job_application_id)
   #   job_application = JobApplication.find(job_application_id)
   #   return  if job_application.video.attached?

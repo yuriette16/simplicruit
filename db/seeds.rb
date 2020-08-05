@@ -170,5 +170,3 @@ user.admin = true
 user.save!
 puts'Finished'
 
-
-

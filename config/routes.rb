@@ -17,5 +17,4 @@ Rails.application.routes.draw do
   end
   resources :email_templates, only: [:index, :show, :edit, :update]
 
-
 end
