@@ -6,7 +6,6 @@ ruby '2.6.5'
 # Gemfile
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
-
 #Speech-to-text
 gem'google-cloud-speech'
 #Cloudinary

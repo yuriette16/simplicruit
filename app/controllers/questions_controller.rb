@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_params)
+    @question = Question.new(questions_params)
     authorize @question
     @question.save
     redirect_to questions_path
