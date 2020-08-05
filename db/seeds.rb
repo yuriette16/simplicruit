@@ -159,7 +159,7 @@ application.videotranscript = File.read(Rails.root.join('lib','seeds','video_tra
 json = File.read(Rails.root.join('lib','seeds','personality.json'))
 # result = JSON.parse(json)
 # application.video_result  == result
-
+application.video.attach(io: File.open('public/video.mp4'), filename: 'interview.mp4')
 application.save!
 puts 'Finished'
 
