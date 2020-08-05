@@ -1,0 +1,45 @@
+.video-analysis-result{
+  display: flex;
+}
+
+.output-stats-column{
+  width: 31.91489%;
+  margin-right: 2.12766%;
+  float: left;
+  position: relative;
+  background-color: white;
+  border: 2px solid #ececec;
+}
+
+.percent-bar-main{
+  margin-bottom: 24px;
+}
+
+.percent-bar{
+  border-bottom: 1px solid #323232;
+}
+
+.percent-bar-and-score--number{
+  position: absolute;
+  width: 3rem;
+  margin-top: 0rem;
+  left: -1.2rem;
+  top: -2rem;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #4178be;
+}
+
+.percent-bar--ball{
+  background-color: #00b4a0;
+  height: 0.8rem;
+  width: 0.8rem;
+  top: -0.4rem;
+  left: -0.4rem;
+  border-radius: 100%;
+  position: absolute;
+  transition: 0.2s;
+}
