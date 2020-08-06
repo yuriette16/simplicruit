@@ -13,7 +13,7 @@ class JobApplicationsController < ApplicationController
 
   def update
     if @job_application.update(job_application_params)
-      AnalysisVideoJob.perform_now(@job_application.id)
+      AnalysisVideoJob.perform_later(@job_application.id)
       redirect_to positions_path
     else
       render :edit
@@ -31,6 +31,7 @@ class JobApplicationsController < ApplicationController
       generate_question.generate_questions(@job_application, @skill_names_array, required_skills)
     end
     @auto_questionnaires = Questionnaire.where(job_application_id: @job_application)
+    @nosidebar = true
   end
 
   private
