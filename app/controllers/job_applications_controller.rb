@@ -18,6 +18,7 @@ class JobApplicationsController < ApplicationController
     else
       render :edit
     end
+  end
 
   def show
     extract_skill = ExtractSkill.new
@@ -25,6 +26,7 @@ class JobApplicationsController < ApplicationController
     required_skills = extract_skill.get_required_skills(@job_application)
     @skill_names_array = extract_skill.extract_requirement_skills(@job_application, required_skills)
     @overall_score = cal_score.cal_overall_score(@skill_names_array, required_skills)
+    @nosidebar = true
   end
 
   private
