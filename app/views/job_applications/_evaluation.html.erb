@@ -1,6 +1,13 @@
 <div class="evaluation-form-overall">
   <div class="question-form">
-    <%= @auto_questionnaires  %>
+    <% @auto_questionnaires.each do |auto_questionnaire|  %>
+      <div class="questionnaire-form">
+        <div class="category-name"><b><%= auto_questionnaire.question.category %></b></div>
+        <div class="question-name"><%= auto_questionnaire.question.question %></div>
+        <form action=""><%= auto_questionnaire.answer %></form>
+        <br>
+      </div>
+    <% end %>
     <div><i class="fas fa-trash-alt"></i></div>
     <div class="modal-add-question"><i class="fas fa-plus-circle"></i>Add question</div>
   </div>

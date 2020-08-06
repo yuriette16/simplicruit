@@ -18,6 +18,7 @@ class JobApplicationsController < ApplicationController
     else
       render :edit
     end
+  end
 
   def show
     extract_skill = ExtractSkill.new
