@@ -13,6 +13,7 @@ class AnalysisVideoJob < ApplicationJob
   #   job_application.video_result = answer
   #   job_application.save!
   # end
+
   def perform(job_application_id)
     job_application = JobApplication.find(job_application_id)
       puts "Calling API is connecting"
