@@ -29,7 +29,6 @@ class QuestionnairesController < ApplicationController
   end
 
   def update
-    authorize @questionnaire
     @questionnaire.update(questionnaire_params)
     redirect_to questionnaires_path
   end
