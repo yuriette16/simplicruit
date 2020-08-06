@@ -3,6 +3,9 @@
   <div class="video-analysis-result">
     <div class="personality output-stats-column">
       <h4>Personality</h4>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+       Check the video
+      </button>
       <% @skill_names_array.each do |skill|  %>
         <%  percentile = (skill[:percentile] * 100).round(1) %>
         <div class="percent-bar-and-score">
