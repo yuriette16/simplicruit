@@ -22,6 +22,11 @@ class JobApplicationsController < ApplicationController
     # answer = applicant.profile(@job_application.videotranscript)
     # puts answer
     # end
+    extract_skill = ExtractSkill.new
+    cal_score = CalScore.new
+    required_skills = extract_skill.get_required_skills(@job_application)
+    @skill_names_array = extract_skill.extract_requirement_skills(@job_application, required_skills)
+    @overall_score = cal_score.cal_overall_score(@skill_names_array, required_skills)
   end
 
   private
