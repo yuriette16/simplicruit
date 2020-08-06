@@ -7,12 +7,12 @@ class JobApplication < ApplicationRecord
   validates :candidate_name, :email, presence: true
 
 
-  after_commit :async_update # Run on create & update
+  # after_update :async_update # Run on create & update
 
-  private
+  # private
 
-  def async_update
-    AnalysisVideoJob.perform_later(self.id)
-  end
+  # def async_update
+  #   # AnalysisVideoJob.perform_later(self.id)
+  # end
 
 end

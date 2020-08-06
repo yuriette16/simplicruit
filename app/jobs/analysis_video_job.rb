@@ -16,11 +16,11 @@ class AnalysisVideoJob < ApplicationJob
 
   def perform(job_application_id)
     job_application = JobApplication.find(job_application_id)
-      puts "Calling API is connecting"
-      job_application.videotranscript = "testing33333"
-      job_application.save!
-      # TODO: perform a time consuming task like Clearbit's Enrichment API.
-      sleep 2
-      puts "Done! "
+    puts "Calling API is connecting"
+    job_application.videotranscript = "testing33333"
+    job_application.save!
+    # TODO: perform a time consuming task like Clearbit's Enrichment API.
+    sleep 2
+    puts "Done! "
   end
 end
