@@ -156,9 +156,14 @@ puts 'Create a job_application <testing one> for Customer Service Representative
 application = JobApplication.find(1)
 application.videotranscript = File.read(Rails.root.join('lib','seeds','video_transcript.txt'))
 
-json = ActiveSupport::JSON.decode(File.read(Rails.root.join('lib','seeds','personality.json')))
-json = json[0]
-application.video_result  == json
+json = File.read(Rails.root.join('lib','seeds','personality.json'))
+# result = JSON.parse(json)
+# application.video_result  == result
+application.video.attach(io: File.open('public/video.mp4'), filename: 'interview.mp4')
+
+#json = ActiveSupport::JSON.decode(File.read(Rails.root.join('lib','seeds','personality.json')))
+#json = json[0]
+#application.video_result  == json
 
 application.save!
 puts 'Finished'
