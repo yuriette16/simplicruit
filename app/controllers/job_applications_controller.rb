@@ -24,9 +24,14 @@ class JobApplicationsController < ApplicationController
     # end
     extract_skill = ExtractSkill.new
     cal_score = CalScore.new
+    generate_question = GenerateQuestion.new
     required_skills = extract_skill.get_required_skills(@job_application)
     @skill_names_array = extract_skill.extract_requirement_skills(@job_application, required_skills)
     @overall_score = cal_score.cal_overall_score(@skill_names_array, required_skills)
+    if Questionnaire.where(job_application_id: @job_application).empty?
+      generate_question.generate_questions(@job_application, @skill_names_array, required_skills)
+    end
+    @auto_questionnaires = Questionnaire.where(job_application_id: @job_application)
   end
 
   private
