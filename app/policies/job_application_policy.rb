@@ -12,4 +12,5 @@ class JobApplicationPolicy < ApplicationPolicy
   def update?
     true
   end
+
 end

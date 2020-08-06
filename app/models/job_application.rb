@@ -14,4 +14,5 @@ class JobApplication < ApplicationRecord
   def async_update
     AnalysisVideoJob.perform_later(self.id)
   end
+
 end
