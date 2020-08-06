@@ -156,23 +156,26 @@ puts 'Create a job_application <testing one> for Customer Service Representative
 application = JobApplication.find(1)
 application.videotranscript = File.read(Rails.root.join('lib','seeds','video_transcript.txt'))
 
-json = File.read(Rails.root.join('lib','seeds','personality.json'))
-# result = JSON.parse(json)
-# application.video_result  == result
+require 'json'
 
-application.video.attach(io: File.open('public/video.mp4'), filename: 'interview.mp4')
+json = File.read(Rails.root.join('lib','seeds','personality.json'))
+
+json = JSON.parse(json)
+
+application.video_result  = json
+# application.video_result  == result
+# application.video.attach(io: File.open('public/demo2.mp4'), filename: 'interview.mp4')
 
 #json = ActiveSupport::JSON.decode(File.read(Rails.root.join('lib','seeds','personality.json')))
 #json = json[0]
-#application.video_result  == json
-
 application.save!
 puts 'Finished'
 
-puts 'Make farrah@simplicruit.com as admin.'
-user= User.where(email: 'farrah@simplicruit.com').first
-user.password = '123456'
-user.admin = true
-user.save!
-puts'Finished'
+# puts 'Make farrah@simplicruit.com as admin.'
+# user= User.where(email: 'farrah@simplicruit.com').first
+# user.password = '123456'
+# user.admin = true
+# user.save!
+# puts'Finished'
 
+#test
