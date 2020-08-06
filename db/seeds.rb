@@ -163,7 +163,7 @@ application.video.attach(io: File.open('public/demo2.mp4'), filename: 'interview
 
 #json = ActiveSupport::JSON.decode(File.read(Rails.root.join('lib','seeds','personality.json')))
 #json = json[0]
-#application.video_result  == json
+application.video_result  == json
 
 application.save!
 puts 'Finished'
