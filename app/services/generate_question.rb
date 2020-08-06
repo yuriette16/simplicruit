@@ -28,10 +28,8 @@ class GenerateQuestion
     picked_questions = []
     auto_questions_categories.each do |auto_questions_category|
       picked_questions_array = Question.where(category: auto_questions_category)
-      raise
       picked_questions << picked_questions_array
     end
-    raise
     return picked_questions.flatten!
   end
 

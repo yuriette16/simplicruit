@@ -120,7 +120,6 @@
 #interview date will seed after.
 #interview_date: Faker::Time.in_date_period(year: 2020, month: 9,period: :evening),
 
-#------------------QUESTION TABLE---------------
 # require 'csv'
 # puts 'Create the question database'
 # csv_text =File.read(Rails.root.join('lib','seeds','questions.csv'))
@@ -135,28 +134,43 @@
 # puts 'Finished'
 
 
-#SKILL
-require 'csv'
-puts 'Create the skill_requirements database'
-csv_text =File.read(Rails.root.join('lib','seeds','skill_requirement.csv'))
-csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
+# require 'csv'
+# puts 'Create the skill_requirements database'
+# csv_text =File.read(Rails.root.join('lib','seeds','skill_requirement.csv'))
+# csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
 
-csv.each do |row|
-  t = SkillRequirement.new
-  t.position_id = row['position_id']
-  t.weight = row['weight']
-  t.minimum_score = row['minimum_score']
-  t.skill_name = row['skill_name']
-  t.json_name = row['json_name']
-  t.save
-end
-puts 'Finished'
+# csv.each do |row|
+#   t = SkillRequirement.new
+#   t.position_id = row['position_id']
+#   t.weight = row['weight']
+#   t.minimum_score = row['minimum_score']
+#   t.skill_name = row['skill_name']
+#   t.json_name = row['json_name']
+#   t.save
+# end
+# puts 'Finished'
 
 puts 'Create a job_application <testing one> for Customer Service Representative...'
-position = JobApplication.find(1)
-position.videotranscript = File.open(Rails.root.join('lib','seeds','video_transcript.txt'))
-position.video_result = File.open(Rails.root.join('lib','seeds','personality.json'))
-position.save!
+application = JobApplication.find(1)
+application.videotranscript = File.read(Rails.root.join('lib','seeds','video_transcript.txt'))
+
+json = File.read(Rails.root.join('lib','seeds','personality.json'))
+# result = JSON.parse(json)
+# application.video_result  == result
+
+# application.video.attach(io: File.open('public/video.mp4'), filename: 'interview.mp4')
+
+#json = ActiveSupport::JSON.decode(File.read(Rails.root.join('lib','seeds','personality.json')))
+#json = json[0]
+#application.video_result  == json
+
+application.save!
 puts 'Finished'
 
+puts 'Make farrah@simplicruit.com as admin.'
+user= User.where(email: 'farrah@simplicruit.com').first
+user.password = '123456'
+user.admin = true
+user.save!
+puts'Finished'
 
