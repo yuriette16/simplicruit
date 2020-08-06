@@ -174,3 +174,5 @@ user.password = '123456'
 user.admin = true
 user.save!
 puts'Finished'
+
+#test
