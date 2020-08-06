@@ -162,7 +162,7 @@ json = File.read(Rails.root.join('lib','seeds','personality.json'))
 json = JSON.parse(json)
 application.video_result  = json
 
-# application.video.attach(io: File.open('public/demo2.mp4'), filename: 'interview.mp4')
+application.video.attach(io: File.open('public/demo2.mp4'), filename: 'interview.mp4')
 
 #json = ActiveSupport::JSON.decode(File.read(Rails.root.join('lib','seeds','personality.json')))
 #json = json[0]

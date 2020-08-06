@@ -1,11 +1,10 @@
 <div class="video-analysis-overall">
   <div class="overall-score"><h4>Overall Score: <b><%= @overall_score %>/100pt</b></h3></div>
+  <a data-toggle="modal" data-target="#exampleModal" style="text-align: center"><i class="fas fa-video"></i>Check the video</a>
+  <%= render "video_transcript" %>
   <div class="video-analysis-result">
     <div class="personality output-stats-column">
       <h4>Personality</h4>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-       Check the video
-      </button>
       <% @skill_names_array.each do |skill|  %>
         <%  percentile = (skill[:percentile] * 100).round(1) %>
         <div class="percent-bar-and-score">

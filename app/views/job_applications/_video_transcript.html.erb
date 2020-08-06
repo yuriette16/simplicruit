@@ -1,1 +1,40 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
+  <div class="modal-dialog" style="max-width: 80%;" role="document" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Video</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">X</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      <div class = "video-content">
+        <video class= "video-center" width="460" height="240" controls="controls" style="text-align:center;">
+          <source src="https://res.cloudinary.com/kwy031820/video/upload/v1596717511/mihihkbh5lhedu7rfq5d10obvwob.mp4"/>
+         Your browser does not support the video tag.
+        </video>
+          <div class ="video-transcript">
+            <%= simple_format @job_application.videotranscript %>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-application">
+        <div class="card-application-container">
+          <div class="card-application-personal-info-left">
+            <div><b>Position:</b> <%= @job_application.position.title %></div>
+            <div><b>Gender:</b> <%= @job_application.gender %></div>
+            <div><b>Address:</b> <%= @job_application.address %></div>
+          </div>
+          <div class="card-application-personal-info-right">
+            <div><i class="fas fa-envelope"></i>&thinsp;<%= @job_application.email %></div>
+            <div><i class="fas fa-phone"></i>&thinsp;<%= @job_application.phone %></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
