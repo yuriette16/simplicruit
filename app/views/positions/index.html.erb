@@ -9,8 +9,8 @@
 
 <div class="cards">
   <% @positions.each do |position| %>
-   <div class="card">
-    <div class="card-title">
+  <div class="card">
+  <div class="card-title">
       <span class="far fa-meh"></span><strong><%= position.title %><% if policy(position).show? %><%= link_to position.title, position_path(position) %><% end %></strong>
     </div>
     <div class="card-head">
@@ -19,23 +19,23 @@
         <div class="card-info">applications: <%= position.job_applications.count %><i class="fas fa-user"></i></div>
       </div>
       <div class="card-duedate">Due:<%= position.due_date.strftime("%Y-%m-%d") %></div>
-    </div>
+      </div>
     <hr>
       <% position.job_applications.order('video_score DESC').limit(3).each do |job_application| %>
       <div class="candidates-info">
-       <div class="name">
-        <i class="fas fa-angle-right"></i><a href=""><%= job_application.candidate_name %></a>
+      <div class="name">
+        <i class="fas fa-angle-right"></i><%= link_to job_application.candidate_name, job_application_path(job_application) %>
        </div>
        <!-- <div class="score"><%= job_application.video_score %></div> -->
       <div class="status"><%=job_application.status%></div>
-    </div>
+      </div>
     <% end %>
 
     <!-- <div class="btn-seeall"><%= link_to 'See all', positions_path(position) %>&thinsp;<i class="fas fa-angle-right small"></i> </div> -->
-    <div class="btn-seeall"><a  data-toggle="modal" data-target="#editModal">See all&thinsp;<i class="fas fa-angle-right small"></i></a></div>
+    <div class="btn-seeall"><a  data-toggle="modal" data-target="#editModal-<%= position.id %>">See all&thinsp;<i class="fas fa-angle-right small"></i></a></div>
+    <%= render :partial => "job_applications", :locals => {:position => position} %>
   </div>
-
   <% end %>
   </div>
 </section>
- <%= render "job_applications" %>
+

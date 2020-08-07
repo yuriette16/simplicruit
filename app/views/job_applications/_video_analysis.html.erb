@@ -3,21 +3,25 @@
   <a data-toggle="modal" data-target="#exampleModal" style="text-align: center"><i class="fas fa-video"></i>Check the video</a>
   <%= render "video_transcript" %>
   <div class="video-analysis-result">
+    <% if @job_application.video_result.present? %>
     <div class="personality output-stats-column">
       <h4>Personality</h4>
-      <% @skill_names_array.each do |skill|  %>
-        <%  percentile = (skill[:percentile] * 100).round(1) %>
-        <div class="percent-bar-and-score">
-          <div class="personality-name percent-bar-main">
-            <%= skill[:name]  %>
-          </div>
-          <div class="percent-bar">
-            <div class="percent-bar--meter" style="-webkit-transform: translate(<%= percentile %>%); transform: translate(<%= percentile %>%)">
-              <div class="percent-bar--ball"></div>
-              <div class="percent-bar-and-score--number"><%= percentile %></div>
+        <% @skill_names_array.each do |skill|  %>
+          <%  percentile = (skill[:percentile] * 100).round(1) %>
+          <div class="percent-bar-and-score">
+            <div class="personality-name percent-bar-main">
+              <%= skill[:name]  %>
+            </div>
+            <div class="percent-bar">
+              <div class="percent-bar--meter" style="-webkit-transform: translate(<%= percentile %>%); transform: translate(<%= percentile %>%)">
+                <div class="percent-bar--ball"></div>
+                <div class="percent-bar-and-score--number"><%= percentile %></div>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
+      <% else %>
+      Sorry, the candidate has not submit the email yet.
       <% end %>
     </div>
   </div>

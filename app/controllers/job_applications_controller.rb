@@ -21,12 +21,16 @@ class JobApplicationsController < ApplicationController
   end
 
   def show
+    if @job_application.video_result.present?
     extract_skill = ExtractSkill.new
     cal_score = CalScore.new
     required_skills = extract_skill.get_required_skills(@job_application)
     @skill_names_array = extract_skill.extract_requirement_skills(@job_application, required_skills)
     @overall_score = cal_score.cal_overall_score(@skill_names_array, required_skills)
     @nosidebar = true
+    end
+    # @job_application.score = @overall_score
+    # @job_application.save!
   end
 
   private
