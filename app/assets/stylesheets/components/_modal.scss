@@ -2,11 +2,53 @@
  width:780px;
 }
 
+.modal-header span {
+  position: relative;
+  top: 3px;
+
+}
+
 table {
     width:750px;
-}
+    overflow-y:scroll;
+    position:relative;
+    }
 
 
 table,th,td {
   border: none;
 }
+
+
+th{
+  font-weight:600;
+}
+
+.td-status{
+  width:200px;
+}
+
+.td-score{
+  padding: 0 28px;
+}
+
+.td-name{
+  padding-left:8px;
+}
+
+th,td {
+  width:200px;
+}
+
+tr:nth-child(2n){
+  background-color:#f4f4f4;
+}
+
+
+tr{
+  height:40px;
+}
+
+
+
+
