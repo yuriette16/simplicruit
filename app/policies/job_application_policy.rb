@@ -13,4 +13,8 @@ class JobApplicationPolicy < ApplicationPolicy
     true
   end
 
+  def create?
+    true
+  end
+
 end

@@ -27,6 +27,8 @@ import "bootstrap";
 import { displayApplication } from '../components/buttons';
 import { updateSidebar} from '../components/sidebar';
 import { getCurrentDate } from '../components/datetime';
+import { initSelect2 } from '../components/init_select2';
+import { saveQuestionnaire } from '../components/form';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -34,6 +36,8 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   displayApplication();
-  updateSidebar();
-  getCurrentDate();
+  saveQuestionnaire();
+  initSelect2();
+  // updateSidebar();
+  // getCurrentDate();
 });

@@ -1,0 +1,22 @@
+<div class="modal fade" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="questionModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog" style="max-width: 100%;" role="document" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="questionModalLabel">Add question in new Question</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">X</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [job_application, @questionnaire] do |f| %>
+          <%= f.association :question, as: :select, input_html: {class:'select2'}, collection: Question.all.map{|a| [a.question, a.id]}  %> <!-- .where(category: question.category) -->
+          <%= f.submit "Add", class: "btn btn-primary" %>
+        <% end %>
+       </div>
+     </div>
+    </div>
+  </div>
+
+</div>
+

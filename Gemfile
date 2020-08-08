@@ -3,7 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+
 # Gemfile
+
+#select2
+gem 'select2_simple_form', github: 'lndl/select2_simple_form', tag: '0.7.3'
+#sidekiq
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 #Speech-to-text
