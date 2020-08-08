@@ -20,9 +20,10 @@
         </tr>
 
        <% position.job_applications.order('video_score DESC').each do |job_application| %>
-<tr>
+    <tr>
        <td class="td-name">
-      <a href=""><%= job_application.candidate_name %></a>
+     <a href=""><%= job_application.candidate_name %></a>
+
        </td>
        <td class="td-score"><%= job_application.video_score %></td>
       <td class="td-status"><%=job_application.status%></td>
@@ -37,4 +38,8 @@
     </div>
   <% end %>
 </div>
+
+
+
+
 

@@ -4,4 +4,6 @@ class PagesController < ApplicationController
   def home
     @nosidebar = true
   end
+
+
 end
