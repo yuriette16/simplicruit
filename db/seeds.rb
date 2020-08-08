@@ -94,6 +94,7 @@ positions = JobApplication.create(
     phone: Faker::PhoneNumber.cell_phone,
     gender: ['male','female'].sample,
     video_score: rand(30..80),
+    status: 2,
     position_id: 4
 )
 end
@@ -108,6 +109,7 @@ positions = JobApplication.create(
     phone: Faker::PhoneNumber.cell_phone,
     gender: ['male','female'].sample,
     video_score: rand(30..60),
+    status: 2,
     position_id: 3
 )
 end
@@ -122,6 +124,7 @@ positions = JobApplication.create(
     phone: Faker::PhoneNumber.cell_phone,
     gender: ['male','female'].sample,
     video_score: rand(30..80),
+    status: 2,
     position_id: 2
 )
 end
