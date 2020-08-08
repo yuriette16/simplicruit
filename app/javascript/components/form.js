@@ -16,11 +16,14 @@ const sendSaveQuestionnaireRequest = () => {
     })
     .then((data) => {
       console.log(data.ok);
+      if (data.ok) {
+        const saveCheck = document.querySelector(".save-check");
+        saveCheck.style.display = "inline";
+        setTimeout( () => saveCheck.style.display = "none", 3000);
+      }
     });
   });
 };
-
-// fetch("/reservations/" + reservationId + "?status=reject", {
 
 const saveQuestionnaire = () => {
   const saveQuestionnaire = document.querySelector(".btn-save-evaluation");

@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :job_applications, only: [:index, :show, :edit, :update] do
-    resources :questionnaires, only: [:index, :create, :destroy,:edit,:update]
+    resources :questionnaires, only: [:index, :create,:edit,:update]
   end
+
+  resources :questionnaires, only: [:destroy]
 
   resources :questions, only:[:index, :create, :edit,:update]
 
