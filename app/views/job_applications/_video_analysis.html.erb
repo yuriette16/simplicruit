@@ -1,15 +1,13 @@
 
 <div class="video-analysis-overall">
-  <div class="overall-score"><h4>Overall Score: <b><%= @overall_score %>/100pt</b></h3></div>
   <% if @job_application.video_result.present? %>
-  <a data-toggle="modal" data-target="#exampleModal" style="text-align: center"><i class="fas fa-video"></i>Check the video</a>
-  <%= render "video_transcript" %>
   <div class="video-analysis-result">
     <div class="personality output-stats-column">
       <div class="overall-score">
         <div class="over-score-header">
           <div><h5>Overall Score: <b><%= @overall_score %>/100pt</b></h5></div>
-          <div id="applicant-video"><i class="fas fa-video"></i> Check the video</div>
+          <div id="applicant-video"><a data-toggle="modal" data-target="#exampleModal" style="text-align: center"><i class="fas fa-video"></i> Check the video</div></a>
+          <%= render "video_transcript" %>
         </div>
       </div>
       <div class="personality-insights-bar">
@@ -31,7 +29,7 @@
       <% else %>
       Sorry, the candidate has not submitted the video yet.
       <% end %>
-      </div>  
+      </div>
     </div>
   </div>
 </div>
