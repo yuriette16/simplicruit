@@ -16,4 +16,4 @@ const updateSidebar = () => {
   }
   }
 
-export { updateSidebar };
+export {  updateSidebar };
