@@ -1,22 +1,29 @@
 <div class="video-analysis-overall">
-  <div class="overall-score"><h4>Overall Score: <b><%= @overall_score %>/100pt</b></h3></div>
   <div class="video-analysis-result">
     <div class="personality output-stats-column">
-      <h4>Personality</h4>
-      <% @skill_names_array.each do |skill|  %>
-        <%  percentile = (skill[:percentile] * 100).round(1) %>
-        <div class="percent-bar-and-score">
-          <div class="personality-name percent-bar-main">
-            <%= skill[:name]  %>
-          </div>
-          <div class="percent-bar">
-            <div class="percent-bar--meter" style="-webkit-transform: translate(<%= percentile %>%); transform: translate(<%= percentile %>%)">
-              <div class="percent-bar--ball"></div>
-              <div class="percent-bar-and-score--number"><%= percentile %></div>
+      <div class="overall-score">
+        <div class="over-score-header">
+          <div><h5>Overall Score: <b><%= @overall_score %>/100pt</b></h5></div>
+          <div id="applicant-video"><i class="fas fa-video"></i> Check the video</div>
+        </div>
+      </div>
+      <div class="personality-insights-bar">
+        <p id="percentile">*%</p>
+        <% @skill_names_array.each do |skill|  %>
+          <%  percentile = (skill[:percentile] * 100).round(1) %>
+          <div class="percent-bar-and-score">
+            <div class="personality-name percent-bar-main">
+              <%= skill[:name]  %>
+            </div>
+            <div class="percent-bar">
+              <div class="percent-bar--meter" style="-webkit-transform: translate(<%= percentile %>%); transform: translate(<%= percentile %>%)">
+                <div class="percent-bar--ball"></div>
+                <div class="percent-bar-and-score--number"><%= percentile %></div>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
