@@ -1,5 +1,5 @@
 require "google/cloud/speech"
-require "google/cloud/storage"
+# require "google/cloud/storage"
 
 class SpeechToText
   def video_transcript(audio_link)
