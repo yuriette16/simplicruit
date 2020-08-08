@@ -5,7 +5,7 @@
       <div class="questionnaire-form">
         <div class="category-name"><b><%= auto_questionnaire.question.category %></b></div>
         <div class="question-name"><%= auto_questionnaire.question.question %>&thinsp;
-          <%= link_to destroy_user_session_path, :method => :delete, data: { confirm: "Are you sure?" } do %>
+          <%= link_to questionnaire_path(auto_questionnaire), :method => :delete, data: { confirm: "Are you sure?" } do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         </div>
@@ -16,11 +16,11 @@
      <a data-toggle="modal" data-target="#questionModal"><i class="fas fa-plus-circle"></i>&thinsp;Add question</a>
      <a data-toggle="modal" data-target="#extraModal"><i class="fas fa-plus-circle"></i>&thinsp;Add Category</a>
   </div>
-  <button class="btn-save-evaluation">Save</button>
+  <button class="btn-save-evaluation">Save</button>&thinsp;<i class="fas fa-check save-check"></i>
 </div>
 <% else %>
 Sorry, the candidate has not submitted the video yet.
 <% end %>
 
-    <%= render "questionnares/add_extra", job_application: @job_application, questionnaires: @job_application.questionnaires %>
-    <%= render "questionnares/add_question", job_application: @job_application, questionnaires: @job_application.questionnaires %>
+<%= render "questionnares/add_extra", job_application: @job_application, questionnaires: @job_application.questionnaires %>
+<%= render "questionnares/add_question", job_application: @job_application, questionnaires: @job_application.questionnaires %>
