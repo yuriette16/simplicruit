@@ -31,7 +31,7 @@ class JobApplicationsController < ApplicationController
       generate_question.generate_questions(@job_application, @skill_names_array, required_skills)
     end
     @auto_questionnaires = Questionnaire.where(job_application_id: @job_application)
-    @nosidebar = true
+
     end
     @questionnaire = Questionnaire.new
     # @job_application.score = @overall_score
