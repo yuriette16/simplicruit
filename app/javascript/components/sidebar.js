@@ -3,7 +3,7 @@ const updateSidebar = () => {
   const dropdown = document.querySelector('.toggle-down');
   const submenu = document.querySelector('.sub-menu');
   const icon = document.querySelector('.fa-caret-down');
-
+  if (dropdown){
   dropdown.addEventListener('click', function () {
       if(submenu.style.display === ""){
       submenu.style.display = "block";
@@ -14,6 +14,6 @@ const updateSidebar = () => {
    }
     });
   }
-
+  }
 
 export { updateSidebar };

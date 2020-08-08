@@ -1,6 +1,5 @@
 
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <% @positions.each do |position| %>
+<div class="modal fade" id="editModal-<%= position.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -20,11 +19,12 @@
         </tr>
 
        <% position.job_applications.order('video_score DESC').each do |job_application| %>
-    <tr>
-       <td class="td-name">
-     <a href=""><%= job_application.candidate_name %></a>
 
-       </td>
+      <tr>
+       <td class="td-name">
+      <%= link_to job_application.candidate_name, job_application_path(job_application) %>
+      </td>
+
        <td class="td-score"><%= job_application.video_score %></td>
       <td class="td-status"><%=job_application.status%></td>
       <td class="td-date">2020-08-22</td>
@@ -36,7 +36,6 @@
       </div>
      </div>
     </div>
-  <% end %>
 </div>
 
 

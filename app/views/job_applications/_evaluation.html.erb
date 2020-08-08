@@ -1,8 +1,28 @@
+<% if @job_application.video_result.present? %>
 <div class="evaluation-form-overall">
   <div class="question-form">
-    <div><i class="fas fa-trash-alt"></i></div>
-    <div class="modal-add-question"><i class="fas fa-plus-circle"></i>Add question</div>
+    <% @auto_questionnaires.each do |auto_questionnaire|  %>
+      <div class="questionnaire-form">
+        <div class="category-name"><b><%= auto_questionnaire.question.category %></b></div>
+        <div class="question-name"><%= auto_questionnaire.question.question %>&thinsp;
+          <%= link_to destroy_user_session_path, :method => :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </div>
+        <textarea class="answer-field" data-questionnaire="<%= auto_questionnaire.id %>" data-question="<%= auto_questionnaire.question_id %>" data-job_application="<%= job_application.id %>"><%= auto_questionnaire.answer %></textarea>
+        <br>
+      </div>
+    <% end %>
+    <div class="modal-add-category"><i class="fas fa-plus-circle"></i>&thinsp;Add category</div>
+    <div class="modal-add-question"><i class="fas fa-plus-circle"></i>&thinsp;Add question</div>
+     <a data-toggle="modal" data-target="#questionModal"><i class="fas fa-plus-circle"></i>Add question</a>
+     <a data-toggle="modal" data-target="#extraModal"><i class="fas fa-plus-circle"></i>Add Category</a>
   </div>
-  <div class="modal-add-category"><i class="fas fa-plus-circle"></i>Add Category</div>
   <button class="btn-save-evaluation">Save</button>
 </div>
+<% else %>
+Sorry, the candidate has not submitted the video yet.
+<% end %>
+
+    <%= render "questionnares/add_extra", job_application: @job_application, questionnaires: @job_application.questionnaires %>
+    <%= render "questionnares/add_question", job_application: @job_application, questionnaires: @job_application.questionnaires %>
