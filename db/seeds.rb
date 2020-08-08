@@ -3,122 +3,132 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-# require 'faker'
+require 'faker'
 
-# require 'open-uri'
-# puts 'Creat a new user...farrah@simplicruit.com'
-# main_user = User.create(
-#   name: 'Farrah',
-#   email: 'farrah@simplicruit.com',
-#   password: '123456')
-# puts 'Finished'
+require 'open-uri'
+puts 'Creat a new user...farrah@simplicruit.com'
+main_user = User.create(
+  name: 'Farrah',
+  email: 'farrah@simplicruit.com',
+  password: '123456')
+puts 'Finished'
 
-# puts 'Create position 1...'
-# positions = Position.create(
-#     title: 'Customer Service Representative',
-#     due_date: Faker::Date.in_date_period(year: 2020, month: 10),
-#     target_hire_number: 10
-# )
-# puts 'Finished'
+puts 'Create position 1...'
+positions = Position.create(
+    title: 'Customer Service Representative',
+    due_date: Faker::Date.in_date_period(year: 2020, month: 10),
+    target_hire_number: 10
+)
+puts 'Finished'
 
-# puts 'Create a position 2...'
-# positions = Position.create(
-#     title: 'Call Center Representative',
-#     due_date: Faker::Date.in_date_period(year: 2020, month: 12),
-#     target_hire_number: 20
-# )
-# puts 'Finished'
+puts 'Create a position 2...'
+positions = Position.create(
+    title: 'Call Center Representative',
+    due_date: Faker::Date.in_date_period(year: 2020, month: 12),
+    target_hire_number: 20
+)
+puts 'Finished'
 
-# puts 'Create a position 3 ...'
-# positions = Position.create(
-#     title: 'Operations Manager',
-#     due_date: Faker::Date.in_date_period(year: 2020, month: 12),
-#     target_hire_number: 1
-# )
-# puts 'Finished'
+puts 'Create a position 3 ...'
+positions = Position.create(
+    title: 'Operations Manager',
+    due_date: Faker::Date.in_date_period(year: 2020, month: 12),
+    target_hire_number: 1
+)
+puts 'Finished'
 
-# puts 'Create a position 4...'
-# positions = Position.create(
-#     title: 'Member Services Specialist',
-#     due_date: Faker::Date.in_date_period(year: 2020, month: 10),
-#     target_hire_number: 3
-# )
-# puts 'Finished'
+puts 'Create a position 4...'
+positions = Position.create(
+    title: 'Member Services Specialist',
+    due_date: Faker::Date.in_date_period(year: 2020, month: 10),
+    target_hire_number: 3
+)
+puts 'Finished'
 
-# puts 'Create a job_application <testing one> for Customer Service Representative...'
-# test_position = JobApplication.create(
-#     candidate_name: Faker::Name.name,
-#     email: Faker::Internet.email,
-#     address: Faker::Address.full_address,
-#     phone: Faker::PhoneNumber.cell_phone,
-#     gender: ['male','female'].sample,
-#     position_id: 1
-# )
+puts 'Create a job_application <testing one> for Customer Service Representative...'
+test_position = JobApplication.create(
+    candidate_name: 'Sophia Smith',
+    email: Faker::Internet.email,
+    address: Faker::Address.full_address,
+    phone: Faker::PhoneNumber.cell_phone,
+    gender: 'female',
+    position_id: 1
+)
+puts 'Finished'
 
-# test_position.video.attach(io: File.open('public/video.mp4'), filename: 'interview.mp4')
-# puts 'Finished'
+puts 'Create a job_application for Customer Service Representative ...'
+20.times do |i|
+positions = JobApplication.create(
+    candidate_name: Faker::Name.name,
+    email: Faker::Internet.email,
+    address: Faker::Address.full_address,
+    phone: Faker::PhoneNumber.cell_phone,
+    gender: ['male','female'].sample,
+    video_score: rand(40..65),
+    position_id: 1
+)
+end
+puts 'Finished'
 
-# puts 'Create a job_application for Customer Service Representative ...'
-# 25.times do |i|
-# positions = JobApplication.create(
-#     candidate_name: Faker::Name.name,
-#     email: Faker::Internet.email,
-#     address: Faker::Address.full_address,
-#     phone: Faker::PhoneNumber.cell_phone,
-#     gender: ['male','female'].sample,
-#     video_score: rand(30..60),
-#     position_id: 1
-# )
-# end
-# puts 'Finished'
+puts 'Create a job_application for Customer Service Representative ...'
+5.times do |i|
+positions = JobApplication.create(
+    candidate_name: Faker::Name.name,
+    email: Faker::Internet.email,
+    address: Faker::Address.full_address,
+    phone: Faker::PhoneNumber.cell_phone,
+    gender: ['male','female'].sample,
+    position_id: 1
+)
+end
+puts 'Finished'
 
-# puts 'Create a job_application for Member Services Specialist ...'
-# 15.times do |i|
-# positions = JobApplication.create(
-#     candidate_name: Faker::Name.name,
-#     email: Faker::Internet.email,
-#     address: Faker::Address.full_address,
-#     phone: Faker::PhoneNumber.cell_phone,
-#     gender: ['male','female'].sample,
-#     video_score: rand(30..80),
-#     position_id: 4
-# )
-# end
-# puts 'Finished'
+puts 'Create a job_application for Member Services Specialist ...'
+1
 
-# puts 'Create a job_application for Operations Manager ...'
-# 13.times do |i|
-# positions = JobApplication.create(
-#     candidate_name: Faker::Name.name,
-#     email: Faker::Internet.email,
-#     address: Faker::Address.full_address,
-#     phone: Faker::PhoneNumber.cell_phone,
-#     gender: ['male','female'].sample,
-#     video_score: rand(30..60),
-#     position_id: 3
-# )
-# end
-# puts 'Finished'
+positions = JobApplication.create(
+    candidate_name: Faker::Name.name,
+    email: Faker::Internet.email,
+    address: Faker::Address.full_address,
+    phone: Faker::PhoneNumber.cell_phone,
+    gender: ['male','female'].sample,
+    video_score: rand(30..80),
+    position_id: 4
+)
+end
+puts 'Finished'
 
-# puts 'Create a job_application for Call Center Representative ...'
-# 20.times do |i|
-# positions = JobApplication.create(
-#     candidate_name: Faker::Name.name,
-#     email: Faker::Internet.email,
-#     address: Faker::Address.full_address,
-#     phone: Faker::PhoneNumber.cell_phone,
-#     gender: ['male','female'].sample,
-#     video_score: rand(30..80),
-#     position_id: 2
-# )
-# end
-# puts 'Finished'
+puts 'Create a job_application for Operations Manager ...'
+13.times do |i|
+positions = JobApplication.create(
+    candidate_name: Faker::Name.name,
+    email: Faker::Internet.email,
+    address: Faker::Address.full_address,
+    phone: Faker::PhoneNumber.cell_phone,
+    gender: ['male','female'].sample,
+    video_score: rand(30..60),
+    position_id: 3
+)
+end
+puts 'Finished'
+
+puts 'Create a job_application for Call Center Representative ...'
+20.times do |i|
+positions = JobApplication.create(
+    candidate_name: Faker::Name.name,
+    email: Faker::Internet.email,
+    address: Faker::Address.full_address,
+    phone: Faker::PhoneNumber.cell_phone,
+    gender: ['male','female'].sample,
+    video_score: rand(30..80),
+    position_id: 2
+)
+end
+puts 'Finished'
 
 
-#interview date will seed after.
-#interview_date: Faker::Time.in_date_period(year: 2020, month: 9,period: :evening),
+interview date will seed after.
+interview_date: Faker::Time.in_date_period(year: 2020, month: 9,period: :evening),
 
 require 'csv'
 puts 'Create the question database'
@@ -150,6 +160,28 @@ csv.each do |row|
 end
 puts 'Finished'
 
+puts 'Make farrah@simplicruit.com as admin.'
+user= User.where(email: 'farrah@simplicruit.com').first
+user.password = '123456'
+user.admin = true
+user.save!
+puts'Finished'
+
+puts 'Modify the status <testing one> for Customer Service Representative...'
+Position.find(1).job_applications.each do |job_application|
+  if job_application.video_score.to_i > 60
+    job_application.status = 1
+    job_application.save!
+  elsif job_application.video_score.to_i < 50
+    job_application.status = 3
+    job_application.save!
+  elsif job_application.video_score.nil?
+    job_application.status = 2
+    job_application.save!
+  end
+end
+puts 'Finished'
+
 puts 'Create a job_application <testing one> for Customer Service Representative...'
 application = JobApplication.find(1)
 application.videotranscript = File.read(Rails.root.join('lib','seeds','video_transcript.txt'))
@@ -159,19 +191,20 @@ require 'json'
 json = File.read(Rails.root.join('lib','seeds','personality.json'))
 json = JSON.parse(json)
 application.video_result  = json
-
-# application.video.attach(io: File.open('public/demo2.mp4'), filename: 'interview.mp4')
+application.interview_date = DateTime.new(2020,8,10,1)
+application.video_score = 71
+application.status = 0
+application.video.attach(io: File.open('public/demo2.mp4'), filename: 'interview.mp4')
 
 #json = ActiveSupport::JSON.decode(File.read(Rails.root.join('lib','seeds','personality.json')))
 #json = json[0]
 application.save!
 puts 'Finished'
 
-# puts 'Make farrah@simplicruit.com as admin.'
-# user= User.where(email: 'farrah@simplicruit.com').first
-# user.password = '123456'
-# user.admin = true
-# user.save!
-# puts'Finished'
 
-#test
+
+
+
+
+
+

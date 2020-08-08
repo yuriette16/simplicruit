@@ -21,13 +21,19 @@
       <div class="card-duedate">Due:<%= position.due_date.strftime("%Y-%m-%d") %></div>
       </div>
     <hr>
-      <% position.job_applications.order('video_score DESC').limit(3).each do |job_application| %>
+      <% position.job_applications.order(status: :asc).order(video_score: :desc).limit(3).each do |job_application| %>
       <div class="candidates-info">
       <div class="name">
         <i class="fas fa-angle-right"></i><%= link_to job_application.candidate_name, job_application_path(job_application) %>
        </div>
        <!-- <div class="score"><%= job_application.video_score %></div> -->
-      <div class="status"><%=job_application.status%></div>
+      <div class="status">
+        <% if job_application.interview_date.present? %>
+          <%= job_application.interview_date.strftime("%Y/%m/%d %H:%M")%>
+        <% else %>
+          <%= job_application.status %>
+        <% end %>
+      </div>
       </div>
     <% end %>
 

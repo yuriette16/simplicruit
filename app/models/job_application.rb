@@ -7,7 +7,7 @@ class JobApplication < ApplicationRecord
   validates :candidate_name, :email, presence: true
 
   # after_update :async_update # Run on create & update
-
+  enum status: { reserved: 0, invited: 1, pending: 2, unqualified: 3 }
 
   # private
 
