@@ -1,11 +1,10 @@
 class QuestionnairesController < ApplicationController
-  before_action :find_job_application, only: [:create]
+  before_action :find_job_application, only: [:create, :edit, :update]
   before_action :find_questionnaire, only: [:destroy, :edit, :update]
 
   def index
     @questionnaires = policy_scope(Questionnaire).order('created_at DESC')
     @questionnaire = Questionnaire.new
-    authorize @questionnaire
   end
 
   def create
@@ -13,16 +12,16 @@ class QuestionnairesController < ApplicationController
     @questionnaire.job_application = @job_application
     authorize @questionnaire
     if @questionnaire.save
-      redirect_to questionnaires_path
+      redirect_to job_application_path(@job_application)
     else
-      redirect_to questionnaires_path
+      redirect_to job_application_path(@job_application)
       flash.alert = 'Sorry, something goes wrong!'
     end
   end
 
   def destroy
     @questionnaire.destroy
-    redirect_to questionnaires_path
+    redirect_to job_application_path(@job_application)
   end
 
   def edit
@@ -30,13 +29,13 @@ class QuestionnairesController < ApplicationController
 
   def update
     @questionnaire.update(questionnaire_params)
-    redirect_to questionnaires_path
+    redirect_to job_application_path(@job_application)
   end
 
   private
 
   def find_job_application
-    @job_application = JobApplication.find(params[:id])
+    @job_application = JobApplication.find(params[:job_application_id])
     authorize @job_application
   end
 
@@ -46,6 +45,6 @@ class QuestionnairesController < ApplicationController
   end
 
   def questionnaire_params
-    params.require(:questionnaire).permit(:question_id, :answer)
+    params.require(:questionnaire).permit(:question_id, :job_application_id, :answer)
   end
 end

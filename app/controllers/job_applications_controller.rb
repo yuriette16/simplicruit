@@ -1,7 +1,6 @@
 require 'json'
 
 class JobApplicationsController < ApplicationController
-
   before_action :find_job_application, only: [:show, :edit, :update]
 
   def index
@@ -29,6 +28,7 @@ class JobApplicationsController < ApplicationController
     @overall_score = cal_score.cal_overall_score(@skill_names_array, required_skills)
     @nosidebar = true
     end
+    @questionnaire = Questionnaire.new
     # @job_application.score = @overall_score
     # @job_application.save!
   end
@@ -42,6 +42,10 @@ class JobApplicationsController < ApplicationController
 
   def job_application_params
     params.require(:job_application).permit(:video)
+  end
+
+  def questionnaire_params
+    params.require(:questionnaire).permit(:question_id, :answer)
   end
 
 end

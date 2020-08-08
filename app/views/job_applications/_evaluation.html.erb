@@ -1,8 +1,21 @@
+<% if @job_application.video_result.present? %>
 <div class="evaluation-form-overall">
   <div class="question-form">
     <div><i class="fas fa-trash-alt"></i></div>
-    <div class="modal-add-question"><i class="fas fa-plus-circle"></i>Add question</div>
+    <div class="modal-add-question">
+    <!--   #exampleModal- question.id -->
+    </div>
+    <!-- render :partial => "questionnares/add_question",:locals => {:question => question} %> -->
+
+
   </div>
-  <div class="modal-add-category"><i class="fas fa-plus-circle"></i>Add Category</div>
+  <a data-toggle="modal" data-target="#questionModal"><i class="fas fa-plus-circle"></i>Add question</a>
+  <a data-toggle="modal" data-target="#extraModal"><i class="fas fa-plus-circle"></i>Add Category</a>
   <button class="btn-save-evaluation">Save</button>
 </div>
+<% else %>
+Sorry, the candidate has not submitted the video yet.
+<% end %>
+
+    <%= render "questionnares/add_extra", job_application: @job_application, questionnaires: @job_application.questionnaires %>
+    <%= render "questionnares/add_question", job_application: @job_application, questionnaires: @job_application.questionnaires %>

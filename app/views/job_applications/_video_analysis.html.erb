@@ -1,9 +1,12 @@
+
 <div class="video-analysis-overall">
-  <div class="overall-score"><h4>Overall Score: <b><%= @overall_score %>/100pt</b></h3></div>
+  <div class="overall-score">
+    <h4>Overall Score: <b><%= @overall_score %>/100pt</b></h4>
+  </div>
+  <% if @job_application.video_result.present? %>
   <a data-toggle="modal" data-target="#exampleModal" style="text-align: center"><i class="fas fa-video"></i>Check the video</a>
   <%= render "video_transcript" %>
   <div class="video-analysis-result">
-    <% if @job_application.video_result.present? %>
     <div class="personality output-stats-column">
       <h4>Personality</h4>
         <% @skill_names_array.each do |skill|  %>
@@ -21,7 +24,7 @@
           </div>
         <% end %>
       <% else %>
-      Sorry, the candidate has not submit the email yet.
+      Sorry, the candidate has not submitted the video yet.
       <% end %>
     </div>
   </div>
