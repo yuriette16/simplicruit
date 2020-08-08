@@ -85,8 +85,7 @@ end
 puts 'Finished'
 
 puts 'Create a job_application for Member Services Specialist ...'
-1
-
+15.times do |i|
 positions = JobApplication.create(
     candidate_name: Faker::Name.name,
     email: Faker::Internet.email,
