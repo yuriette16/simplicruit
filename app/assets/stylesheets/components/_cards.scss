@@ -1,10 +1,22 @@
 .card-application{
-  border: 1px solid #ffd078;
+  border: 1px solid rgb(18,69,114);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 8px;
   color: gray;
   border-radius: 6px;
 }
 
 .card-application-container{
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+
+
+
+.applicant-name{
+  color: #001223;
+  font-size: 24px;
   margin-top: 16px;
 }

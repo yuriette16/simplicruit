@@ -1,6 +1,6 @@
 class QuestionnairesController < ApplicationController
   before_action :find_job_application, only: [:create]
-  before_action :find_questionnaire, only: [:destroy, :edit, :update]
+  before_action :find_questionnaire, only: [:destroy, :edit]
 
   def index
     @questionnaires = policy_scope(Questionnaire).order('created_at DESC')
@@ -29,9 +29,23 @@ class QuestionnairesController < ApplicationController
   end
 
   def update
-    @questionnaire.update(questionnaire_params)
-    redirect_to questionnaires_path
+    puts "REACHED!"
+    puts params
+    questionnaire_id = params[:id]
+    question_id = params[:question_id]
+    answer_questionnaire = params[:answer]
+    job_application_id = params[:job_application_id]
+
+    questionnaire = Questionnaire.find(questionnaire_id)
+    questionnaire.question_id = question_id
+    questionnaire.answer = answer_questionnaire
+    questionnaire.job_application_id = job_application_id
+    authorize questionnaire
+    questionnaire.save
+    # @questionnaire.update(questionnaire_params)
   end
+
+  # {"question_id"=>"12", "answer"=>"", "controller"=>"questionnaires", "action"=>"update", "job_application_id"=>"1", "id"=>"488"}
 
   private
 
