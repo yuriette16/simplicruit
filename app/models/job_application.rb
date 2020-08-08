@@ -8,6 +8,7 @@ class JobApplication < ApplicationRecord
 
   # after_update :async_update # Run on create & update
 
+
   # private
 
   # def async_update
