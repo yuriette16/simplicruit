@@ -4,7 +4,7 @@ const sendSaveQuestionnaireRequest = () => {
     const questionnaireId = answerArea.dataset.questionnaire;
     const questionId = answerArea.dataset.question;
     const jobApplication = answerArea.dataset.job_application;
-    const answerString = answerArea.innerText;
+    const answerString = answerArea.value;
 
     const url = "/job_applications/" + jobApplication + "/questionnaires/" + questionnaireId + "?question_id=" + questionId + "&answer=" + answerString
     fetch(url, {
@@ -15,7 +15,7 @@ const sendSaveQuestionnaireRequest = () => {
       // body: JSON.stringify({ "question_id": questionId, "answer": answerString })
     })
     .then((data) => {
-      console.log(data);
+      console.log(data.ok);
     });
   });
 };
