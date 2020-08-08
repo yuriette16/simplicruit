@@ -1,4 +1,7 @@
 <div class="video-analysis-overall">
+  <div class="overall-score"><h4>Overall Score: <b><%= @overall_score %>/100pt</b></h3></div>
+  <a data-toggle="modal" data-target="#exampleModal" style="text-align: center"><i class="fas fa-video"></i>Check the video</a>
+  <%= render "video_transcript" %>
   <div class="video-analysis-result">
     <div class="personality output-stats-column">
       <div class="overall-score">

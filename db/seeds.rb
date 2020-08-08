@@ -157,16 +157,10 @@ application.videotranscript = File.read(Rails.root.join('lib','seeds','video_tra
 require 'json'
 
 json = File.read(Rails.root.join('lib','seeds','personality.json'))
-
-<<<<<<< HEAD
-# application.video.attach(io: File.open('public/video.mp4'), filename: 'interview.mp4')
-=======
 json = JSON.parse(json)
-
 application.video_result  = json
-# application.video_result  == result
-# application.video.attach(io: File.open('public/demo2.mp4'), filename: 'interview.mp4')
->>>>>>> 90ce8736031bfddf15e64cf7b03b4fac35722d2d
+application.video.attach(io: File.open('public/demo2.mp4'), filename: 'interview.mp4')
+
 
 #json = ActiveSupport::JSON.decode(File.read(Rails.root.join('lib','seeds','personality.json')))
 #json = json[0]
