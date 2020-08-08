@@ -29,6 +29,8 @@ import { updateSidebar} from '../components/sidebar';
 import { getCurrentDate } from '../components/datetime';
 import { initSelect2 } from '../components/init_select2';
 import { saveQuestionnaire } from '../components/form';
+// import { updateButton } from '../components/switch';
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -38,6 +40,11 @@ document.addEventListener('turbolinks:load', () => {
   displayApplication();
   saveQuestionnaire();
   initSelect2();
-  updateSidebar();
   getCurrentDate();
+  updateSidebar();
+
+  // updateButton();
+
+
+
 });
