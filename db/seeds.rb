@@ -52,6 +52,7 @@ test_position = JobApplication.create(
     address: Faker::Address.full_address,
     phone: Faker::PhoneNumber.cell_phone,
     gender: 'female',
+    status: 2,
     position_id: 1
 )
 puts 'Finished'
@@ -182,26 +183,21 @@ Position.find(1).job_applications.each do |job_application|
 end
 puts 'Finished'
 
-puts 'Create a job_application <testing one> for Customer Service Representative...'
-application = JobApplication.find(1)
-application.videotranscript = File.read(Rails.root.join('lib','seeds','video_transcript.txt'))
+# puts 'Editing a job_application <testing one> for Customer Service Representative...'
+# application = JobApplication.find(1)
+# application.videotranscript = File.read(Rails.root.join('lib','seeds','video_transcript.txt'))
+# require 'json'
+# json = File.read(Rails.root.join('lib','seeds','personality.json'))
+# json = JSON.parse(json)
+# application.video_result  = json
 
-require 'json'
+# application.interview_date = DateTime.new(2020,8,10,1)
+# application.video_score = 71
+# application.status = 0
 
-json = File.read(Rails.root.join('lib','seeds','personality.json'))
-json = JSON.parse(json)
-application.video_result  = json
-application.interview_date = DateTime.new(2020,8,10,1)
-application.video_score = 71
-application.status = 0
-application.video.attach(io: File.open('public/demo2.mp4'), filename: 'interview.mp4')
-
-#json = ActiveSupport::JSON.decode(File.read(Rails.root.join('lib','seeds','personality.json')))
-#json = json[0]
-application.save!
-puts 'Finished'
-
-
+# # application.video.attach(io: File.open('public/demo2.mp4'), filename: 'interview.mp4')
+# application.save!
+# puts 'Finished'
 
 
 
