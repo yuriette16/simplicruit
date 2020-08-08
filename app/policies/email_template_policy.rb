@@ -1,4 +1,4 @@
-class EmailTemplatesPolicy < ApplicationPolicy
+class EmailTemplatePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all

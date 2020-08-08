@@ -85,8 +85,7 @@ end
 puts 'Finished'
 
 puts 'Create a job_application for Member Services Specialist ...'
-1
-
+15.times do |i|
 positions = JobApplication.create(
     candidate_name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -129,10 +128,6 @@ positions = JobApplication.create(
 )
 end
 puts 'Finished'
-
-
-interview date will seed after.
-interview_date: Faker::Time.in_date_period(year: 2020, month: 9,period: :evening),
 
 require 'csv'
 puts 'Create the question database'
