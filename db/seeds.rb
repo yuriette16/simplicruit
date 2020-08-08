@@ -120,7 +120,6 @@
 #interview date will seed after.
 #interview_date: Faker::Time.in_date_period(year: 2020, month: 9,period: :evening),
 
-#------------------QUESTION TABLE---------------
 # require 'csv'
 # puts 'Create the question database'
 # csv_text =File.read(Rails.root.join('lib','seeds','questions.csv'))
@@ -135,7 +134,6 @@
 # puts 'Finished'
 
 
-#SKILL
 # require 'csv'
 # puts 'Create the skill_requirements database'
 # csv_text =File.read(Rails.root.join('lib','seeds','skill_requirement.csv'))
@@ -161,8 +159,8 @@ require 'json'
 json = File.read(Rails.root.join('lib','seeds','personality.json'))
 json = JSON.parse(json)
 application.video_result  = json
-
 application.video.attach(io: File.open('public/demo2.mp4'), filename: 'interview.mp4')
+
 
 #json = ActiveSupport::JSON.decode(File.read(Rails.root.join('lib','seeds','personality.json')))
 #json = json[0]

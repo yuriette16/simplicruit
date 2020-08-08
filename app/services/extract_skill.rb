@@ -21,11 +21,13 @@ class ExtractSkill
     personality_result["personality"].each do |main_personality|
 
       if skill_name == main_personality["name"]
+        puts "#{main_personality["name"]} for #{skill_name}"
         return {"name": main_personality["name"], "json_name": main_personality["json_name"], "percentile": main_personality["percentile"]}
       end
 
       main_personality["children"].each do |minor_personality|
         if skill_name == minor_personality["name"]
+          puts "#{minor_personality["name"]} for #{skill_name}"
           return {"name": minor_personality["name"], "json_name": minor_personality["json_name"], "percentile": minor_personality["percentile"]}
         end
       end
@@ -33,12 +35,14 @@ class ExtractSkill
 
     personality_result["needs"].each do |need|
       if skill_name == need["name"]
+        puts "#{need["name"]} for #{skill_name}"
       return {"name": need["name"], "json_name": need["json_name"], "percentile": need["percentile"]}
       end
     end
 
     personality_result["values"].each do |value|
       if skill_name == value["name"]
+        puts "#{value["name"]} for #{skill_name}"
       return {"name": value["name"], "json_name": value["json_name"], "percentile": value["percentile"]}
       end
     end

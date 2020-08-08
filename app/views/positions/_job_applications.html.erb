@@ -1,16 +1,40 @@
+
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <% @positions.each do |position| %>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"> <%= @positions.first.title %> </h5>
+        <h5 class="modal-title" id="exampleModalLabel"> <%= position.title %> </h5>&emsp;<span> <%= position.job_applications.count %><i class="fas fa-user"></i></span>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        content
+      <div class="modal-body"  style="height:600px; width:auto; overflow-y:scroll; scrollbar-base-color:#99ff66 ; scrollbar-arrow-color:#ff0000;" >
+        <table>
+        <tr>
+          <th>Name</th>
+          <th>Video Score</th>
+          <th>Status</th>
+          <th>Interview Date</th>
+        </tr>
+
+       <% position.job_applications.order('video_score DESC').each do |job_application| %>
+<tr>
+       <td class="td-name">
+      <a href=""><%= job_application.candidate_name %></a>
+       </td>
+       <td class="td-score"><%= job_application.video_score %></td>
+      <td class="td-status"><%=job_application.status%></td>
+      <td class="td-date">2020-08-22</td>
+    </tr>
+
+    <% end %>
+
+     </table>
       </div>
-       </div>
-        </div>
-         </div>
+     </div>
+    </div>
+  <% end %>
+</div>
+

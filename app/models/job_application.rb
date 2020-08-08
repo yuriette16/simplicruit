@@ -1,6 +1,7 @@
 class JobApplication < ApplicationRecord
   belongs_to :position
   has_many :questionnaires, dependent: :destroy
+  has_many :questions, through: :questionnaires
 
   has_one_attached :resume
   has_one_attached :video
