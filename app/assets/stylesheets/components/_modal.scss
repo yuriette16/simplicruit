@@ -55,6 +55,9 @@ tr{
   max-width:80%;
 }
 
-.select2 select2-container select2-container--default select2-container--below {
-  width:90%;
+.select2-container--default .select2-selection--single {
+  width:100%;
+  margin-left:8px;
+  height:30px;
 }
+

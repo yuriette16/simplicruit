@@ -86,8 +86,10 @@
     background: rgba(188, 219, 255, 0.22);
   }
 
-  .wrapper .sidebar ul li:hover, :active, :focus {
-    background: rgba(188, 219, 255, 0.22);
+  .wrapper .sidebar ul li {
+      &:hover, &:active, &:focus {
+      background: rgba(188, 219, 255, 0.22);
+    }
   }
 
   .sub-menu {
