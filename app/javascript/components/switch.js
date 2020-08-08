@@ -4,8 +4,9 @@
 //   const secondButton = document.querySelector('.btn-video-analysis');
 //   if (firstButton){
 //   secondButton.addEventListener('click', function () {
-//       firstButton.classList.toggle('nonactive_button');
-//       secondButton.classList.toggle('active_button');
+//       firstButton.classList.add('nonactive_button');
+//       secondButton.classList.add('active_button');
+
 //         });
 //    }
 

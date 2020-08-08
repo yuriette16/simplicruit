@@ -4,7 +4,7 @@ class JobApplicationsController < ApplicationController
   before_action :find_job_application, only: [:show, :edit, :update]
 
   def index
-    @job_applications = policy_scope(JobApplication).order('interview_date DESC')
+    @job_applications = policy_scope(JobApplication).order(status: :asc).order(video_score: :desc)
   end
 
   def edit
