@@ -120,35 +120,35 @@
 #interview date will seed after.
 #interview_date: Faker::Time.in_date_period(year: 2020, month: 9,period: :evening),
 
-# require 'csv'
-# puts 'Create the question database'
-# csv_text =File.read(Rails.root.join('lib','seeds','questions.csv'))
-# csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
+require 'csv'
+puts 'Create the question database'
+csv_text =File.read(Rails.root.join('lib','seeds','questions.csv'))
+csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
 
-# csv.each do |row|
-#   t = Question.new
-#   t.question = row['question']
-#   t.category = row['category']
-#   t.save
-# end
-# puts 'Finished'
+csv.each do |row|
+  t = Question.new
+  t.question = row['question']
+  t.category = row['category']
+  t.save
+end
+puts 'Finished'
 
 
-# require 'csv'
-# puts 'Create the skill_requirements database'
-# csv_text =File.read(Rails.root.join('lib','seeds','skill_requirement.csv'))
-# csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
+require 'csv'
+puts 'Create the skill_requirements database'
+csv_text =File.read(Rails.root.join('lib','seeds','skill_requirement.csv'))
+csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
 
-# csv.each do |row|
-#   t = SkillRequirement.new
-#   t.position_id = row['position_id']
-#   t.weight = row['weight']
-#   t.minimum_score = row['minimum_score']
-#   t.skill_name = row['skill_name']
-#   t.json_name = row['json_name']
-#   t.save
-# end
-# puts 'Finished'
+csv.each do |row|
+  t = SkillRequirement.new
+  t.position_id = row['position_id']
+  t.weight = row['weight']
+  t.minimum_score = row['minimum_score']
+  t.skill_name = row['skill_name']
+  t.json_name = row['json_name']
+  t.save
+end
+puts 'Finished'
 
 puts 'Create a job_application <testing one> for Customer Service Representative...'
 application = JobApplication.find(1)
@@ -160,7 +160,7 @@ json = File.read(Rails.root.join('lib','seeds','personality.json'))
 json = JSON.parse(json)
 application.video_result  = json
 
-application.video.attach(io: File.open('public/demo2.mp4'), filename: 'interview.mp4')
+# application.video.attach(io: File.open('public/demo2.mp4'), filename: 'interview.mp4')
 
 #json = ActiveSupport::JSON.decode(File.read(Rails.root.join('lib','seeds','personality.json')))
 #json = json[0]
