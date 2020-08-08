@@ -1,3 +1,4 @@
+<% if @job_application.video_result.present? %>
 <div class="evaluation-form-overall">
   <div class="question-form">
     <% @auto_questionnaires.each do |auto_questionnaire|  %>
@@ -14,6 +15,14 @@
     <% end %>
     <div class="modal-add-category"><i class="fas fa-plus-circle"></i>&thinsp;Add category</div>
     <div class="modal-add-question"><i class="fas fa-plus-circle"></i>&thinsp;Add question</div>
+     <a data-toggle="modal" data-target="#questionModal"><i class="fas fa-plus-circle"></i>Add question</a>
+     <a data-toggle="modal" data-target="#extraModal"><i class="fas fa-plus-circle"></i>Add Category</a>
   </div>
   <button class="btn-save-evaluation">Save</button>
 </div>
+<% else %>
+Sorry, the candidate has not submitted the video yet.
+<% end %>
+
+    <%= render "questionnares/add_extra", job_application: @job_application, questionnaires: @job_application.questionnaires %>
+    <%= render "questionnares/add_question", job_application: @job_application, questionnaires: @job_application.questionnaires %>

@@ -1,5 +1,7 @@
+
 <div class="video-analysis-overall">
   <div class="overall-score"><h4>Overall Score: <b><%= @overall_score %>/100pt</b></h3></div>
+  <% if @job_application.video_result.present? %>
   <a data-toggle="modal" data-target="#exampleModal" style="text-align: center"><i class="fas fa-video"></i>Check the video</a>
   <%= render "video_transcript" %>
   <div class="video-analysis-result">
@@ -26,7 +28,10 @@
             </div>
           </div>
         <% end %>
-      </div>
+      <% else %>
+      Sorry, the candidate has not submitted the video yet.
+      <% end %>
+      </div>  
     </div>
   </div>
 </div>

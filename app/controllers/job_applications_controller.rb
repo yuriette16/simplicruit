@@ -1,7 +1,6 @@
 require 'json'
 
 class JobApplicationsController < ApplicationController
-
   before_action :find_job_application, only: [:show, :edit, :update]
 
   def index
@@ -21,6 +20,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def show
+    if @job_application.video_result.present?
     extract_skill = ExtractSkill.new
     cal_score = CalScore.new
     generate_question = GenerateQuestion.new
@@ -32,6 +32,10 @@ class JobApplicationsController < ApplicationController
     end
     @auto_questionnaires = Questionnaire.where(job_application_id: @job_application)
     @nosidebar = true
+    end
+    @questionnaire = Questionnaire.new
+    # @job_application.score = @overall_score
+    # @job_application.save!
   end
 
   private
@@ -43,6 +47,10 @@ class JobApplicationsController < ApplicationController
 
   def job_application_params
     params.require(:job_application).permit(:video)
+  end
+
+  def questionnaire_params
+    params.require(:questionnaire).permit(:question_id, :answer)
   end
 
 end

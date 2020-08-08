@@ -1,7 +1,9 @@
 const getCurrentDate = () => {
   var today = new Date().toDateString();
-  document.getElementById('dtText').innerHTML=today;
-
+  const date = document.getElementById('dtText')
+  if (date) {
+  date.innerHTML=today;
+  }
 }
 
 
