@@ -4,7 +4,7 @@ class AnalysisVideoJob < ApplicationJob
   #   job_application = JobApplication.find(job_application_id)
   #   return  if job_application.video.attached?
 
-  #   video = SpeechToText.new
+  #   video = SpeechToTextService.new
   #   transcript = video.video_transcript(cloudinary_url("#{job_application.video.key}.mp3", :resource_type=>"video"))
   #   job_application.videotranscript = transcript
 

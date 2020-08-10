@@ -6,6 +6,7 @@
 //   secondButton.addEventListener('click', function () {
 //       firstButton.classList.add('nonactive_button');
 //       secondButton.classList.add('active_button');
+
 //         });
 //    }
 
