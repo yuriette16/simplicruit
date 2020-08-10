@@ -130,22 +130,22 @@
 
 ## interview_date: Faker::Time.in_date_period(year: 2020, month: 9,period: :evening),
 
-# require 'csv'
-# Category.delete_all
-# puts 'Create the category database'
-# csv_text =File.read(Rails.root.join('lib','seeds','categories.csv'))
-# csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
+require 'csv'
+puts 'Create the category database'
+csv_text =File.read(Rails.root.join('lib','seeds','categories.csv'))
+csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
 
-# csv.each do |row|
-#   t = Category.new
-#   t.name = row['name']
-#   t.save
-# end
-# puts 'Finished'
+csv.each do |row|
+  t = Category.new
+  t.name = row['name']
+  t.save
+end
+puts 'Finished'
 
 
 require 'csv'
 puts 'Create the question database'
+Questionnaire.delete_all
 Question.delete_all
 csv_text =File.read(Rails.root.join('lib','seeds','questions.csv'))
 csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
@@ -153,38 +153,36 @@ csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Question.new
   t.question = row['question']
-  # t.category = row['category']
   t.category_id = row['category_id']
   t.save
 end
 puts 'Finished'
 
-## Category.find_by(name: row['category'].to_s).id.to_i
+require 'csv'
+puts 'Create the skill_requirements database'
+Questionnaire.delete_all
+SkillRequirement.delete_all
+csv_text = File.read(Rails.root.join('lib','seeds','skill_requirement.csv'))
+csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
 
-# require 'csv'
-# puts 'Create the skill_requirements database'
-# SkillRequirement.delete_all
-# csv_text =File.read(Rails.root.join('lib','seeds','skill_requirement.csv'))
-# csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = SkillRequirement.new
+  t.position_id = row['position_id']
+  t.weight = row['weight']
+  t.minimum_score = row['minimum_score']
+  t.skill_name = row['skill_name']
+  t.json_name = row['json_name']
+  t.category_id = row['category_id']
+  t.save
+end
+puts 'Finished'
 
-# csv.each do |row|
-#   t = SkillRequirement.new
-#   t.position_id = row['position_id']
-#   t.weight = row['weight']
-#   t.minimum_score = row['minimum_score']
-#   t.skill_name = row['skill_name']
-#   t.json_name = row['json_name']
-#   t.category_id = row['category_id']
-
-#   t.save
-# end
-# puts 'Finished'
-
-# SkillRequirement.all.each do |s|
-# s.category_id = Category.find_by(name: s.skill_name.to_s).id
-# s.save!
-# end
-# puts 'Finished'
+puts 'Change the category_id'
+SkillRequirement.all.each do |s|
+s.category_id = Category.find_by(name: s.skill_name).id
+s.save!
+end
+puts 'Finished'
 
 # puts 'Make farrah@simplicruit.com as admin.'
 # user= User.where(email: 'farrah@simplicruit.com').first
