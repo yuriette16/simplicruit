@@ -128,25 +128,42 @@
 # puts 'Finished'
 
 
-# interview date will seed after.
-# interview_date: Faker::Time.in_date_period(year: 2020, month: 9,period: :evening),
+## interview_date: Faker::Time.in_date_period(year: 2020, month: 9,period: :evening),
 
 # require 'csv'
-# puts 'Create the question database'
-# csv_text =File.read(Rails.root.join('lib','seeds','questions.csv'))
+# Category.delete_all
+# puts 'Create the category database'
+# csv_text =File.read(Rails.root.join('lib','seeds','categories.csv'))
 # csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
 
 # csv.each do |row|
-#   t = Question.new
-#   t.question = row['question']
-#   t.category = row['category']
+#   t = Category.new
+#   t.name = row['name']
 #   t.save
 # end
 # puts 'Finished'
 
 
+require 'csv'
+puts 'Create the question database'
+Question.delete_all
+csv_text =File.read(Rails.root.join('lib','seeds','questions.csv'))
+csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
+
+csv.each do |row|
+  t = Question.new
+  t.question = row['question']
+  # t.category = row['category']
+  t.category_id = row['category_id']
+  t.save
+end
+puts 'Finished'
+
+## Category.find_by(name: row['category'].to_s).id.to_i
+
 # require 'csv'
 # puts 'Create the skill_requirements database'
+# SkillRequirement.delete_all
 # csv_text =File.read(Rails.root.join('lib','seeds','skill_requirement.csv'))
 # csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
 
@@ -157,7 +174,15 @@
 #   t.minimum_score = row['minimum_score']
 #   t.skill_name = row['skill_name']
 #   t.json_name = row['json_name']
+#   t.category_id = row['category_id']
+
 #   t.save
+# end
+# puts 'Finished'
+
+# SkillRequirement.all.each do |s|
+# s.category_id = Category.find_by(name: s.skill_name.to_s).id
+# s.save!
 # end
 # puts 'Finished'
 
@@ -169,12 +194,12 @@
 # puts'Finished'
 
 # puts 'Modify the status <testing one> for Customer Service Representative...'
-Position.find(1).job_applications.each do |job_application|
-  if job_application.video_score.to_i > 60
-    job_application.status = 1
-    job_application.save!
-  end
-end
+# Position.find(1).job_applications.each do |job_application|
+#   if job_application.video_score.to_i > 60
+#     job_application.status = 1
+#     job_application.save!
+#   end
+# end
 #   elsif job_application.video_score.to_i < 50
 #     job_application.status = 3
 #     job_application.save!
@@ -185,12 +210,13 @@ end
 # end
 # puts 'Finished'
 
-Position.find(1).job_applications.each do |job_application|
-   if job_application.video_score.nil?
-      job_application.status = 2
-      job_application.save!
-  end
-end
+# Position.find(1).job_applications.each do |job_application|
+#    if job_application.video_score.nil?
+#       job_application.status = 2
+#       job_application.save!
+#   end
+# end
+
 # puts 'Editing a job_application <testing one> for Customer Service Representative...'
 # application = JobApplication.find(1)
 # application.videotranscript = File.read(Rails.root.join('lib','seeds','video_transcript.txt'))
@@ -206,6 +232,8 @@ end
 # # application.video.attach(io: File.open('public/demo2.mp4'), filename: 'interview.mp4')
 # application.save!
 # puts 'Finished'
+
+
 
 
 

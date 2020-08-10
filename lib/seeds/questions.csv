@@ -1,22 +1,22 @@
-question,category
-How do you feel about working in a team environment?,Cooperation
-Provide an example of a time you showed strong teamwork skills,Cooperation
-Have you ever found it difficult to work with a manager or other team members?,Cooperation
-Share an example of a team project that failed.,Cooperation
-What strategies would you use to motivate your team?,Cooperation
-What do you think about the continuous changes in company operating policies and procedures?,Stability
-Why did you leave your last job?,Stability
-Where do you see yourself in five years?,Stability
-Tell me about the worst boss you ever had.,Stability
-If you could choose any company to work for.Where would you go?,Stability
-How effective has your company been in adapting its policies to fit a changing environment?,Stability
-What is the greatest mistake you have made at your work?,Cautiousness
-What are your methods for avoiding work mistake?,Cautiousness
-Do you feel pressure in your job? Tell me about it.,Stress resistance
-What has been the highest-pressure situation you have been under in recent years? How did you cope with it?,Stress resistance
-How do you handle an angry customer?,Stress resistance
-Tell me about a time when you turned an unhappy customer into a delighted customer.,Stress resistance
-What interests you most about this position?,Ownership
-What do you think is the biggest issue in our field today?,Ownership
-What changes would you like to implement to our product or service?,Ownership
-How would you help us expand our business?,Ownership
+question,category,category_id
+How do you feel about working in a team environment?,Cooperation,15
+Provide an example of a time you showed strong teamwork skills,Cooperation,15
+Have you ever found it difficult to work with a manager or other team members?,Cooperation,15
+Share an example of a team project that failed.,Cooperation,15
+What strategies would you use to motivate your team?,Cooperation,15
+What do you think about the continuous changes in company operating policies and procedures?,Stability,17
+Why did you leave your last job?,Stability,17
+Where do you see yourself in five years?,Stability,17
+Tell me about the worst boss you ever had.,Stability,17
+If you could choose any company to work for.Where would you go?,Stability,17
+How effective has your company been in adapting its policies to fit a changing environment?,Stability,17
+What is the greatest mistake you have made at your work?,Cautiousness,19
+What are your methods for avoiding work mistake?,Cautiousness,19
+Do you feel pressure in your job? Tell me about it.,Stress resistance,21
+What has been the highest-pressure situation you have been under in recent years? How did you cope with it?,Stress resistance,21
+How do you handle an angry customer?,Stress resistance,21
+Tell me about a time when you turned an unhappy customer into a delighted customer.,Stress resistance,21
+What interests you most about this position?,Ownership,22
+What do you think is the biggest issue in our field today?,Ownership,22
+What changes would you like to implement to our product or service?,Ownership,22
+How would you help us expand our business?,Ownership,22
