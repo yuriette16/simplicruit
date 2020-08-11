@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for [job_application, @questionnaire] do |f| %>
-          <%= f.association :question, as: :select, input_html: {class:'select2'}, collection: Question.all.map{|a| [a.question, a.id]}  %> <!-- .where(category: question.category) -->
+          <%= f.association :question, as: :select, input_html: {class:'select2'}, collection: Question.all, label_method: :question  %> <!-- .where(category: question.category) -->
           <%= f.submit "Add", class: "btn btn-primary" %>
         <% end %>
        </div>

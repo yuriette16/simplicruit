@@ -4,11 +4,26 @@ class CalScore
     # required_skills: skill_requirenment instances
     overall_score = 0
     maximum_score = 1
+    result = true
     skill_names_array.each do |skill_name_watson|
       required_skills.each do |required_skill|
-        if required_skill.skill_name == skill_name_watson[:name]
-          overall_score += (skill_name_watson[:percentile] * 10 * required_skill.weight).round
-          break
+        if required_skill.json_name == skill_name_watson[:name]
+          if required_skill.json_name == "Susceptible to stress"
+            actual_score = (10 - skill_name_watson[:percentile] * 10).round
+            result = false if actual_score < required_skill.minimum_score
+          else
+            result = false if (skill_name_watson[:percentile] * 10).round < required_skill.minimum_score
+          end
+
+          if result == false
+            overall_score = 0
+          else
+            if required_skill.json_name == "Susceptible to stress"
+              overall_score += actual_score * required_skill.weight
+            else
+              overall_score += ((skill_name_watson[:percentile]) * 10 * required_skill.weight)
+            end
+          end
         end
       end
     end
@@ -18,6 +33,6 @@ class CalScore
       maximum_score += required_skill.weight * 10
     end
 
-    return overall_score * 100 / maximum_score
+    return (overall_score * 100 / maximum_score).round
   end
 end

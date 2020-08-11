@@ -5,8 +5,7 @@
     <div class="personality output-stats-column">
       <div class="overall-score">
         <div class="over-score-header">
-           <div><h5>Overall Score: <b><%= @job_application.video_score %>/100pt</b></h5></div>
-         <!--  <div><h5>Overall Score: <b><%= @overall_score %>/100pt</b></h5></div> -->
+        <div><h5>Overall Score: <b><%= @overall_score %>/100pt</b></h5></div>
           <div id="applicant-video"><a data-toggle="modal" data-target="#exampleModal" style="text-align: center"><i class="fas fa-video"></i> Check the video</div></a>
           <%= render "video_transcript" %>
         </div>
@@ -14,10 +13,34 @@
       <div class="personality-insights-bar">
         <p id="percentile">*%</p>
         <% @skill_names_array.each do |skill|  %>
-          <%  percentile = (skill[:percentile] * 100).round(1) %>
+          <% if skill[:name] == 'Susceptible to stress' %>
+            <% name = 'Stress Resistance' %>
+          <% else %>
+            <% name = skill[:name] %>
+          <% end%>
+          <% if skill[:name] == 'Susceptible to stress' %>
+            <% percentile = (100 - (skill[:percentile] * 100).round(1)) %>
+          <% else %>
+            <%  percentile = (skill[:percentile] * 100).round(1) %>
+          <% end%>
+          <% skill_requirement = @job_application.position.skill_requirements.where(skill_name: name)%>
+          <% expected_score =  skill_requirement.first.minimum_score * 10 %>
+
+
           <div class="percent-bar-and-score">
-            <div class="personality-name percent-bar-main">
-              <%= skill[:name]  %>
+            <div class="personality-name percent-bar-main d-flex bd-highlight mb-3">
+              <div class ="p-2 bd-highlight"><%= name %></div>
+
+              <div class ="p-2 bd-highlight">Expected score: <%= expected_score%></div>
+
+              <div class ="ml-auto p-2 bd-highlight .text-danger">
+                <%if percentile < 80 %>
+                  <% if percentile - expected_score < 20 %>
+                    <strong>Need to ask more </strong><i class="fas fa-exclamation-circle"></i>
+                  <% end %>
+                <% end %>
+              </div>
+
             </div>
             <div class="percent-bar">
               <div class="percent-bar--meter" style="-webkit-transform: translate(<%= percentile %>%); transform: translate(<%= percentile %>%)">
