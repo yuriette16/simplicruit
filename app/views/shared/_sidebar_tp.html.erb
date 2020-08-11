@@ -1,0 +1,23 @@
+<% if user_signed_in? %>
+<div class="wrapper">
+ <div class="sidebar">
+
+    <%= image_tag "sidebar_logo.png" %>
+
+  <ul>
+  <li> <i class="fas fa-users"></i><%= link_to 'Applications', positions_path %></a></li>
+  <li id="schedule"><i class="fas fa-calendar-alt"></i><a href="">Schedule</a></li>
+  <li id ="setting">
+   <i class="fas fa-user-cog"></i><span>Setting</span><span class="fas fa-caret-down toggle-down"></span>
+</li>
+  <ul class="sub-menu" style='display:block;'>
+      <li id = "template"><span class="fas fa-envelope-open-text"></span><a href="">Template</a></li>
+      <li><span class="fas fa-sliders-h"></span><a href="">Scoring</a></li>
+      <li><span class="fas fa-book-open"></span><a href="">Questions</a></li>
+  </ul>
+
+ </ul>
+ </div>
+</div>
+
+<% end %>
