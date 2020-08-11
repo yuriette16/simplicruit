@@ -1,7 +1,7 @@
 require "google/cloud/speech"
-require "google/cloud/storage"
+# require "google/cloud/storage"
 
-class SpeechToText
+class SpeechToTextService
   def video_transcript(audio_link)
     project_id = "simplicuit-279115"
     key_file   = "simplicuit-279115-3997341e3a42.json"
