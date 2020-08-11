@@ -9,15 +9,15 @@ Rails.application.routes.draw do
   resources :job_applications, only: [:index, :show, :edit, :update] do
     resources :questionnaires, only: [:index, :create,:edit,:update]
   end
-
   resources :questionnaires, only: [:destroy]
-
-  resources :questions, only:[:index, :create, :edit,:update]
 
   resources :positions, only: [:index] do
      resources :skill_requirements, only:[:index, :edit, :update]
   end
   resources :email_templates, only: [:index, :show, :edit, :update]
 
+  resources :category, only: [:create] do
+     resources :questions, only:[:index, :create, :edit, :update]
+  end
 
 end

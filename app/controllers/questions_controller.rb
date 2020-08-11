@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
+  before_action :find_category, only: [:create]
   before_action :find_question, only: [:edit, :update]
+
   def index
     @questions = policy_scope(Question)
     @question = Question.new
@@ -8,9 +10,15 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    @question.category = @category
     authorize @question
-    @question.save
-    redirect_to questions_path
+
+    if @question.save
+      redirect_to category_questions_path(@category)
+    else
+      redirect_to category_questions_path(@category)
+      flash.alert = 'Sorry, something goes wrong!'
+    end
   end
 
   def edit
@@ -18,10 +26,15 @@ class QuestionsController < ApplicationController
 
   def update
     @question.update(question_params)
-    redirect_to questions_path
+    redirect_to category_questions_path
   end
 
   private
+
+  def find_category
+    @category = Category.find(params[:category_id])
+    authorize @category
+  end
 
   def find_question
     @question = Question.find(params[:id])
@@ -29,7 +42,7 @@ class QuestionsController < ApplicationController
   end
 
   def questions_params
-    params.require(:question).permit(:question, :category)
+    params.require(:question).permit(:question, :category_id)
   end
 
 end
