@@ -38,7 +38,6 @@ class QuestionnairesController < ApplicationController
 
     questionnaire = Questionnaire.find(questionnaire_id)
     questionnaire.question_id = question_id
-    questionnaire.category_id = category_id
     questionnaire.answer = answer_questionnaire
     questionnaire.job_application_id = job_application_id
     authorize questionnaire
