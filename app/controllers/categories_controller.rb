@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
   def create
-    @category = Category.new(email_template_params)
+    @category = Category.new(category_params)
     authorize @category
     @category.save
     redirect_to category_questions_path
