@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_10_132355) do
+ActiveRecord::Schema.define(version: 2020_08_11_130122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,8 +82,6 @@ ActiveRecord::Schema.define(version: 2020_08_10_132355) do
     t.text "answer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_questionnaires_on_category_id"
     t.index ["job_application_id"], name: "index_questionnaires_on_job_application_id"
     t.index ["question_id"], name: "index_questionnaires_on_question_id"
   end
@@ -125,7 +123,6 @@ ActiveRecord::Schema.define(version: 2020_08_10_132355) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "job_applications", "positions"
-  add_foreign_key "questionnaires", "categories"
   add_foreign_key "questionnaires", "job_applications"
   add_foreign_key "questionnaires", "questions"
   add_foreign_key "questions", "categories"
