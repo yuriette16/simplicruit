@@ -1,0 +1,37 @@
+<%= render 'shared/sidebar_tp' %>
+  <section class ="content-area">
+  <div class="heading">
+  <h1>Score Setting</h1>
+  <div class = "head-row">
+</div>
+<h5>Passing Score: <%= @passing_score %></h5>
+<light>The Sum of (Importance * Minimum Score)</light>
+
+<select id="select-position-edit">
+  <% Position.all.each do |position| %>
+  <option value = <%= position.id %> <% if position.id == @position.id  %><%= selected="selected" %><% end %>><%= position.title %></option>
+  <% end %>
+</select>
+
+<%= form_for :skill_requirement, :url => position_skill_requirement_update_all_path, :html => { :method => :patch } do %>
+ <table>
+    <tr>
+      <th>Skill Name</th>
+      <th>Importance</th>
+      <th>Minimum score</th>
+    </tr>
+    <% @skill_requirements.each do |skill_requirement| %>
+      <%= fields_for "skill_requirement[]", skill_requirement do |sr_fields| %>
+    <tr>
+      <td><%= sr_fields.collection_select :category_id, Category.all, :id, :name %></td>
+      <td><%= sr_fields.select :weight, SkillRequirement::WEIGHT  %></td>
+      <td><%= sr_fields.text_field :minimum_score %></td>
+    </tr>
+      <% end %>
+    <% end %>
+  </table>
+
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>

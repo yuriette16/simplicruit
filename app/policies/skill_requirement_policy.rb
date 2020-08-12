@@ -9,4 +9,11 @@ class SkillRequirementPolicy < ApplicationPolicy
     true
   end
 
+  def edit_all?
+    true
+  end
+
+  def update_all?
+    true
+  end
 end

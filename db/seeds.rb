@@ -178,10 +178,6 @@
 # puts 'Finished'
 
 
-
-
-
-
 # require 'csv'
 # puts 'Create the category database'
 # csv_text =File.read(Rails.root.join('lib','seeds','categories.csv'))

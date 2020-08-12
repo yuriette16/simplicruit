@@ -1,1 +1,16 @@
 <%= render 'shared/sidebar_tp' %>
+  <section class ="content-area">
+  <div class="heading">
+  <h1>Score Setting</h1>
+  <div class = "head-row">
+</div>
+<h5>Passing Score: <%= @passing_score %></h5>
+<light>The Sum of (Importance * Minimum Score)</light>
+
+<select id="select-position">
+  <% Position.all.each do |position| %>
+  <option value = <%= position.id %> <% if position.id == @position.id  %><%= selected="selected" %><% end %>><%= position.title %></option>
+  <% end %>
+</select>
+
+<p>You don't set up any skill setting yet, please click <%= link_to 'here'%> to create!</p>
