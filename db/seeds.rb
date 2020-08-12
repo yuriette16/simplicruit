@@ -254,7 +254,6 @@ EmailTemplate.create(
  name: 'Rejected'
 )
 
-
 puts 'Reject Email After Due Date'
 email = File.read(Rails.root.join('lib','seeds','passdue.txt'))
 EmailTemplate.create(
