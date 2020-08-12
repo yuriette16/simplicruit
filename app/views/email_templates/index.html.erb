@@ -1,0 +1,33 @@
+<%= render 'shared/sidebar_tp' %>
+<section class ="content-area">
+<div class="heading">
+<h1>Manage templates</h1>
+<div class = "head-row">
+<div class='default'><span class="far fa-folder"></span> Default
+</div>
+</div>
+</div>
+
+<div class="cards">
+
+ <div class="card">
+  <div class="card-cat"><span class="fas fa-check"></span>&thinsp;Accepted</div>
+  <div class="subject">Subject:<%= @email_template.subject %></div>
+  <hr>
+  <div class="body">Body:<%= @email_template.body %></div>
+</div>
+<div class="card">
+  <div class="card-cat"><span class="fas fa-times"></span></span>&thinsp;Rejected</div>
+  <div class="subject">Subject:</div>
+  <hr>
+  <div class="body">Body:</div>
+</div>
+<div class="card">
+  <div class="card-cat"><span class="fas fa-circle-notch"></span>&thinsp;Past-due</div>
+  <div class="subject">Subject:</div>
+  <hr>
+  <div class="body">Body:</div>
+</div>
+</div>
+
+</section>

@@ -4,7 +4,8 @@ class EmailTemplatesController < ApplicationController
   def index
     @email_templates = policy_scope(EmailTemplate)
     @email_template = EmailTemplate.new
-    authorize @email_template
+    @nosidebar = true
+
   end
 
   def create
