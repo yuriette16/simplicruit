@@ -237,11 +237,12 @@
 # puts 'Finished'
 
 puts 'Adding the invitation Email'
+EmailTemplate.delete_all
 email = File.read(Rails.root.join('lib','seeds','invited.txt'))
 EmailTemplate.create(
  subject: 'Invitation to 2nd interview with CallBest for [Job_title] position',
  body: email,
- name: '2nd Interview Invitation'
+ name: 'Accepted'
 )
 puts 'Finished'
 
@@ -250,14 +251,14 @@ email = File.read(Rails.root.join('lib','seeds','reject.txt'))
 EmailTemplate.create(
  subject: 'Interview result of [Job_title] Application - CallBest',
  body: email,
- name: 'Reject Email to Unsuccessful Candidate'
+ name: 'Rejected'
 )
 
 
 puts 'Reject Email After Due Date'
 email = File.read(Rails.root.join('lib','seeds','passdue.txt'))
 EmailTemplate.create(
-  name: 'Reject Email After Due Date',
+  name: 'Past-due',
   body: email,
   subject: 'Interview result of [Job_title] Application - CallBest'
 )

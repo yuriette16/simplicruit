@@ -10,24 +10,22 @@
 
 <div class="cards">
 
- <div class="card">
-  <div class="card-cat"><span class="fas fa-check"></span>&thinsp;Accepted</div>
-  <div class="subject">Subject:<%= @email_template.subject %></div>
-  <hr>
-  <div class="body">Body:<%= @email_template.body %></div>
-</div>
-<div class="card">
-  <div class="card-cat"><span class="fas fa-times"></span></span>&thinsp;Rejected</div>
-  <div class="subject">Subject:</div>
-  <hr>
-  <div class="body">Body:</div>
-</div>
-<div class="card">
-  <div class="card-cat"><span class="fas fa-circle-notch"></span>&thinsp;Past-due</div>
-  <div class="subject">Subject:</div>
-  <hr>
-  <div class="body">Body:</div>
-</div>
-</div>
+  <% @email_templates.each do |email_template| %>
+  <div class="card">
+    <div class="card-cat">
 
+    <span class="<%= case email_template.name
+      when 'Accepted' then
+      'fas fa-check'
+      when 'Rejected' then
+      'fas fa-times'
+      when 'Past-due' then
+      'fas fa-circle-notch'
+      end %>"></span>&thinsp;<%= email_template.name %></div>
+
+    <div class="subject">Subject:<%= email_template.subject %></div>
+    <hr>
+    <div class="body">Body:<%= email_template.body %></div>
+  </div>
+  <% end %>
 </section>
