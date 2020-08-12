@@ -5,7 +5,6 @@ class SkillRequirementsController < ApplicationController
   def index
     @skill_requirements = policy_scope(SkillRequirement).order('created_at DESC')
     @skill_requirement = SkillRequirement.new
-    authorize @skill_requirement
   end
 
   def edit

@@ -5,7 +5,6 @@ class QuestionsController < ApplicationController
   def index
     @questions = policy_scope(Question)
     @question = Question.new
-    authorize @question
   end
 
   def create
