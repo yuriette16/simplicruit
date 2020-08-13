@@ -145,3 +145,12 @@
   padding: 50px;
   font-weight: lighter;
 }
+
+.card-row-info {
+  display:flex;
+  justify-content:space-between;
+}
+
+.card-head {
+  display:block;
+}
