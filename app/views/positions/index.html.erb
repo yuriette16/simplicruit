@@ -11,8 +11,14 @@
   <% @positions.each do |position| %>
   <div class="card">
   <div class="card-title">
-      <span class="far fa-meh"></span><strong><%= position.title %><% if policy(position).show? %><%= link_to position.title, position_path(position) %><% end %></strong>
-    </div>
+    <% if (position.due_date - Time.now  ).to_i / (24 * 60 * 60) > 60  %>
+      <span class="far fa-smile"></span><strong><%= position.title %><% if policy(position).show? %><%= link_to position.title, position_path(position) %><% end %></strong>
+     <% elsif (position.due_date - Time.now  ).to_i / (24 * 60 * 60) < 10   %>
+     <span class="far fa-frown"></span><strong><%= position.title %><% if policy(position).show? %><%= link_to position.title, position_path(position) %><% end %></strong>
+     <% else %>
+     <span class="far fa-meh"></span><strong><%= position.title %><% if policy(position).show? %><%= link_to position.title, position_path(position) %><% end %></strong>
+     <% end %>
+  </div>
     <div class="card-head">
       <div class="card-number">
         <div class="card-info">recruitment: <%= position.target_hire_number  %><i class="fas fa-user"></i></div>
