@@ -18,16 +18,15 @@
   </div>
 
   <div class="btn-application">
-    <button class="btn-video-analysis btn-application-analysis active_button">Video Analysis</button>
-    <button class="btn-evaluation-form btn-application-analysis">Evaluation Form</button>
+    <button class="btn-video-analysis btn-application-analysis <%= 'active_button' if params[:tab].nil? %>">Video Analysis</button>
+    <button class="btn-evaluation-form btn-application-analysis <%= 'active_button' if params[:tab] == "evaluation" %>">Evaluation Form</button>
   </div>
 
-  <div class="video-analysis-tab">
+  <div class="video-analysis-tab <%= 'hidden' unless params[:tab].nil? %>">
     <%= render "video_analysis" %>
   </div>
-  <div class="evaluation-form-tab hidden">
+  <div class="evaluation-form-tab <%= 'hidden' unless params[:tab] == "evaluation" %>">
     <%= render partial: "evaluation", :locals => {:job_application => @job_application} %>
   </div>
 </div>
 </section>
-

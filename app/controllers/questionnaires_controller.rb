@@ -22,7 +22,7 @@ class QuestionnairesController < ApplicationController
   def destroy
     job_application = @questionnaire.job_application
     @questionnaire.destroy
-    redirect_to job_application_path(job_application)
+    redirect_to job_application_path(job_application, tab: "evaluation")
   end
 
   def edit
@@ -42,6 +42,7 @@ class QuestionnairesController < ApplicationController
     questionnaire.job_application_id = job_application_id
     authorize questionnaire
     questionnaire.save
+    redirect_to job_application_path(job_application_id, tab: "evaluation")
     # @questionnaire.update(questionnaire_params)
   end
 

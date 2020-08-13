@@ -1,4 +1,4 @@
-class PositionPolicy < ApplicationPolicy
+class CategoryPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -8,4 +8,5 @@ class PositionPolicy < ApplicationPolicy
   def create?
     true
   end
+
 end

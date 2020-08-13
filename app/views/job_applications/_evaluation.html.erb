@@ -4,9 +4,9 @@
 
 
 
-    <% @auto_questionnaires.order(category_id: :desc).each do |auto_questionnaire|  %>
+    <% @auto_questionnaires.each do |auto_questionnaire|  %>
       <div class="questionnaire-form">
-        <div class="category-name"><b><%= auto_questionnaire.category.name %></b></div>
+        <div class="category-name"><b><%= auto_questionnaire.question.category.name %></b></div>
         <div class="question-name"><%= auto_questionnaire.question.question %>&thinsp;
           <%= link_to questionnaire_path(auto_questionnaire), :method => :delete, data: { confirm: "Are you sure?" } do %>
             <i class="fas fa-trash-alt"></i>
