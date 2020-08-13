@@ -3,7 +3,8 @@
 <h1>Vacant positions:<%= @positions.count %></h1>
 <div class = "head-row">
 <div class='date'><span class="far fa-calendar-check"></span>&thinsp;<span id="dtText"> </span></div>
-<i class="fas fa-filter"></i>
+<a data-toggle="modal" data-target="#positionModal"><i class="fas fa-plus-circle"></i>&thinsp;Add position</a>
+<%= render "create_position" %>
 </div>
 </div>
 
@@ -20,6 +21,7 @@
       </div>
       <div class="card-duedate">Due:<%= position.due_date.strftime("%b %d %Y") %></div>
       </div>
+       <div class="card-info"><%= link_to 'Score Setting', position_skill_requirement_edit_all_path(position)%></div>
     <hr>
       <% position.job_applications.order(status: :asc).order(video_score: :desc).limit(3).each do |job_application| %>
       <div class="candidates-info">
@@ -39,7 +41,6 @@
 
     <div class="btn-seeall"><a  data-toggle="modal" data-target="#editModal-<%= position.id %>">See all&thinsp;<i class="fas fa-angle-right small"></i></a></div>
     <%= render :partial => "job_applications", :locals => {:position => position} %>
-
   </div>
   <% end %>
   </div>

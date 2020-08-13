@@ -19,9 +19,9 @@ class CalScore
             overall_score = 0
           else
             if required_skill.json_name == "Susceptible to stress"
-              overall_score += actual_score * required_skill.weight
+              overall_score += actual_score * required_skill.read_attribute_before_type_cast(:weight)
             else
-              overall_score += ((skill_name_watson[:percentile]) * 10 * required_skill.weight)
+              overall_score += ((skill_name_watson[:percentile]) * 10 * required_skill.read_attribute_before_type_cast(:weight))
             end
           end
         end
@@ -30,7 +30,7 @@ class CalScore
 
     # maximum score
     required_skills.each do |required_skill|
-      maximum_score += required_skill.weight * 10
+      maximum_score += required_skill.read_attribute_before_type_cast(:weight) * 10
     end
 
     return (overall_score * 100 / maximum_score).round

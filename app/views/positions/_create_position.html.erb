@@ -1,0 +1,23 @@
+<div class="modal fade" id="positionModal" tabindex="-1" role="dialog" aria-labelledby="positionModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog" role="document" >
+    <div class="modal-table modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="positionModalLabel">Add New Position</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">X</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @position do |f| %>
+          <%= f.input :title %>
+          <%= f.input :due_date %>
+          <%= f.input :target_hire_number,:input_html => {:style=> 'width: 100px'} %>
+          <%= f.submit "Add", class: "btn btn-primary" %>
+        <% end %>
+       </div>
+     </div>
+    </div>
+  </div>
+
+</div>

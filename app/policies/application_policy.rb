@@ -34,6 +34,14 @@ class ApplicationPolicy
     false
   end
 
+  def edit_all?
+    false
+  end
+
+  def update_all?
+    false
+  end
+
   class Scope
     attr_reader :user, :scope
 
