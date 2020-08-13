@@ -1,15 +1,82 @@
 .footer{
   padding: 20px;
-  background: rgb(20, 30, 30);
+  background: #001f44;
   color: white;
   text-align:center;
 }
 
 .footer a {
   color: lightgrey;
-  font-size: 15px;
+  font-size: 16px;
+  margin-right:12px;
+  &:hover{
+   text-decoration:none;
+  }
 }
+
 .footer a:hover {
   color: white;
 }
 
+.footer-banner{
+  margin-top:30px;
+}
+
+.footer-banner .slogan {
+  font-size:27px;
+  letter-spacing: 1px;
+  font-family: heebo;
+  margin-bottom:24px;
+}
+
+.footer-button {
+  border:none;
+  padding: 16px 50px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+  &:hover{
+    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+    position:relative;
+    font-size:19px;
+    top:3px;
+    transition: all .5s ease-out;
+  }
+}
+
+
+
+button:focus {outline:0;}
+
+.social {
+  background: #4C5259;
+    color: #fff;
+    text-decoration: none;
+    width: 36px;
+    height: 36px;
+    display: table;
+    text-align: center;
+    border-radius: 300px;
+}
+
+.social span {
+    position: relative;
+    top: 9px;
+    display: table-cell;
+}
+
+.social-icon {
+  display:flex;
+  margin-top:40px;
+  text-align:right;
+  left: 85%;
+  position: relative;
+}
+
+
+.copyright{
+  text-align:center;
+  background-color:#e5ebf5;
+  font-size:12px;
+}
