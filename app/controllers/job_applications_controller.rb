@@ -13,6 +13,10 @@ class JobApplicationsController < ApplicationController
   def update
     if @job_application.update(job_application_params)
       AnalysisVideoJob.perform_later(@job_application.id)
+        CreateNotification.call(
+      contents: { 'en' => 'Video is uploaded!！' },
+      type: 'job_applications#update'
+      )
       redirect_to positions_path
     else
       render :edit

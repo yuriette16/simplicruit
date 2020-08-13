@@ -5,7 +5,9 @@ ruby '2.6.5'
 
 
 # Gemfile
-
+#onesignal
+gem 'one_signal'
+gem 'httparty'
 #select2
 gem 'select2_simple_form', github: 'lndl/select2_simple_form', tag: '0.7.3'
 #sidekiq

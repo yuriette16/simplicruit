@@ -48,7 +48,4 @@ document.addEventListener('turbolinks:load', () => {
   GetPosition();
   GetPositionEdit();
   // updateButton();
-
-
-
 });

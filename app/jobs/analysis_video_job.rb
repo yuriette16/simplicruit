@@ -8,9 +8,11 @@ class AnalysisVideoJob < ApplicationJob
   #   transcript = video.video_transcript(cloudinary_url("#{job_application.video.key}.mp3", :resource_type=>"video"))
   #   job_application.videotranscript = transcript
 
+  #   sleep(1000)
   #   applicant = PersonalityInsightsService.new
   #   answer = applicant.profile(job_application.videotranscript)
   #   job_application.video_result = answer
+
   #   job_application.save!
   # end
 
