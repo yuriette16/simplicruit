@@ -14,7 +14,7 @@ class JobApplicationsController < ApplicationController
     if @job_application.update(job_application_params)
       AnalysisVideoJob.perform_later(@job_application.id)
         CreateNotification.call(
-      contents: { 'en' => 'Video is uploaded!！' },
+      contents: { 'en' => '1 Video is uploaded!！' },
       type: 'job_applications#update'
       )
       redirect_to positions_path
@@ -43,6 +43,7 @@ class JobApplicationsController < ApplicationController
     @questionnaire = Questionnaire.new
     # @job_application.score = @overall_score
     # @job_application.save!
+    return InterviewBookedJob.perform_later(@job_application.id) if @job_application.interview_date.nil?
   end
 
   private
