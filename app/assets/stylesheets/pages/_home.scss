@@ -4,3 +4,47 @@
   margin-top:24px;
   font-size:24px;
 }
+.hp-headline {
+  width: 100%;
+  text-align: center;
+
+  margin: 10px 0 20px;
+  font-size:32px;
+  overflow:hidden;
+  background:linear-gradient(to left, #09203f, #537895);
+  padding:0 10px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hp-headline:before,
+.hp-headline:after {
+
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.hp-headline:before {
+  background-color:#09203f;
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.hp-headline:after {
+  background-color:#537895;
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+#section2 {
+  height:300px;
+}
+
+
+.slide {
+  text-align:center;
+}
