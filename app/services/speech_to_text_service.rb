@@ -1,24 +1,11 @@
 require "google/cloud/speech"
+require "json"
 # require "google/cloud/storage"
 
 class SpeechToTextService
   def video_transcript(audio_link)
     project_id = "simplicuit-279115"
-    key_file   = "simplicuit-279115-3997341e3a42.json"
-
-    # # # Conver video to audio
-    # system "ffmpeg -i video.mp4 audio.flac"
-
-    # # # # Upload audio to Google Storage
-    # storage = Google::Cloud::Storage.new project: project_id, keyfile: key_file
-    # bucket_name = storage.buckets.first.name
-    # puts bucket_name
-    # bucket = storage.bucket bucket_name
-    # local_file_path = 'aduio.flac'
-    # file = bucket.create_file local_file_path, 'audio_cloud.flac'
-    # puts "Uploaded #{file.name}"
-
-    # Translate audio to text
+    key_file   = JSON.parse(ENV['GOOGLE_CLIENT_SECRET'])
 
     audio_file_path = audio_link
     speech = Google::Cloud::Speech.speech
@@ -46,4 +33,3 @@ class SpeechToTextService
     return transcript
   end
 end
-

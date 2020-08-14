@@ -12,7 +12,7 @@ class SkillRequirementsController < ApplicationController
   end
 
   def edit_all
-    @skill_requirements = @position.skill_requirements
+    @skill_requirements = @position.skill_requirements.order(category_id: :asc)
     if @skill_requirements.first.nil?
       redirect_to position_skill_requirements_path(@position)
     else
@@ -22,9 +22,14 @@ class SkillRequirementsController < ApplicationController
       @position.save
 
       @skill_requirements.each do |sk|
+
         if sk.json_name.nil?
-          sk.category.name = sk.json_name
-          sk.category.name = sk.skill_name
+          sk.json_name = sk.category.name
+          sk.skill_name = sk.category.name
+          sk.save!
+        end
+        if sk.json_name == "Stress Resistance"
+          sk.json_name = "Susceptible to stress"
           sk.save!
         end
       end

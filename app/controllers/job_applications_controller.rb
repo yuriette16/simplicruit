@@ -13,10 +13,6 @@ class JobApplicationsController < ApplicationController
   def update
     if @job_application.update(job_application_params)
       AnalysisVideoJob.perform_later(@job_application.id)
-        CreateNotification.call(
-      contents: { 'en' => '1 Video is uploaded!！' },
-      type: 'job_applications#update'
-      )
       redirect_to positions_path
     else
       render :edit
@@ -43,7 +39,9 @@ class JobApplicationsController < ApplicationController
     @questionnaire = Questionnaire.new
     # @job_application.score = @overall_score
     # @job_application.save!
-    return InterviewBookedJob.perform_later(@job_application.id) if @job_application.interview_date.nil?
+    if @job_application.interview_date.nil? && @job_application.video_result.present?
+      InterviewBookedJob.perform_later(@job_application.id)
+    end
   end
 
   private
@@ -54,7 +52,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def job_application_params
-    params.require(:job_application).permit(:video)
+    params.require(:job_application).permit(:video, :status)
   end
 
   def questionnaire_params

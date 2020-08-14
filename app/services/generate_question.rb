@@ -41,7 +41,7 @@ class GenerateQuestion
 
   def make_questionnaires(job_application, picked_questions_instances)
     picked_questions_instances.each do |picked_questions_instance|
-      picked_questionnaires_instance = Questionnaire.new("category_id": picked_questions_instance.category_id, "question_id": picked_questions_instance.id, "job_application_id": job_application.id)
+      picked_questionnaires_instance = Questionnaire.new("question_id": picked_questions_instance.id, "job_application_id": job_application.id)
       picked_questionnaires_instance.save
     end
   end

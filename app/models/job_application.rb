@@ -9,7 +9,7 @@ class JobApplication < ApplicationRecord
   validates :candidate_name, :email, presence: true
 
   # after_update :async_update # Run on create & update
-  enum status: { reserved: 0, invited: 1, pending: 2, unqualified: 3 }
+  enum status: { processing: 0, reserved: 1, invited: 2, on_hold: 3, pending: 4, unqualified: 5 }
   # private
 
   # def async_update

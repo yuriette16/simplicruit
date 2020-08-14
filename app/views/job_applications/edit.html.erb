@@ -1,4 +1,7 @@
+<section class ="content-area">
 <%= simple_form_for(@job_application) do |f| %>
-  <%= f.input :video %>, as: :file %>
+  <%= f.input :video , as: :file %>
+  <%= f.hidden_field :status, value: "pending" %>
   <%= f.submit %>
 <% end %>
+</section>

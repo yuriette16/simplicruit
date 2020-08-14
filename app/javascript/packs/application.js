@@ -49,3 +49,5 @@ document.addEventListener('turbolinks:load', () => {
   GetPositionEdit();
   // updateButton();
 });
+
+import "controllers"

@@ -137,23 +137,6 @@
 # user.save!
 # puts'Finished'
 
-# puts 'Modify the status <testing one> for Customer Service Representative...'
-# Position.find(1).job_applications.each do |job_application|
-#   if job_application.video_score.to_i > 60
-#     job_application.status = 1
-#     job_application.save!
-#   end
-# end
-#   elsif job_application.video_score.to_i < 50
-#     job_application.status = 3
-#     job_application.save!
-#   elsif job_application.video_score.nil?
-#     job_application.status = 2
-#     job_application.save!
-#   end
-# end
-# puts 'Finished'
-
 # Position.find(1).job_applications.each do |job_application|
 #    if job_application.video_score.nil?
 #       job_application.status = 2

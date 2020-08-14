@@ -12,7 +12,7 @@
       <div class="modal-body"  style="height:600px; width:auto; overflow-y:scroll; scrollbar-base-color:#99ff66 ; scrollbar-arrow-color:#ff0000;" >
         <table>
         <tr>
-          <th>Name</th>
+          <th>Name<a></th>
           <th>Video Score</th>
           <th>Status</th>
           <th>Interview Date</th>
@@ -26,7 +26,16 @@
       </td>
 
       <td class="td-score"><%= job_application.video_score %></td>
-      <td class="td-status"><%= job_application.status %></td>
+      <% if job_application.status == "on_hold" %>
+      <td class="td-status"><select id="select-status" data-remote="true" method="patch" >
+        <option value = 3 <%= selected="selected" if job_application.status == "on_hold"  %>><%= job_application.status %></option>
+        <option value = 2 <%= selected="selected" if job_application.status == "invited"  %>>invited</option>
+        <option value = 5 <%= selected="selected" if job_application.status == "unqualified"%>>unqualified</option>
+      </select></td>
+      <% else %>
+      <td class="td-status"><% if job_application.status == "processing" %><i class="fas fa-cog fa-spin"></i><% end %><%= job_application.status %></td>
+      <% end %>
+
       <% if job_application.interview_date.present? %>
         <td class="td-date"><%= job_application.interview_date.strftime("%Y/%m/%d") %></td>
       <% else %>
