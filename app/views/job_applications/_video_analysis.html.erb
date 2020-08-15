@@ -46,11 +46,6 @@
               <div class ="p-2 bd-highlight">Expected score: <%= expected_score%></div>
 
               <div class ="ml-auto p-2 bd-highlight .text-danger">
-                <%if percentile < 80 %>
-                  <% if percentile - expected_score < 20 %>
-                    <strong>Need to ask more </strong><i class="fas fa-exclamation-circle"></i>
-                  <% end %>
-                <% end %>
               </div>
 
             </div>
