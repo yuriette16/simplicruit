@@ -4,7 +4,7 @@ const fullPage = () => {
     var myFullpage = new fullpage('#fullpage', {
       autoScrolling:false,
       navigation:true,
-      scrollingSpeed: 2000
+      scrollingSpeed: 500
 
   });
   }
