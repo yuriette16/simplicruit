@@ -8,6 +8,10 @@ class CreateDefaultSkillRequirementJob < ApplicationJob
       category_id: (Category.all).first.id + i
     )
     skill_requirement.save!
+
+    position = Position.find(position_id)
+    position.passing_score = 0
+    position.save!
     end
      puts 'Finished'
   end

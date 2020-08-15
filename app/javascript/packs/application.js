@@ -31,7 +31,7 @@ import { initSelect2 } from '../components/init_select2';
 import { saveQuestionnaire } from '../components/form';
 import { GetPosition } from '../components/selectposition';
 import { GetPositionEdit } from '../components/selectposition';
-
+import { fullPage } from '../components/fullpage';
 
 // import { updateButton } from '../components/switch';
 
@@ -49,6 +49,7 @@ document.addEventListener('turbolinks:load', () => {
   updateSidebar();
   GetPosition();
   GetPositionEdit();
+  fullPage();
   // updateButton();
 });
 
