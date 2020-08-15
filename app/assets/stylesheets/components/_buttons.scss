@@ -85,11 +85,16 @@
 }
 
 .btn-link-category{
-  color: white;
+  background-color:  #909090;
+  color: gray;
+
   &:hover{
-    color: white;
     font-weight: bold;
     text-decoration: none;
   }
 }
 
+.btn-category a{
+  color: white;
+  text-decoration: none;
+}

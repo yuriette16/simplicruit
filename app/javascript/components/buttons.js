@@ -21,9 +21,9 @@ const displayApplication = () => {
   }
 };
 
-// const hideQuestionBtn = (event) => {
-//   event.currentTarget.closest(".question-field").nextElementSibling.style.display = "none";
-// };
+const hideQuestionBtn = (target) => {
+  target.nextElementSibling.style.display = "none";
+};
 
 const targetBtnEditQuestion = (btnEditQuestion) => {
   btnEditQuestion.addEventListener("click", (event) => {
@@ -31,7 +31,18 @@ const targetBtnEditQuestion = (btnEditQuestion) => {
       event.currentTarget.closest(".question-field").nextElementSibling.style.display = "none";
     } else if (event.currentTarget.closest(".question-field").nextElementSibling.style.display == "none") {
       event.currentTarget.closest(".question-field").nextElementSibling.style.display = "block";
-      // setTimeout( hideQuestionBtn, 1500, event );
+      const target = event.currentTarget.closest(".question-field");
+
+      const hideQuestionBtnBinded = hideQuestionBtn.bind(null, target);
+      // const hideQuestionBtnBinded = () = => {
+      //   const hideQuestionBtn = (target) => {
+      //     target.nextElementSibling.style.display = "none";
+      //   };
+      //   const target = event.currentTarget.closest(".question-field");
+      //   return hideQuestionBtn(target);
+      // }
+
+      setTimeout( hideQuestionBtnBinded, 1000);
     }
   });
 };
