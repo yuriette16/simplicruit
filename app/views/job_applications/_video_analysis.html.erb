@@ -37,8 +37,6 @@
           <% else %>
             <%  percentile = (skill[:percentile] * 100).round(1) %>
           <% end%>
-          <% skill_requirement = @job_application.position.skill_requirements.where(skill_name: name)%>
-          <% expected_score =  skill_requirement.first.minimum_score * 10 %>
 
 
           <div class="percent-bar-and-score">
