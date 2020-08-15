@@ -1,20 +1,24 @@
 <%= render 'shared/sidebar_tp' %>
-  <section class ="content-area">
+  <section class ="content-area right-align-area">
   <div class="heading">
-  <h1>Score Setting</h1>
-  <div class = "head-row">
-</div>
-<h5>Passing Score: <%= @passing_score %></h5>
-<light>The Sum of (Importance * Minimum Score)</light>
+  <h1 style = "margin-bottom:24px;">Score Setting</h1>
+  </div>
 
+<div class= "head-row-select">
+<h5>Passing Score:<b> <%= @passing_score %></b></h5>
+<span> Position:</span>
 <select id="select-position-edit">
   <% Position.all.each do |position| %>
   <option value = <%= position.id %> <% if position.id == @position.id  %><%= selected="selected" %><% end %>><%= position.title %></option>
   <% end %>
 </select>
+</div>
+<light style="font-size:14px;">Total Score = Importance * Minimum Score</light>
+
+<hr>
 
 <%= form_for :skill_requirement, :url => position_skill_requirement_update_all_path, :html => { :method => :patch } do %>
- <table>
+ <table class = "score-edit-table">
     <tr>
       <th>Skill Name</th>
       <th>Importance</th>
@@ -23,15 +27,15 @@
     <% @skill_requirements.each do |skill_requirement| %>
       <%= fields_for "skill_requirement[]", skill_requirement do |sr_fields| %>
     <tr>
-      <td><%= sr_fields.collection_select :category_id, Category.all, :id, :name %></td>
-      <td><%= sr_fields.select :weight, SkillRequirement::WEIGHT  %></td>
-      <td><%= sr_fields.text_field :minimum_score %></td>
+      <td id="skill-name"><%= sr_fields.collection_select :category_id, Category.all, :id, :name %></td>
+      <td id="importance"><%= sr_fields.select :weight, SkillRequirement::WEIGHT  %></td>
+      <td id="minimum-score"><%= sr_fields.text_field :minimum_score %></td>
     </tr>
       <% end %>
     <% end %>
   </table>
 
-  <div class="actions">
+  <div class="actions button-edit-score">
     <%= submit_tag %>
   </div>
 <% end %>

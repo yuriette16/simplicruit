@@ -24,13 +24,14 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import { displayApplication } from '../components/buttons';
+import { displayApplication, displayEditQuestion } from '../components/buttons';
 import { updateSidebar} from '../components/sidebar';
 import { getCurrentDate } from '../components/datetime';
 import { initSelect2 } from '../components/init_select2';
 import { saveQuestionnaire } from '../components/form';
 import { GetPosition } from '../components/selectposition';
 import { GetPositionEdit } from '../components/selectposition';
+
 
 // import { updateButton } from '../components/switch';
 
@@ -41,6 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initSelect2();
   displayApplication();
+  displayEditQuestion();
   saveQuestionnaire();
   initSelect2();
   getCurrentDate();
