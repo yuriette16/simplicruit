@@ -12,6 +12,7 @@
         <div class="card-application-personal-info-right">
           <div><i class="fas fa-envelope"></i>&thinsp;<%= @job_application.email %></div>
           <div><i class="fas fa-phone"></i>&thinsp;<%= @job_application.phone %></div>
+          <% if @job_application.interview_date.present? %><div><i class="far fa-calendar-alt"></i>&thinsp;<%= @job_application.interview_date.strftime("%b %d %Y %H:%M") %></div><% end %>
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@
     <tr>
       <th>Skill Name</th>
       <th>Importance</th>
-      <th>Minimum score</th>
+      <th>Minimum score (10)</th>
     </tr>
     <% @skill_requirements.each do |skill_requirement| %>
       <%= fields_for "skill_requirement[]", skill_requirement do |sr_fields| %>

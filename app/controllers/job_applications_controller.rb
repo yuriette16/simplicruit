@@ -39,6 +39,9 @@ class JobApplicationsController < ApplicationController
     @questionnaire = Questionnaire.new
     # @job_application.score = @overall_score
     # @job_application.save!
+    if @job_application.interview_date.nil? && @job_application.video_result.present?
+      InterviewBookedJob.perform_later(@job_application.id)
+    end
   end
 
   private
@@ -49,7 +52,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def job_application_params
-    params.require(:job_application).permit(:video)
+    params.require(:job_application).permit(:video, :status)
   end
 
   def questionnaire_params

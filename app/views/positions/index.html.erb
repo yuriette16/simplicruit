@@ -31,8 +31,8 @@
       </div>
     </div>
     <hr>
-      <% position.job_applications.order(status: :asc).order(video_score: :desc).limit(3).each do |job_application| %>
-      <div class="candidates-info">
+      <% position.job_applications.order(status: :asc).order(video_score: :desc).first(3).each do |job_application| %>
+      <div class="candidates-info" data-controller = "refresh">
       <div class="name">
         <i class="fas fa-angle-right"></i><%= link_to job_application.candidate_name, job_application_path(job_application) %>
        </div>
@@ -41,7 +41,7 @@
         <% if job_application.interview_date.present? %>
           <%= job_application.interview_date.strftime("%b %d %Y %H:%M")%>
         <% else %>
-          <%= job_application.status %>
+          <% if job_application.status == "processing" %><i class="fas fa-cog fa-spin"></i><% end %><%= job_application.status %>
         <% end %>
       </div>
       </div>
