@@ -10,11 +10,11 @@ class PositionsController < ApplicationController
       StatusJob.perform_now(position)
     end
 
-    # @positions.each do |position|
-    #   if position.skill_requirements.first.nil?
-    #     CreateDefaultSkillRequirementJob.perform_now(position)
-    #   end
-    # end
+    @positions.each do |position|
+      if position.skill_requirements.first.nil?
+        CreateDefaultSkillRequirementJob.perform_now(position.id)
+      end
+    end
     @position = Position.new
   end
 
