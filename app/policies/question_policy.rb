@@ -12,4 +12,6 @@ class QuestionPolicy < ApplicationPolicy
     record.user == user
   end
 
+
+
 end

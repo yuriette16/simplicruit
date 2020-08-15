@@ -68,3 +68,28 @@
 .home-btn{
   width:150px;
 }
+
+.btn-category{
+  width: 150px;
+  border-radius: 4px;
+  background-color: white;
+  margin: 8px 0;
+  padding: 3px 4px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.target-btn-category{
+  background-color:  #0F60C4;
+}
+
+.btn-link-category{
+  color: white;
+  &:hover{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
