@@ -70,14 +70,17 @@
 }
 
 .btn-category{
-  width: 150px;
+  width: 180px;
   border-radius: 4px;
   background-color: white;
   margin: 8px 0;
-  padding: 3px 4px;
+  padding: 8px 4px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.2);
+  &:hover{
+    transform: translateY(2px);
+  }
 }
 
 .target-btn-category{
@@ -97,4 +100,9 @@
 .btn-category a{
   color: white;
   text-decoration: none;
+}
+
+
+.question-btn {
+  border: 1px solid rgba(0, 0, 0, 0);
 }
