@@ -11,7 +11,7 @@
         <%= simple_form_for [@category, @question] do |q| %>
           <%= q.input :question %>
           <%= q.association :category, as: :select, selected: "#{@category.name}", disabled: true %>
-          <%= q.submit %>
+          <div class="actions button-edit-score"><%= q.submit 'Done' %></div>
         <% end %>
       </div>
     </div>

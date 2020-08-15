@@ -6,7 +6,7 @@
       <ul style="list-style: none">
         <% @categories.each do |category| %>
           <li>
-           <button class="btn-category <%= @category.id == category.id ? "target-btn-category" : "btn-link-category" %>"><%= link_to category.name, category_questions_path(category.id) %></button>
+           <button class="btn-category question-btn <%= @category.id == category.id ? "target-btn-category" : "btn-link-category" %>"><%= link_to category.name, category_questions_path(category.id) %></button>
           </li>
         <% end %>
       </ul>
