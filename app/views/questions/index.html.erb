@@ -1,0 +1,29 @@
+<%= render 'shared/sidebar_tp' %>
+<section class ="content-area">
+  <div class="questions-container-wrapper">
+    <div class="categories-container">
+      <h5>Category</h5>
+      <ul style="list-style: none">
+        <% @categories.each do |category| %>
+          <li>
+           <button class="btn-category <%= "target-btn-category" if @category.id == category.id %>"><%= link_to category.name, category_questions_path(category.id), class: "btn-link-category" %></button>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="questions-container">
+      <div class="top-questions">
+        <div><h5>Questions (<%= @category.questions.length %>)</h5></div>
+        <div id="add-questions"><a data-toggle="modal" data-target="#addQuestions" style="text-align: center"><i class="fas fa-plus"></i>Add questions</a></div>
+        <%= render "add_questions" %>
+      </div>
+      <% @category.questions.each do |question| %>
+        <div class="question-wrapper">
+          <div class="question-field"><div class="question-name"><%= question.question %></div><div><i class="fas fa-bars"></i></div></div>
+          <div class="edit-click" style="display: none;"><i class="fas fa-edit"></i>Edit</div>
+        </div>
+      <% end %>
+     </div>
+  </div>
+</section>

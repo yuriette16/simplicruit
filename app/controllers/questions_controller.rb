@@ -1,14 +1,15 @@
 class QuestionsController < ApplicationController
-  before_action :find_category, only: [:create]
+  before_action :find_category, only: [:index, :create]
   before_action :find_question, only: [:edit, :update]
 
   def index
     @questions = policy_scope(Question)
+    @categories = policy_scope(Category)
     @question = Question.new
   end
 
   def create
-    @question = Question.new(question_params)
+    @question = Question.new(questions_params)
     @question.category = @category
     authorize @question
 
@@ -32,7 +33,6 @@ class QuestionsController < ApplicationController
 
   def find_category
     @category = Category.find(params[:category_id])
-    authorize @category
   end
 
   def find_question
