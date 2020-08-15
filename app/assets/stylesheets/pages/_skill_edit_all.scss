@@ -1,0 +1,78 @@
+.right-align-area {
+  position:relative;
+  left:100px;
+  width:820px;
+}
+
+
+
+#select-position-edit {
+  height: 32px;
+  position:relative;
+  bottom:4px;
+  border-radius: 5px;
+  padding: 4px 10px 4px 6px;
+  margin-right:8px;
+}
+
+
+.head-row-select {
+  display:flex;
+  justify-content:space-between;
+}
+
+.head-row-select span {
+    position: relative;
+    left: 120px;
+    font-size: 18px;
+}
+
+.score-edit-table {
+  margin-top:32px;
+}
+
+.score-edit-table td {
+  width:0;
+}
+
+
+
+.score-edit-table td select {
+height:30px;
+}
+
+
+.score-edit-table input[type="text"] {
+height:30px;
+}
+
+#skill-name select, #importance select {
+  width:220px;
+  margin-right:100px;
+  margin-bottom:15px;
+  padding-left:6px;
+}
+
+#minimum-score input[type="text"] {
+  width:140px;
+  position:relative;
+  bottom:6px;
+  padding-left:6px;
+}
+
+
+.button-edit-score input[type="submit"]{
+  padding:5px 12px;
+  border-radius:6px;
+  border:none;
+  background:#1e67bd;
+  color:white;
+   margin:16px 0 40px 0;
+&:hover{
+  background:#0e488c;
+
+}
+}
+
+
+
