@@ -176,8 +176,8 @@ puts 'Finished'
 
 require 'csv'
 puts 'Create the question database'
-# Questionnaire.delete_all
-# Question.delete_all
+Questionnaire.delete_all
+Question.delete_all
 csv_text =File.read(Rails.root.join('lib','seeds','questions.csv'))
 csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
 
@@ -191,8 +191,8 @@ puts 'Finished'
 
 require 'csv'
 puts 'Create the skill_requirements database'
-# Questionnaire.delete_all
-# SkillRequirement.delete_all
+Questionnaire.delete_all
+SkillRequirement.delete_all
 csv_text = File.read(Rails.root.join('lib','seeds','skill_requirement.csv'))
 csv = CSV.parse(csv_text,:headers =>true, :encoding => 'ISO-8859-1')
 

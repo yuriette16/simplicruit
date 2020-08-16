@@ -40,7 +40,7 @@ class JobApplicationsController < ApplicationController
     # @job_application.score = @overall_score
     # @job_application.save!
     if @job_application.interview_date.nil? && @job_application.video_result.present?
-      InterviewBookedJob.perform_later(@job_application.id)
+      InterviewBookedJob.perform_now(@job_application.id)
     end
   end
 

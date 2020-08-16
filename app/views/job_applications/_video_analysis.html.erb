@@ -39,12 +39,10 @@
           <% end%>
           <% skill_requirement = @job_application.position.skill_requirements.where(skill_name: name).first%>
           <% expected_score =  skill_requirement.minimum_score * 10 %>
+
           <div class="percent-bar-and-score">
             <div class="personality-name percent-bar-main d-flex bd-highlight mb-3">
               <div class ="p-2 bd-highlight"><%= name %></div>
-
-              <div class ="p-2 bd-highlight">Expected score: <%= expected_score%></div>
-
               <div class ="ml-auto p-2 bd-highlight .text-danger">
               <%if percentile < 80 %>
                   <% if percentile - expected_score < 20 %>
