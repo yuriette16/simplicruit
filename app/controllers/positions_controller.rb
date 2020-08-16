@@ -12,7 +12,7 @@ class PositionsController < ApplicationController
 
     @positions.each do |position|
       if position.skill_requirements.first.nil?
-        CreateDefaultSkillRequirementJob.perform_later(position.id)
+        CreateDefaultSkillRequirementJob.perform_now(position.id)
       end
     end
     @position = Position.new

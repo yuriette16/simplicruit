@@ -32,7 +32,7 @@ class AnalysisVideoJob < ApplicationJob
     )
     puts "Done! "
 
-    sleep(15)
+    sleep(30)
 
     puts "Analysising the video"
     require 'json'
