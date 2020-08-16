@@ -7,7 +7,7 @@ class PositionsController < ApplicationController
     end
 
     @positions.each do |position|
-      StatusJob.perform_now(position)
+      StatusJob.perform_later(position)
     end
 
     @positions.each do |position|

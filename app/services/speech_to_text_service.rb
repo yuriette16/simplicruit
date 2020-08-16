@@ -5,7 +5,7 @@ require "json"
 class SpeechToTextService
   def video_transcript(audio_link)
     project_id = "simplicuit-279115"
-    key_file   = JSON.parse(ENV['GOOGLE_CLIENT_SECRET'])
+    # key_file   = JSON.parse(ENV['GOOGLE_CLIENT_SECRET'])
 
     audio_file_path = audio_link
     speech = Google::Cloud::Speech.speech
