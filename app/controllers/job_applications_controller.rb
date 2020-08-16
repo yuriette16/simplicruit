@@ -12,7 +12,7 @@ class JobApplicationsController < ApplicationController
 
   def update
     if @job_application.update(job_application_params)
-      AnalysisVideoJob.perform_later(@job_application.id)
+      AnalysisVideoJob.perform_now(@job_application.id)
       redirect_to positions_path
     else
       render :edit

@@ -1395,6 +1395,11 @@ batch@0.6.1:
   resolved "https://registry.yarnpkg.com/batch/-/batch-0.6.1.tgz#dc34314f4e679318093fc760272525f94bf25c16"
   integrity sha1-3DQxT05nkxgJP8dgJyUl+UvyXBY=
 
+batch@~0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/batch/-/batch-0.3.2.tgz#8f802c1358be2b33535f8808e0a23c9f0075733b"
+  integrity sha1-j4AsE1i+KzNTX4gI4KI8nwB1czs=
+
 bcrypt-pbkdf@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz#a4301d389b6a43f9b67ff3ca11a3f6637e360e9e"
@@ -6545,6 +6550,13 @@ source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+
+sox@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/sox/-/sox-0.1.0.tgz#a684dcc69aef057c241d4a20e6eb6004a3245560"
+  integrity sha1-poTcxprvBXwkHUog5utgBKMkVWA=
+  dependencies:
+    batch "~0.3.2"
 
 spark-md5@^3.0.0:
   version "3.0.1"

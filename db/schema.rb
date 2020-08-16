@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_12_180338) do
+ActiveRecord::Schema.define(version: 2020_08_16_105346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,10 @@ ActiveRecord::Schema.define(version: 2020_08_12_180338) do
     t.string "gender"
     t.integer "video_score"
     t.integer "status"
+    t.string "video_file_name"
+    t.string "video_content_type"
+    t.integer "video_file_size"
+    t.datetime "video_updated_at"
     t.index ["position_id"], name: "index_job_applications_on_position_id"
   end
 

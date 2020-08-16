@@ -18,6 +18,7 @@ gem'google-cloud-speech'
 #Cloudinary
 gem 'cloudinary', '~> 1.12.0'
 gem 'dotenv-rails', groups: [:development, :test]
+gem "paperclip", "~> 6.0.0"
 # faker
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
