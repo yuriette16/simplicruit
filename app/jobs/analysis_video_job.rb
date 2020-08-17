@@ -30,6 +30,10 @@ class AnalysisVideoJob < ApplicationJob
     job_application.videotranscript = result[0]
     job_application.save!
     puts "Finish the video transcript!"
+           CreateNotification.call(
+      contents: { 'en' => '1 Video is uploaded!！' },
+      type: 'job_applications#update'
+    )
 
     puts "Analysising the video"
     applicant = PersonalityInsightsService.new
@@ -38,6 +42,10 @@ class AnalysisVideoJob < ApplicationJob
     job_application.status = 3
     job_application.save!
     puts "Finish analysing"
+               CreateNotification.call(
+      contents: { 'en' => 'Analysis Report is done!' },
+      type: 'job_applications#update'
+    )
   end
   # def perform(job_application_id)
   #   job_application = JobApplication.find(job_application_id)
