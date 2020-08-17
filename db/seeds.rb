@@ -150,7 +150,7 @@ end
 # require 'json'
 # json = File.read(Rails.root.join('lib','seeds','personality.json'))
 # json = JSON.parse(json)
-# application.video_result  = json
+# user.video_result  = json
 
 # application.interview_date = DateTime.new(2020,8,10,1)
 # application.video_score = 71

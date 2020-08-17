@@ -12,7 +12,6 @@ RailsAdmin.config do |config|
     flash[:alert] = 'Sorry, no admin access for you.'
     redirect_to main_app.root_path
   end
-  config.included_models = [ "job_application", "category", "question","questionnaire","email_template","skill_requirement","user","position" ]
 end
 
   ## == CancanCan ==
