@@ -21,14 +21,14 @@ class JobApplicationsController < ApplicationController
 
   def show
     if @job_application.video_result.present?
-    extract_skill = ExtractSkill.new
-    cal_score = CalScore.new
-    generate_question = GenerateQuestion.new
-    required_skills = extract_skill.get_required_skills(@job_application)
-    @skill_names_array = extract_skill.extract_requirement_skills(@job_application, required_skills)
-    @overall_score = cal_score.cal_overall_score(@skill_names_array, required_skills)
-    @job_application.video_score = @overall_score
-    @job_application.save!
+      extract_skill = ExtractSkill.new
+      cal_score = CalScore.new
+      generate_question = GenerateQuestion.new
+      required_skills = extract_skill.get_required_skills(@job_application)
+      @skill_names_array = extract_skill.extract_requirement_skills(@job_application, required_skills)
+      @overall_score = cal_score.cal_overall_score(@skill_names_array, required_skills)
+      @job_application.video_score = @overall_score
+      @job_application.save!
 
     if Questionnaire.where(job_application_id: @job_application.id).empty?
       generate_question.generate_questions(@job_application, @skill_names_array, required_skills)
@@ -39,7 +39,7 @@ class JobApplicationsController < ApplicationController
     @questionnaire = Questionnaire.new
     # @job_application.score = @overall_score
     # @job_application.save!
-    if @job_application.interview_date.nil? && @job_application.video_result.present?
+    if @job_application.interview_date.nil? && @job_application.video_result.present? && @job_application.video_score > @job_application.position.passing_score
       InterviewBookedJob.perform_now(@job_application.id)
     end
   end

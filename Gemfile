@@ -5,9 +5,14 @@ ruby '2.6.5'
 
 
 # Gemfile
-
 #rails_admin
 gem 'rails_admin', '~> 2.0'
+
+#mail
+group :development do
+  gem "letter_opener"
+end
+
 #onesignal
 gem 'one_signal'
 gem 'httparty'
