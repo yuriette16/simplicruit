@@ -5,6 +5,9 @@ ruby '2.6.5'
 
 
 # Gemfile
+
+#rails_admin
+gem 'rails_admin', '~> 2.0'
 #onesignal
 gem 'one_signal'
 gem 'httparty'
