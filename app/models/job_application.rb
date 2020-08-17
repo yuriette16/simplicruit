@@ -6,7 +6,6 @@ class JobApplication < ApplicationRecord
 
   has_one_attached :resume
   has_one_attached :video
-  has_attached_file :mp4, cloudinary_resource_type: :video
 
   validates :candidate_name, :email, presence: true
 
