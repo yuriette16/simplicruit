@@ -5,6 +5,10 @@ ruby '2.6.5'
 
 
 # Gemfile
+
+#datetimepicker
+gem 'flatpickr_rails'
+
 #rails_admin
 gem 'rails_admin', '~> 2.0'
 

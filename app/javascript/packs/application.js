@@ -32,6 +32,7 @@ import { saveQuestionnaire } from '../components/form';
 import { GetPosition } from '../components/selectposition';
 import { GetPositionEdit } from '../components/selectposition';
 import { fullPage } from '../components/fullpage';
+import { dateTimePicker } from '../components/datetimepicker';
 
 // import { updateButton } from '../components/switch';
 
@@ -50,6 +51,7 @@ document.addEventListener('turbolinks:load', () => {
   GetPosition();
   GetPositionEdit();
   fullPage();
+  dateTimePicker();
   // updateButton();
 });
 

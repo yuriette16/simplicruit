@@ -4,7 +4,7 @@ class CreateDefaultSkillRequirementJob < ApplicationJob
     10.times do |i|
     skill_requirement = SkillRequirement.create(
       position_id: position_id,
-      weight: 3,
+      weight: 1,
       category_id: (Category.all).first.id + i
     )
     skill_requirement.save!
