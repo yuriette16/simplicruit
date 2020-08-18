@@ -1,11 +1,11 @@
 class StatusJob < ApplicationJob
-
   def perform(position)
     puts 'Start changing the status'
-    sort_applications = position.job_applications.order(video_score: :desc)
+
+    sort_applications = position.job_applications.order('video_score DESC NULLS LAST')
 
     sort_applications.limit(10).each do |job_application|
-      if job_application.status != "processing"
+      if (job_application.status != "processing" && job_application.video_score.present?)
         job_application.status = 3
         job_application.save!
       end
@@ -27,8 +27,6 @@ class StatusJob < ApplicationJob
       end
       job_application.save!
     end
-
-
-    puts 'Finished'
-  end
+   puts 'Finished'
+   end
 end

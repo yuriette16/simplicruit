@@ -1,10 +1,6 @@
 class PositionsController < ApplicationController
   def index
     @positions = policy_scope(Position).order(due_date: :asc)
-    respond_to do |format|
-      format.html
-      format.json { render json: { positions: @positions } }
-    end
 
     @positions.each do |position|
       StatusJob.perform_now(position)

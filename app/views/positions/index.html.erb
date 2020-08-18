@@ -1,6 +1,6 @@
 <section class ="content-area">
 <div class="heading">
-<h1>Vacant positions:<%= @positions.count %></h1>
+<h1>Hiring positions:<%= @positions.count %></h1>
 <div class = "head-row">
 <div class='date'><span class="far fa-calendar-check"></span>&thinsp;<span id="dtText"> </span></div>
 <a data-toggle="modal" data-target="#positionModal"><i class="fas fa-plus-circle"></i>&thinsp;Add position</a>
@@ -31,7 +31,7 @@
       </div>
     </div>
     <hr>
-      <% position.job_applications.order(status: :asc).order(video_score: :desc).first(3).each do |job_application| %>
+      <% position.job_applications.order(interview_date: :asc).order(status: :asc).order(video_score: :desc).first(3).each do |job_application| %>
       <div class="candidates-info" data-controller = "refresh">
       <div class="name">
         <i class="fas fa-angle-right"></i><%= link_to job_application.candidate_name, job_application_path(job_application) %>

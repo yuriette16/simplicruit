@@ -5,6 +5,14 @@ ruby '2.6.5'
 
 
 # Gemfile
+#rails_admin
+gem 'rails_admin', '~> 2.0'
+
+#mail
+group :development do
+  gem "letter_opener"
+end
+
 #onesignal
 gem 'one_signal'
 gem 'httparty'
@@ -16,8 +24,9 @@ gem 'sidekiq-failures', '~> 1.0'
 #Speech-to-text
 gem'google-cloud-speech'
 #Cloudinary
-gem 'cloudinary', '~> 1.12.0'
+gem 'cloudinary', '~> 1.16.0'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'paperclip-cloudinary'
 # faker
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
