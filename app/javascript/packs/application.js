@@ -40,6 +40,7 @@ import { initSweetalert } from '../plugins/init_sweetalert';
 
 
 
+
 // import { updateButton } from '../components/switch';
 
 // Internal imports, e.g:
@@ -60,6 +61,7 @@ document.addEventListener('turbolinks:load', () => {
   rangeSlider();
   // scoreIndicator();
   fullPage();
+
   // updateButton();
 });
 
