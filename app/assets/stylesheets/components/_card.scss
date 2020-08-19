@@ -20,9 +20,10 @@
     margin: 0.5em auto;
     padding: 0;
     width: 96%;
-    background: #f0f0f0;
+    background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
     height:auto;
+    border-color:#c6dbffd4;
 }
 
 
@@ -30,14 +31,14 @@
     .card {
         margin: 1em 0;
         width: calc(96% / 2);
-        background-color:#ffffff6b;
+        background-color:#fff;
     }
 }
 
 @media all and (min-width: 992px) {
     .card {
         width: calc(96% / 3);
-        background-color:#ffffff6b;
+        background-color:#fff;
         border-radius: 6px;
         padding:19px;
   }
@@ -66,11 +67,11 @@
 }
 
 .card-title {
-  font-size:18px;
-  color:#001223;
-  background-color:#f3f3f3;
-  padding:5px 0;
+  font-size:16px;
+  color: #004572;
+  padding:6px 0;
   border-radius:4px;
+
 }
 
 .candidates-info {
@@ -86,8 +87,6 @@
 .btn-seeall {
   width:80px;
   text-align: left;
-  padding:0 6px;
-  border:1px solid #ccc;
   border-radius:6px;
 }
 .card-cat {
@@ -99,7 +98,10 @@
     margin-bottom:18px;
 }
 .btn-seeall a {
-  color:#001223;
+  color:#167ffb;
+  &:hover{
+    color:#004572;
+  }
 }
 .fa-meh{
   font-size:26px;
