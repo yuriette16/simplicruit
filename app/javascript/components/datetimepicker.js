@@ -6,7 +6,6 @@ const dateTimePicker = () => {
       minDate:         "today",
       minuteIncrement: 1
     });
-    ('#input-box').removeAttr('readonly');
   }
 
 }

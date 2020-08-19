@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require('jquery')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -33,6 +34,11 @@ import { GetPosition } from '../components/selectposition';
 import { GetPositionEdit } from '../components/selectposition';
 import { fullPage } from '../components/fullpage';
 import { dateTimePicker } from '../components/datetimepicker';
+import { rangeSlider } from '../components/slider';
+import { initSweetalert } from '../plugins/init_sweetalert';
+// import { scoreIndicator } from '../components/score_indicator';
+
+
 
 // import { updateButton } from '../components/switch';
 
@@ -50,9 +56,22 @@ document.addEventListener('turbolinks:load', () => {
   updateSidebar();
   GetPosition();
   GetPositionEdit();
-  fullPage();
   dateTimePicker();
+  rangeSlider();
+  // scoreIndicator();
+  fullPage();
   // updateButton();
 });
 
 import "controllers"
+
+var testVar = "TestVariable";
+initSweetalert('#sweet-alert', {
+  title: "Passing Score is Updating",
+  text: "We will redirect you to the page soon.",
+  icon: "success",
+  timer: 3000,
+  button: false
+});
+
+
