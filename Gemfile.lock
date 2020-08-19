@@ -7,6 +7,14 @@ GIT
       i18n (>= 1.6, < 2)
 
 GIT
+  remote: https://github.com/glyph-fr/redactor-rails.git
+  revision: 6f6655fd71199700f2e5d7bc1f7f3c19f37dde50
+  specs:
+    redactor-rails (0.6.0)
+      mime-types
+      orm_adapter
+
+GIT
   remote: https://github.com/lndl/select2_simple_form.git
   revision: c3bb030a675a1c5a5fc5ce375564a0ba20381a7f
   tag: 0.7.3
@@ -123,6 +131,8 @@ GEM
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.13.1)
+    flatpickr_rails (1.1.0)
+      railties (>= 3.0)
     font-awesome-sass (5.13.0)
       sassc (>= 1.11)
     gapic-common (0.3.4)
@@ -406,6 +416,7 @@ DEPENDENCIES
   dotenv-rails
   excon
   faker!
+  flatpickr_rails
   font-awesome-sass
   google-cloud-speech
   httparty
@@ -422,6 +433,7 @@ DEPENDENCIES
   pundit
   rails (~> 6.0.3, >= 6.0.3.2)
   rails_admin (~> 2.0)
+  redactor-rails!
   redis (~> 4.0)
   sass-rails (>= 6)
   select2_simple_form!

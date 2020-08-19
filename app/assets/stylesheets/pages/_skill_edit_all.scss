@@ -1,10 +1,8 @@
 .right-align-area {
   position:relative;
-  left:100px;
+  left:200px;
   width:820px;
 }
-
-
 
 #select-position-edit {
   height: 32px;
@@ -28,24 +26,13 @@
 }
 
 .score-edit-table {
-  margin-top:32px;
-  background-color:#f8fbff45;
+
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .score-edit-table td {
-  width:0;
-  background-color:#f8fbff;
-}
-
-
-
-.score-edit-table td select {
-height:30px;
-}
-
-
-.score-edit-table input[type="text"] {
-height:30px;
+  width:-1px;
 }
 
 #skill-name select, #importance select {
@@ -57,23 +44,16 @@ height:30px;
   border-radius:4px;
 }
 
-#minimum-score input[type="text"] {
-  width:145px;
-  position:relative;
-  bottom:6px;
-  padding-left:6px;
-  border: #ccc solid 1px;
-  border-radius: 4px;
-}
-
-
 .button-edit-score input[type="submit"]{
-  padding:5px 12px;
-  border-radius:6px;
+  padding: 9px 15px;
+  border-radius: 4px;
   border:none;
   background:#1e67bd;
   color:white;
-   margin:16px 0 40px 0;
+  margin: 22px 0px 0px -135px;
+  position: relative;
+  top: 50%;
+  left: 50%;
 &:hover{
   background:#0e488c;
 
@@ -86,4 +66,9 @@ height:30px;
 
 th {
   white-space: nowrap;
+}
+
+.score-grid{
+ text-shadow: 1px 1px 0px rgba(0,0,0,0.1), 1px 1px 0px rgba(0,0,0,0.15);
+ text-align: center;
 }

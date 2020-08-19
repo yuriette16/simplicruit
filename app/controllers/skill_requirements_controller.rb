@@ -7,7 +7,8 @@ class SkillRequirementsController < ApplicationController
     if @skill_requirements.first.present?
       redirect_to position_skill_requirement_edit_all_path(@position)
     else
-      @skill_requirement = SkillRequirement.new
+      CreateDefaultSkillRequirementJob.perform_now(@position.id)
+      redirect_to position_skill_requirement_edit_all_path(@position)
     end
   end
 
@@ -43,7 +44,8 @@ class SkillRequirementsController < ApplicationController
       @skill_requirement = SkillRequirement.find(id.to_i)
       @skill_requirement.update_attributes(params[:skill_requirement][id].to_unsafe_h)
     end
-      redirect_to position_skill_requirement_edit_all_path(position_id)
+      sleep(3)
+      redirect_to position_skill_requirement_edit_all_path(position_id, anchor: 'score')
   end
 
   private
