@@ -15,7 +15,7 @@
     <div class="questions-container">
       <div class="top-questions">
         <div><h5>Questions (<%= @category.questions.length %>)</h5></div>
-        <div id="add-questions"><a data-toggle="modal" data-target="#addQuestions" style="text-align: center"><i class="fas fa-plus"></i>Add questions</a></div>
+        <div id="add-questions"><a data-toggle="modal" data-target="#addQuestions" style="text-align: center"><i class="fas fa-plus-circle"></i>&thinsp;Add questions</a></div>
         <%= render "add_questions" %>
       </div>
       <% @category.questions.each do |question| %>

@@ -33,6 +33,7 @@ import { GetPosition } from '../components/selectposition';
 import { GetPositionEdit } from '../components/selectposition';
 import { fullPage } from '../components/fullpage';
 
+
 // import { updateButton } from '../components/switch';
 
 // Internal imports, e.g:
@@ -50,6 +51,7 @@ document.addEventListener('turbolinks:load', () => {
   GetPosition();
   GetPositionEdit();
   fullPage();
+
   // updateButton();
 });
 
