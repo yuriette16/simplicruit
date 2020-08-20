@@ -5,9 +5,8 @@
 }
 
 .content-area h1 {
-  font-family: 'Heebo', sans-serif;
-  font-size: 32px;
-  color:#00101b;
+  font-size: 30px;
+  color:#032338;
 }
 
 .heading {
@@ -17,6 +16,13 @@
 .head-row {
   display: flex;
   justify-content: space-between;
+}
+
+.head-row a {
+  font-size:18px;
+}
+.heading h1 {
+  font-weight:500;
 }
 
 
@@ -30,13 +36,36 @@
   top:8px;
 }
 
+
+.fa-plus-circle {
+  color:#004572;
+}
+
+
 .fa-calendar-check {
   margin-left:5px;
   font-size: 16px;
-  color:#424242;
+  color:#004572;
 }
+
 
 .form-control:disabled, .form-control[readonly] {
     background-color: #ffffff;
     opacity: 1;
 }
+
+.button-general {
+
+  padding:7px 18px;
+  border-radius:6px;
+  border:none;
+  background:#1e67bd;
+  color:white;
+   margin:16px 0 40px 0;
+&:hover{
+  background:#0e488c;
+
+}
+
+}
+

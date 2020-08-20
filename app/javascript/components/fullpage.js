@@ -4,9 +4,11 @@ const fullPage = () => {
     var myFullpage = new fullpage('#fullpage', {
       autoScrolling:false,
       navigation:true,
-      scrollingSpeed: 500
+      scrollingSpeed:9000,
+
 
   });
+
   }
 }
 
