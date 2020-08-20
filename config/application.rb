@@ -9,6 +9,10 @@ Bundler.require(*Rails.groups)
 module Simplicruit
   class Application < Rails::Application
     config.active_job.queue_adapter = :sidekiq
+    config.assets.configure do |env|
+      env.export_concurrent = false
+    end
+
     config.generators do |generate|
       generate.assets false
       generate.helper false
