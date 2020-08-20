@@ -1,9 +1,11 @@
 <section class ="content-area">
 <div class="heading">
-<h1>Hiring positions:<%= @positions.count %></h1>
+<h1>Hiring positions:<b><%= @positions.count %></b></h1>
 <div class = "head-row">
-<div class='date'><span class="far fa-calendar-check"></span>&thinsp;<span id="dtText"> </span></div>
+  <div class='date'>Today's Date:&thinsp;<span id="dtText"> </span></span></div>
 <a data-toggle="modal" data-target="#positionModal"><i class="fas fa-plus-circle"></i>&thinsp;Add position</a>
+
+
 <%= render "create_position" %>
 </div>
 </div>
@@ -22,12 +24,13 @@
   </div>
     <div class="card-head">
       <div class="card-row-info">
-        <div class="card-info">recruitment: <%= position.target_hire_number  %><i class="fas fa-user"></i></div>
+        <div class="card-info">applications: <%= position.job_applications.count %><i class="fas fa-user"></i></div>
+
         <div class="card-duedate">Due:<%= position.due_date.strftime("%b %d %Y") %></div>
       </div>
       <div class="card-row-info">
-        <div class="card-info">applications: <%= position.job_applications.count %><i class="fas fa-user"></i></div>
-        <div class="card-info"><%= link_to 'Score Setting', position_skill_requirement_edit_all_path(position)%></div>
+        <div class="card-info">number of new hires: <%= position.target_hire_number  %><i class="fas fa-user"></i></div>
+        <!-- <div class="card-info"><%= link_to 'Score Setting', position_skill_requirement_edit_all_path(position)%></div> -->
       </div>
     </div>
     <hr>

@@ -18,7 +18,7 @@ class PositionsController < ApplicationController
     @position = Position.new(position_params)
     authorize @position
     if @position.save
-      redirect_to positions_path
+      redirect_to position_skill_requirement_edit_all_path(@position, anchor: 'score')
     else
       redirect_to positions_path
       flash.alert = 'Sorry, something goes wrong!'

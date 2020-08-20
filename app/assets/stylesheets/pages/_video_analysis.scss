@@ -56,14 +56,17 @@
 
 .personality-insights-bar{
   background-color: white;
-  border: 2px solid #ececec;
-  padding: 8px 24px;
+  border: 2px solid rgba(22, 127, 251, 0.29);
+  padding: 8px 48px;
   margin-bottom: 24px;
+  padding-top:20px;
+  padding-bottom:48px;
+  width:45%;
+  border-radius:6px;
 }
 
 .over-score-header{
-  display: flex;
-  justify-content: space-between;
+
 }
 
 #applicant-video{
@@ -73,11 +76,39 @@
 }
 
 #percentile{
-  position: absolute;
+
   right: 1rem;
-  top: 2.2rem;
+  top: 48px;
   margin-top: 0rem;
   font-size: 0.9em;
   color: #4178be;
 }
 
+
+.btn-video-analysis {
+  margin-right:40px;
+}
+
+
+.screening-result-section {
+  display:flex;
+  flex-direction:row;
+  width:1160px;
+}
+
+
+.video-content {
+  display:flex;
+  flex-direction:column;
+
+}
+
+.video-analysis-overall {
+  margin-top:24px;
+
+}
+
+.fa-sticky-note {
+  color: #004572;
+  font-size: 13px;
+}

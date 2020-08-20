@@ -5,19 +5,24 @@
       <div class="modal-header">
         <h2 class="modal-title" id="positionModalLabel">Add New Position</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">X</span>
+          <span aria-hidden="true">x</span>
         </button>
       </div>
       <div class="modal-body">
         <%= simple_form_for @position do |f| %>
-          <%= f.input :title %>
-          <%= f.input :due_date %>
-          <%= f.input :target_hire_number,:input_html => {:style=> 'width: 100px'} %>
-          <%= f.submit "Done", class: "btn btn-primary" %>
+          <%= f.input :title,label: "Job Title:" %>
+          <div class="row">
+          <div class="col">
+          <div class="mb-2" >Due Date:</div>
+          <%= f.text_field :due_date, id: "datetimepicker" %>
+          </div>
+          <div class="col">
+          <%= f.input :target_hire_number,:input_html => {:style=> 'width: 100px'},label: "Target Number of Hire:" %>
+          </div>
+          </div>
+            <%= f.submit "Proceed With Score Setting", class: "button-general" %>
         <% end %>
-       </div>
-     </div>
+      </div>
     </div>
   </div>
-
 </div>

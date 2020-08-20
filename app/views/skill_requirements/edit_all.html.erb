@@ -1,41 +1,38 @@
 <%= render 'shared/sidebar_tp' %>
-  <section class ="content-area right-align-area">
-  <div class="heading">
-  <h1 style = "margin-bottom:24px;">Score Setting</h1>
+<section class ="content-area right-align-area">
+<div class= "d-flex align-items-center justify-content-between">
+<div class="heading" id="score" ><h1 style = "margin-bottom:24px;">Score Setting</h1></div>
+  <div class= "head-row-select">
+      <select id="select-position-edit">
+        <% Position.all.each do |position| %>
+        <option value = <%= position.id %> <% if position.id == @position.id  %><%= selected="selected" %><% end %>><%= position.title %></option>
+        <% end %>
+      </select>
   </div>
-
-<div class= "head-row-select">
-<h5>Passing Score:<b> <%= @passing_score %></b></h5>
-<span> Position:</span>
-<select id="select-position-edit">
-  <% Position.all.each do |position| %>
-  <option value = <%= position.id %> <% if position.id == @position.id  %><%= selected="selected" %><% end %>><%= position.title %></option>
-  <% end %>
-</select>
 </div>
-<light style="font-size:14px;">Total Score = Importance * Minimum Score</light>
-
+<light style="font-size:14px;color:grey;">The expected score of each skill will be used for the 1st interview analysis.</light>
 <hr>
-
-<%= form_for :skill_requirement, :url => position_skill_requirement_update_all_path, :html => { :method => :patch } do %>
+ <% if @passing_score > 0 %>
+ <div class="score-grid"><h5><strong>Current Passing Score</strong></h5><h3><%= @passing_score %>/100<h3></b></div>
+ <% end %>
+<%= simple_form_for :skill_requirement, :url => position_skill_requirement_update_all_path, :html => { :method => :patch } do %>
  <table class = "score-edit-table">
     <tr>
       <th>Skill Name</th>
-      <th>Importance</th>
-      <th>Expected score (10/10)</th>
+      <th>Expected score</th>
     </tr>
     <% @skill_requirements.each do |skill_requirement| %>
-      <%= fields_for "skill_requirement[]", skill_requirement do |sr_fields| %>
-    <tr>
-      <td id="skill-name"><%= sr_fields.collection_select :category_id, Category.all, :id, :name %></td>
-      <td id="importance"><%= sr_fields.select :weight, SkillRequirement::WEIGHT  %></td>
-      <td id="minimum-score"><%= sr_fields.text_field :minimum_score %></td>
+     <tr>
+      <td class="skill-name"><%= skill_requirement.category.name %></td>
+      <%= simple_fields_for "skill_requirement[]", skill_requirement do |sr_fields| %>
+      <td class="range-slider"><%= sr_fields.text_field :minimum_score, class: 'range-slider__range', type: 'range', min:0, max: 10, step:1 %><span class="range-slider__value"><%= skill_requirement.minimum_score * 10 %></span> </td>
     </tr>
       <% end %>
     <% end %>
   </table>
-
-  <div class="actions button-edit-score">
-    <%= submit_tag %>
+  <div class="actions button-edit-score" id="sweet-alert" >
+    <%= submit_tag 'Calculate the Passing Score' %>
   </div>
 <% end %>
+</section>
+

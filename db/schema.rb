@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_08_16_105346) do
     t.integer "status"
     t.string "video_file_name"
     t.string "video_content_type"
-    t.integer "video_file_size"
+    t.bigint "video_file_size"
     t.datetime "video_updated_at"
     t.index ["position_id"], name: "index_job_applications_on_position_id"
   end
