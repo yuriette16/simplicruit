@@ -21,10 +21,13 @@
         <div class="over-score-header">
         <span class="over-score value"><% @overall_score %></span>
         <div><h5>Overall Score: <b><%= @overall_score %>/100pt</b></h5></div>
-          <div id="applicant-video"><a data-toggle="modal" data-target="#exampleModal" style="text-align: center"><i class="fas fa-video"></i> Check the video</div></a>
+          <!-- <div id="applicant-video"><a data-toggle="modal" data-target="#exampleModal" style="text-align: center"><i class="fas fa-video"></i> Check the video</div></a>
           <%= render "video_transcript" %>
-        </div>
+        </div> -->
       </div>
+
+      <div class="screening-result-section">
+
       <div class="personality-insights-bar">
         <p id="percentile">*%</p>
         <% @skill_names_array.each do |skill|  %>
@@ -46,9 +49,9 @@
               <div class ="p-2 bd-highlight"><%= name %></div>
               <div class ="ml-auto p-2 bd-highlight .text-danger">
               <%if percentile < 80 %>
-                  <% if percentile - expected_score < 20 %>
+                 <!--  <% if percentile - expected_score < 20 %>
                     <strong>Need to ask more </strong><i class="fas fa-exclamation-circle"></i>
-                  <% end %>
+                  <% end %> -->
                 <% end %>
               </div>
 
@@ -65,6 +68,21 @@
       Sorry, the candidate has not submitted the video yet.
       <% end %>
       </div>
+
+      <div class = "video-content">
+        <video class= "video-center" width="460" height="240" controls="controls" style="text-align:center;">
+          <source src="https://res.cloudinary.com/kwy031820/video/upload/v1596717511/mihihkbh5lhedu7rfq5d10obvwob.mp4"/>
+         Your browser does not support the video tag.
+        </video>
+           <div><span class="far fa-sticky-note"></span>&thinsp;transcirpt</div>
+          <div class ="video-transcript">
+
+            <%= simple_format @job_application.videotranscript %>
+          </div>
+      </div>
+
+    </div>
+
     </div>
   </div>
 </div>
