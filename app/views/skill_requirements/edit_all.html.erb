@@ -12,30 +12,29 @@
 </div>
 <light style="font-size:14px;color:grey;">The expected score of each skill will be used for the 1st interview analysis.</light>
 <hr>
- <% if @passing_score > 0 %>
- <div class="score-grid"><h5><strong>Current Passing Score</strong></h5><h3><%= @passing_score %>/100<h3></b></div>
- <% end %>
-<%= simple_form_for :skill_requirement, :url => position_skill_requirement_update_all_path, :html => { :method => :patch } do %>
+ <div class="score-grid"><h5><strong>Current Passing Score</strong></h5><h3><span id="passing-score"><%= @passing_score %></span>/100<h3></b></div>
+<%= simple_form_for :skill_requirement, :url => position_skill_requirement_update_all_path, :html => { :method => :patch , class: 'skill-form'}, remote: true do %>
  <table class = "score-edit-table">
     <tr>
-      <th>Skill Name</th>
+      <th>Skill Name&thinsp;<i class="fas fa-edit" style="color:#167FFB;"></i></th>
       <th>Expected score</th>
     </tr>
     <% @skill_requirements.each do |skill_requirement| %>
      <tr>
       <td class="skill-name"><%= skill_requirement.category.name %></td>
       <%= simple_fields_for "skill_requirement[]", skill_requirement do |sr_fields| %>
-      <td class="range-slider"><%= sr_fields.text_field :minimum_score, class: 'range-slider__range', type: 'range', min:0, max: 10, step:1 %><span class="range-slider__value"><%= skill_requirement.minimum_score * 10 %></span> </td>
+      <td class="range-slider"><%= sr_fields.text_field :minimum_score, class: 'range-slider__range', type: 'range', min:0, max: 10, step:1, onchange: 'Rails.fire(this.form, "submit")' %><span class="range-slider__value"><%= skill_requirement.minimum_score * 10 %></span> </td>
     </tr>
       <% end %>
     <% end %>
   </table>
-  <div class="actions button-edit-score" id="sweet-alert" >
-    <%= submit_tag 'Calculate the Passing Score' %>
+  <div class="actions button-edit-score">
+  <%= button_tag :type => "submit", data: { toggle: "modal" , target: "#exampleModalCenter" } do %>
+  <i class="fas fa-calculator"></i>&thinsp;Save the Score
+  <% end %>
+  <%= render 'redirect' %>
   </div>
-<% end %>
- <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a></div>
-  <script src='https://cdn.zingchart.com/zingchart.min.js'></script>
 
+<% end %>
 </section>
 

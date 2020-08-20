@@ -1,5 +1,5 @@
 class SkillRequirementsController < ApplicationController
-  before_action :find_position, only: [:index,:create,:edit_all]
+  before_action :find_position, only: [:index,:create,:edit_all,:update_all]
   before_action :find_skill_requirement, only: [:destroy, :edit]
 
   def index
@@ -17,35 +17,25 @@ class SkillRequirementsController < ApplicationController
     if @skill_requirements.first.nil?
       redirect_to position_skill_requirements_path(@position)
     else
-      passing_score = PassingScore.new
-      @passing_score = passing_score.cal_passing_score(@skill_requirements)
-      @position.passing_score = @passing_score
-      @position.save
-
-      @skill_requirements.each do |sk|
-
-        if sk.json_name.nil?
-          sk.json_name = sk.category.name
-          sk.skill_name = sk.category.name
-          sk.save!
-        end
-        if sk.json_name == "Stress Resistance"
-          sk.json_name = "Susceptible to stress"
-          sk.save!
-        end
-      end
+      @passing_score = @position.passing_score
     end
   end
 
   def update_all
-    position_id = params[:position_id]
-
     params[:skill_requirement].keys.each do |id|
       @skill_requirement = SkillRequirement.find(id.to_i)
       @skill_requirement.update_attributes(params[:skill_requirement][id].to_unsafe_h)
     end
-      sleep(3)
-      redirect_to position_skill_requirement_edit_all_path(position_id, anchor: 'score')
+
+    @skill_requirements = @position.skill_requirements.order(category_id: :asc)
+    if @skill_requirements.first.nil?
+      redirect_to position_skill_requirements_path(@position)
+    else
+      passing_score = PassingScore.new
+      @passing_score = passing_score.cal_passing_score(@skill_requirements)
+      @position.passing_score = @passing_score
+      @position.save
+    end
   end
 
   private

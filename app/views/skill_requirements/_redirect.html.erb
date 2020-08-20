@@ -1,0 +1,27 @@
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" style="margin: 0 90px;color:#0F4572;" id="exampleModalCenterTitle"><Strong>The Score is Saved!</Strong></h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <%= image_tag 'tick.gif',width:100 %>
+        <h2 class="bold-question">Next step?</h2>
+        <div class = "d-flex justify-content-around">
+        <div class ="redirect ml-1 mr-5">
+          <%= link_to positions_path do %>
+            <i class="fas fa-arrow-circle-left"></i>&thinsp;Check the applications
+          <% end %>
+        </div>
+        <div class ="redirect ml-3">
+          <%= link_to category_questions_path(Category.all.first.id) do %>
+          Set more questions?&thinsp;<i class="fas fa-arrow-circle-right"></i>
+          <% end %>
+        </div>
+        </div>
+      </div>
+  </div>
+</div>
