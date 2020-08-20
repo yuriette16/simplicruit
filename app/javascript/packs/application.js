@@ -25,7 +25,7 @@ require('jquery')
 
 // External imports
 import "bootstrap";
-import { displayApplication, displayEditQuestion } from '../components/buttons';
+import { displayApplication, displayEditQuestion, changeQuestionMode } from '../components/buttons';
 import { updateSidebar} from '../components/sidebar';
 import { getCurrentDate } from '../components/datetime';
 import { initSelect2 } from '../components/init_select2';
@@ -51,6 +51,7 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   displayApplication();
   displayEditQuestion();
+  changeQuestionMode();
   saveQuestionnaire();
   initSelect2();
   getCurrentDate();

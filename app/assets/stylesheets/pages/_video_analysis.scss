@@ -1,8 +1,15 @@
 .video-analysis-result{
   color: #101010;
+  display: flex;
+  justify-content: space-between;
 }
 
-
+.output-stats-column{
+  width: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
 
 .percent-bar-main{
   margin-bottom: 24px;
@@ -12,6 +19,7 @@
 .percent-bar{
   border-bottom: 1px solid #323232;
 }
+
 
 .percent-bar-and-score--number{
   position: absolute;
@@ -24,11 +32,11 @@
   text-align: center;
   font-size: 0.8em;
   font-weight: 400;
-  color: #4178be;
+  color: #5897FB;
 }
 
 .percent-bar--ball{
-  background-color:#5897fb;
+  background-color: #5897FB;
   height: 0.8rem;
   width: 0.8rem;
   top: -0.4rem;
@@ -36,6 +44,14 @@
   border-radius: 100%;
   position: absolute;
   transition: 0.2s;
+}
+
+.skill_requirement{
+  background-color: rgb(200,200,200);
+}
+
+.skill_requirement_parcent{
+  color: rgb(200,200,200);
 }
 
 .personality-insights-bar{
@@ -93,8 +109,7 @@
 
 }
 
-
 .fa-sticky-note {
-      color: #004572;
-    font-size: 13px;
+  color: #004572;
+  font-size: 13px;
 }

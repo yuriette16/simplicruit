@@ -57,4 +57,29 @@ const displayEditQuestion = () => {
 };
 
 
-export { displayApplication, displayEditQuestion };
+const changeQuestionMode = () => {
+  const editQuestionMode = document.querySelector(".edit-question-mode");
+  const inputQuestionMode = document.querySelector(".input-question-mode");
+  const answerFields = document.querySelectorAll(".answer-field");
+  const trashIcons = document.querySelectorAll(".a-trash-alt");
+  if (editQuestionMode) {
+    editQuestionMode.addEventListener("click", (event) => {
+      answerFields.forEach((answerField) => {
+        answerField.style.display = "none";
+      });
+    });
+  };
+
+  if (inputQuestionMode) {
+    inputQuestionMode.addEventListener("click", (event) => {
+      answerFields.forEach((answerField) => {
+        answerField.style.display = "block";
+      });
+    });
+  };
+
+};
+
+
+
+export { displayApplication, displayEditQuestion, changeQuestionMode };
