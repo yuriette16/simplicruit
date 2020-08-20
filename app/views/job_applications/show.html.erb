@@ -19,8 +19,8 @@
   </div>
 
   <div class="btn-application">
-    <button class="btn-video-analysis btn-application-analysis <%= 'active_button' if params[:tab].nil? %>">Video Analysis</button>
-    <button class="btn-evaluation-form btn-application-analysis <%= 'active_button' if params[:tab] == "evaluation" %>">Evaluation Form</button>
+    <button class="btn-video-analysis btn-application-analysis <%= 'active_button' if params[:tab].nil? %>">① Screening interview result</button>
+    <button class="btn-evaluation-form btn-application-analysis <%= 'active_button' if params[:tab] == "evaluation" %>">② 2nd interview evaluation form</button>
   </div>
 
   <div class="video-analysis-tab <%= 'hidden' unless params[:tab].nil? %>">

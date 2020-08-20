@@ -1,21 +1,21 @@
-
 .video-center {
+  margin-top: 30.5px;
   margin-left: auto;
   margin-right: auto;
   display: block;
 }
 
 .video-transcript{
-  margin-left: 20px;
-  margin-right: 20px;
   display: block;
   height:300px;
   width:80%;
   border:1px solid #ccc;
   font:16px/26px Georgia, Garamond, Serif;
   overflow:auto;
+  align-self: center;
 }
 
 .video-content{
   display:flex;
+  margin-bottom: 24px;
 }

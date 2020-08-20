@@ -1,24 +1,30 @@
 <% if @job_application.video_result.present? %>
+<div class="btn-mode">
+  <button class="mode-change edit-question-mode">Edit questions</button>
+  <button class="mode-change input-question-mode">Input questions</button>
+</div>
 <div class="evaluation-form-overall">
   <div class="question-form">
-
-
-
+    <% number = 0 %>
     <% @auto_questionnaires.each do |auto_questionnaire|  %>
       <div class="questionnaire-form">
-        <div class="category-name"><b><%= auto_questionnaire.question.category.name %></b></div>
-        <div class="question-name"><%= auto_questionnaire.question.question %>&thinsp;
-          <%= link_to questionnaire_path(auto_questionnaire), :method => :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="fas fa-trash-alt"></i>
-          <% end %>
+        <div class="category-name">Q.<%= number += 1 %>:&thinsp;<b><%= auto_questionnaire.question.category.name %></b></div>
+        <div class="question-name">
+          <div class="question-field">
+            <div class="question-name"><%= auto_questionnaire.question.question %></div>
+          </div>
+          <div>
+            <%= link_to questionnaire_path(auto_questionnaire), :method => :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div>
         </div>
         <textarea class="answer-field" data-questionnaire="<%= auto_questionnaire.id %>" data-question="<%= auto_questionnaire.question_id %>" data-job_application="<%= job_application.id %>"><%= auto_questionnaire.answer %></textarea>
         <br>
       </div>
     <% end %>
      <a data-toggle="modal" data-target="#questionModal"><i class="fas fa-plus-circle"></i>&thinsp;Add question</a>
-<!--      <a data-toggle="modal" data-target="#extraModal"><i class="fas fa-plus-circle"></i>&thinsp;Add Category</a>
- -->  </div>
+  </div>
   <button class="btn-save-evaluation">Save</button>&thinsp;<i class="fas fa-check save-check"></i>
 </div>
 <% else %>
@@ -27,3 +33,4 @@ Sorry, the candidate has not submitted the video yet.
 
 <%= render "questionnares/add_extra", job_application: @job_application, questionnaires: @job_application.questionnaires %>
 <%= render "questionnares/add_question", job_application: @job_application, questionnaires: @job_application.questionnaires %>
+

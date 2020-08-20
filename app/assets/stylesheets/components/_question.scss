@@ -8,6 +8,7 @@
   border: 1px solid #C4C4C4;
   position: relative;
   display: flex;
+  flex: 0 0 95%;
 }
 
 .questions-container-wrapper{
@@ -37,6 +38,8 @@
 
 .question-name{
   flex-grow: 1;
+  display: flex;
+  align-items: center;
 }
 
 .fa-bars{
@@ -57,4 +60,18 @@
   background-color: white;
   position: absolute;
   bottom:-5px; right:30px;
+}
+
+.btn-mode{
+  text-align: right;
+}
+
+.answer-field{
+  display: none;
+}
+
+.fa-trash-alt{
+  color: gray;
+  flex: 0 0 5%;
+  text-align: center;
 }
