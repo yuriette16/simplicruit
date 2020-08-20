@@ -2,12 +2,7 @@
   color: #101010;
 }
 
-.output-stats-column{
-  width: 70%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
+
 
 .percent-bar-main{
   margin-bottom: 24px;
@@ -50,13 +45,12 @@
   margin-bottom: 24px;
   padding-top:20px;
   padding-bottom:48px;
-  width:60%;
+  width:45%;
   border-radius:6px;
 }
 
 .over-score-header{
-  display: flex;
-  justify-content: space-between;
+
 }
 
 #applicant-video{
@@ -74,3 +68,32 @@
   color: #4178be;
 }
 
+
+.btn-video-analysis {
+  margin-right:40px;
+}
+
+
+.screening-result-section {
+  display:flex;
+  flex-direction:row;
+  width:1160px;
+}
+
+
+.video-content {
+  display:flex;
+  flex-direction:column;
+
+}
+
+.video-analysis-overall {
+  margin-top:24px;
+
+}
+
+
+.fa-sticky-note {
+      color: #004572;
+    font-size: 13px;
+}
