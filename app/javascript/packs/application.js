@@ -39,8 +39,6 @@ import { initSweetalert } from '../plugins/init_sweetalert';
 // import { scoreIndicator } from '../components/score_indicator';
 
 
-
-
 // import { updateButton } from '../components/switch';
 
 // Internal imports, e.g:
