@@ -37,10 +37,10 @@
 
 .percent-bar--ball{
   background-color: #5897FB;
-  height: 0.8rem;
-  width: 0.8rem;
-  top: -0.4rem;
-  left: -0.4rem;
+  height: 0.5rem;
+  width: 0.5rem;
+  top: -0.2rem;
+  left: -0rem;
   border-radius: 100%;
   position: absolute;
   transition: 0.2s;
@@ -48,10 +48,10 @@
 
 .percent-bar--ball-expected{
   background-color: gray;
-  height: 0.8rem;
-  width: 0.8rem;
-  top: -0.4rem;
-  left: -0.4rem;
+  height: 0.5rem;
+  width: 0.5rem;
+  top: -0.2rem;
+  left: 0rem;
   border-radius: 100%;
   position: absolute;
   transition: 0.2s;
@@ -131,8 +131,8 @@
 
 .percent-bar--ball-expected-explain{
   background-color: gray;
-  height: 0.8rem;
-  width: 0.8rem;
+  height: 0.5rem;
+  width: 0.5rem;
   top: -0.4rem;
   left: -0.4rem;
   border-radius: 100%;
@@ -142,8 +142,8 @@
 
 .actuall-bar-ball-explain{
   background-color: #5897FB;
-  height: 0.8rem;
-  width: 0.8rem;
+  height: 0.5rem;
+  width: 0.5rem;
   top: -0.4rem;
   left: -0.4rem;
   border-radius: 100%;
@@ -158,3 +158,22 @@
 .transcript{
   padding-left: 40px;
 }
+
+.personality-name{
+ font-size:16px;
+ font-weight:bold;
+ color:#0F4572;
+}
+
+.over-score-header{
+  text-align: center;
+  h5{
+  font-weight:bold;
+  }
+  p{
+  font-weight:lighter;
+  font-size:16px;
+  margin-bottom:1px;
+  }
+}
+
