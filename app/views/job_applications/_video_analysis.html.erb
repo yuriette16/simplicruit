@@ -46,9 +46,12 @@
             <div class="personality-name percent-bar-main d-flex bd-highlight mb-3">
               <div class ="p-2 bd-highlight"><%= name %></div>
               <div class ="ml-auto p-2 bd-highlight .text-danger">
+              <% if percentile >= 80 %>
+                <i class="fas fa-check-circle"></i>
+              <% end %>
               <%if percentile < 80 %>
-                   <% if percentile - expected_score < 20 %>
-                    <strong>Need to ask more </strong><i class="fas fa-exclamation-circle"></i>
+                  <% if percentile - expected_score < 20 %>
+                    <i class="fas fa-exclamation-circle"></i>
                   <% end %>
                 <% end %>
               </div>
