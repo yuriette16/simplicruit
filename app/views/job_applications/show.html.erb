@@ -22,7 +22,7 @@
 
       <li class="active">2nd interview reserved</li>
       <% else %>
-      <li>2nd interview reserved</li>
+      <li class ="">2nd interview reserved</li>
       <% end %>
     </ul>
     <% if @job_application.interview_date.present? %><div class='interview-date'>Upcoming interview:&thinsp;<b style='color:#03273e;'><%= @job_application.interview_date.strftime("%b %d %Y %H:%M") %></b></div><% end %>
