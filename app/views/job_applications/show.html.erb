@@ -1,11 +1,39 @@
 <section class ="content-area">
 <div class="container">
   <div class="applicant-main-info">
-    <div class ="medium-font applicant-name"><b><%= @job_application.candidate_name %></b></div>
+    <div class ="applicant-name "><b><%= @job_application.position.title %></b>:&thinsp;<%= @job_application.candidate_name %></div>
+<hr>
+
+
+  <div class='progressBar'>
+    <ul id="progressbar">
+      <% if @job_application.status == 'pending' %>
+      <li>Screening interview completed</li>
+      <% else %>
+       <li class="active">Screening interview completed</li>
+      <% end %>
+
+      <% if @job_application.video_result.present? %>
+      <li class="active">AI analysis completed</li>
+      <% else %>
+      <li>AI analysis completed</li>
+      <% end %>
+       <% if @job_application.interview_date.present? %>
+
+      <li class="active">2nd interview reserved</li>
+      <% else %>
+      <li>2nd interview reserved</li>
+      <% end %>
+    </ul>
+    <% if @job_application.interview_date.present? %><div class='interview-date'>Upcoming interview:&thinsp;<b style='color:#03273e;'><%= @job_application.interview_date.strftime("%b %d %Y %H:%M") %></b></div><% end %>
+
+  </div>
+
+
     <div class="card-application">
       <div class="card-application-container">
         <div class="card-application-personal-info-left">
-          <div><b>Position:</b> <%= @job_application.position.title %></div>
+          <div><b>Name:</b> <%= @job_application.candidate_name %></div>
           <div><b>Gender:</b> <%= @job_application.gender %></div>
           <div><b>Address:</b> <%= @job_application.address %></div>
         </div>
@@ -17,6 +45,13 @@
       </div>
     </div>
   </div>
+
+
+
+
+
+
+
 
   <div class="btn-application">
     <button class="btn-video-analysis btn-application-analysis <%= 'active_button' if params[:tab].nil? %>">Screening Interview Result</button>
