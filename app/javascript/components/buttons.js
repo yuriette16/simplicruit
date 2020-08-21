@@ -62,10 +62,18 @@ const changeQuestionMode = () => {
   const inputQuestionMode = document.querySelector(".input-question-mode");
   const answerFields = document.querySelectorAll(".answer-field");
   const trashIcons = document.querySelectorAll(".a-trash-alt");
+  const questionFields = document.querySelectorAll(".question-field");
+  const trashicons = document.querySelectorAll(".trash-icon");
   if (editQuestionMode) {
     editQuestionMode.addEventListener("click", (event) => {
       answerFields.forEach((answerField) => {
         answerField.style.display = "none";
+      });
+      questionFields.forEach((questionField) => {
+        questionField.classList.add("question-field");
+      });
+      trashicons.forEach((trashicon) => {
+        trashicon.style.display = "block";
       });
     });
   };
@@ -74,6 +82,12 @@ const changeQuestionMode = () => {
     inputQuestionMode.addEventListener("click", (event) => {
       answerFields.forEach((answerField) => {
         answerField.style.display = "block";
+      });
+      questionFields.forEach((questionField) => {
+        questionField.classList.remove("question-field");
+      });
+      trashicons.forEach((trashicon) => {
+        trashicon.style.display = "none";
       });
     });
   };
