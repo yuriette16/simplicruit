@@ -4,13 +4,15 @@
 
 @media all and (min-width: 768px) {
   .answer-field {
-    width:80%;
+    width:100%;
+    border: solid 1px rgb(190,216,253);
   }
 }
 
 @media all and (min-width: 1240px) {
   .answer-field {
-    width:60%;
+    width:100%;
+    border: solid 1px rgb(190,216,253);
   }
 }
 
@@ -79,6 +81,9 @@
   border-radius: 4px;
   border: none;
   font-size: 20px;
+  &:hover{
+    background-color: rgb(117,135,195);
+  }
 }
 
 // .btn-application-analysis:before{
