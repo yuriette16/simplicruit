@@ -1,11 +1,10 @@
-
 <div class="video-analysis-overall">
 <% if @job_application.videotranscript.present? && @job_application.video_result.nil? %>
   <div class="video-analysis-result">
     <div class="personality output-stats-column">
       <div class="overall-score">
           <div class="over-score-header">
-          <div><h5>Overall Score: <b><%= @overall_score %> /100pt</b></h5></div>
+          <div><h5>Overall Score: <b><%= @overall_score %> /100pt</b> (Passing score: <%= @job_application.position.passing_score %>pt)</h5></div>
           </div>
           <p><h1><i class="fas fa-spinner fa-pulse"></i>&thinsp;&thinsp;&thinsp;AI is analysing.....</h1><p>
         </div>
@@ -17,14 +16,18 @@
     <div class="personality output-stats-column">
       <div class="overall-score">
         <div class="over-score-header">
-          <div><h5>Overall Score: <b><%= @overall_score %>/100pt</b></h5></div>
+          <div><h5>Overall Score: <b><%= @overall_score %>/100pt</b> (Passing score: <%= @job_application.position.passing_score %>pt)</div>
         </div>
       </div>
 
       <div class="screening-result-section">
 
       <div class="personality-insights-bar">
-        <p id="percentile">*%</p>
+        <div class="explanation-wrapper">
+          <div class="percent-bar--ball-expected-explain skill_requirement_parcent"></div><div>&thinsp;Expected score&thinsp;&thinsp;</div>
+          <div class="actuall-bar-ball-explain"></div><div>&thinsp;Actual score</div>
+        </div>
+        <span><p id="percentile">*%</p></span>
         <% @skill_names_array.each do |skill|  %>
           <% if skill[:name] == 'Susceptible to stress' %>
             <% name = 'Stress Resistance' %>
@@ -53,7 +56,7 @@
             </div>
             <div class="percent-bar">
               <div class="percent-bar--meter" style="-webkit-transform: translate(<%= skill_requirement.minimum_score * 10 %>%); transform: translate(<%= skill_requirement.minimum_score * 10 %>%)">
-                <div class="percent-bar--ball skill_requirement"></div>
+                <div class="percent-bar--ball-expected"></div>
                 <div class="percent-bar-and-score--number skill_requirement_parcent"><%= skill_requirement.minimum_score * 10 %></div>
               </div>
               <div class="percent-bar--meter" style="-webkit-transform: translate(<%= percentile %>%); transform: translate(<%= percentile %>%)">
@@ -73,10 +76,10 @@
           <source src="https://res.cloudinary.com/kwy031820/video/upload/v1596717511/mihihkbh5lhedu7rfq5d10obvwob.mp4"/>
          Your browser does not support the video tag.
         </video>
-           <div><span class="far fa-sticky-note"></span>&thinsp;transcirpt</div>
-          <div class ="video-transcript">
-            <%= simple_format @job_application.videotranscript %>
-          </div>
+        <div class="transcript">transcirpt</div>
+        <div class ="video-transcript">
+          <%= simple_format @job_application.videotranscript %>
+        </div>
       </div>
 
     </div>

@@ -1,7 +1,7 @@
 <% if @job_application.video_result.present? %>
 <div class="btn-mode">
   <button class="mode-change edit-question-mode">Edit questions</button>
-  <button class="mode-change input-question-mode">Input questions</button>
+  <button class="mode-change input-question-mode"><i class="fas fa-play fa-xs"></i>&thinsp;&thinsp;Start interview</button>
 </div>
 <div class="evaluation-form-overall">
   <div class="question-form">
@@ -13,7 +13,7 @@
           <div class="question-field">
             <div class="question-name"><%= auto_questionnaire.question.question %></div>
           </div>
-          <div>
+          <div class="trash-icon">
             <%= link_to questionnaire_path(auto_questionnaire), :method => :delete, data: { confirm: "Are you sure?" } do %>
               <i class="fas fa-trash-alt"></i>
             <% end %>

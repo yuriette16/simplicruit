@@ -46,12 +46,19 @@
   transition: 0.2s;
 }
 
-.skill_requirement{
-  background-color: rgb(200,200,200);
+.percent-bar--ball-expected{
+  background-color: gray;
+  height: 0.8rem;
+  width: 0.8rem;
+  top: -0.4rem;
+  left: -0.4rem;
+  border-radius: 100%;
+  position: absolute;
+  transition: 0.2s;
 }
 
 .skill_requirement_parcent{
-  color: rgb(200,200,200);
+  color: gray;
 }
 
 .personality-insights-bar{
@@ -63,10 +70,7 @@
   padding-bottom:48px;
   width:45%;
   border-radius:6px;
-}
-
-.over-score-header{
-
+  position: relative;
 }
 
 #applicant-video{
@@ -76,9 +80,9 @@
 }
 
 #percentile{
-
-  right: 1rem;
-  top: 48px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
   margin-top: 0rem;
   font-size: 0.9em;
   color: #4178be;
@@ -112,4 +116,45 @@
 .fa-sticky-note {
   color: #004572;
   font-size: 13px;
+}
+
+.expected-ball-explain{
+  position: absolute;
+  right: 60%;
+}
+
+.explanation-wrapper{
+  display: flex;
+  position: absolute;
+  right: 25%;
+}
+
+.percent-bar--ball-expected-explain{
+  background-color: gray;
+  height: 0.8rem;
+  width: 0.8rem;
+  top: -0.4rem;
+  left: -0.4rem;
+  border-radius: 100%;
+  transition: 0.2s;
+  align-self: center;
+}
+
+.actuall-bar-ball-explain{
+  background-color: #5897FB;
+  height: 0.8rem;
+  width: 0.8rem;
+  top: -0.4rem;
+  left: -0.4rem;
+  border-radius: 100%;
+  transition: 0.2s;
+  align-self: center;
+}
+
+.percent-bar-and-score{
+  margin-top: 24px;
+}
+
+.transcript{
+  padding-left: 40px;
 }
