@@ -2,12 +2,14 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
-
-require("@rails/ujs").start()
+const Rails = require("@rails/ujs")
+Rails.start()
+global.Rails = Rails;
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('jquery')
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -35,14 +37,7 @@ import { GetPositionEdit } from '../components/selectposition';
 import { fullPage } from '../components/fullpage';
 import { dateTimePicker } from '../components/datetimepicker';
 import { rangeSlider } from '../components/slider';
-import { initSweetalert } from '../plugins/init_sweetalert';
-// import { scoreIndicator } from '../components/score_indicator';
-
-
-
-
 // import { updateButton } from '../components/switch';
-
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -60,21 +55,9 @@ document.addEventListener('turbolinks:load', () => {
   GetPositionEdit();
   dateTimePicker();
   rangeSlider();
-  // scoreIndicator();
   fullPage();
-
   // updateButton();
 });
 
 import "controllers"
-
-var testVar = "TestVariable";
-initSweetalert('#sweet-alert', {
-  title: "Passing Score is Updating",
-  text: "We will redirect you to the page soon.",
-  icon: "success",
-  timer: 3000,
-  button: false
-});
-
 

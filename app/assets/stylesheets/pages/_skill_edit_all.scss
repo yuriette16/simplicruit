@@ -44,7 +44,7 @@
   border-radius:4px;
 }
 
-.button-edit-score input[type="submit"]{
+.button-edit-score button[type="submit"]{
   padding: 9px 15px;
   border-radius: 4px;
   border:none;
@@ -61,6 +61,19 @@
 }
 
 
+.redirect{
+  i {
+  color:#1e67bd;
+}
+  a{
+    color:black;
+  }
+}
+
+.bold-question{
+ color:#1e67bd;
+ font-weight:strong;
+}
 
 
 

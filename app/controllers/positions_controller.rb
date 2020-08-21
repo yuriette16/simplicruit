@@ -11,6 +11,7 @@ class PositionsController < ApplicationController
         CreateDefaultSkillRequirementJob.perform_now(position.id)
       end
     end
+
     @position = Position.new
   end
 

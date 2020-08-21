@@ -1,12 +1,14 @@
+let myFullpage = null;
 const fullPage = () => {
+  if (myFullpage){
+    fullpage_api.destroy('all');
+  }
   const fullPage = document.getElementById('fullpage');
   if(fullPage){
-    var myFullpage = new fullpage('#fullpage', {
-      autoScrolling:false,
-      navigation:true,
-      scrollingSpeed:9000,
-
-
+    myFullpage = fullpage('#fullpage', {
+    autoScrolling:false,
+    navigation:true,
+    scrollingSpeed:9000,
   });
 
   }
