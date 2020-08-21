@@ -39,7 +39,7 @@ class JobApplicationsController < ApplicationController
     @questionnaire = Questionnaire.new
     # @job_application.score = @overall_score
     # @job_application.save!
-    if @job_application.interview_date.nil? && @job_application.video_result.present? && @job_application.video_score > @job_application.position.passing_score
+    if @job_application.interview_date.nil? && @job_application.status != "invited" && @job_application.video_result.present? && @job_application.video_score > @job_application.position.passing_score
       InterviewBookedJob.perform_now(@job_application.id)
     end
 

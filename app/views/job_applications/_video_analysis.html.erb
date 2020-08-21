@@ -16,7 +16,7 @@
       <div class="personality output-stats-column">
         <div class="overall-score">
           <div class="over-score-header">
-            <h5>Overall Score:&thinsp;<%= @overall_score %>/100pt</h5>
+            <h5>Overall Score:&thinsp;<%= @job_application.video_score %>/100pt</h5>
             <p>(Passing score: <%= @job_application.position.passing_score %>pt)</p>
           </div>
         </div>
@@ -72,8 +72,8 @@
 
       <div class = "video-content">
         <video class= "video-center" width="460" height="240" controls="controls" style="text-align:center;">
-          <source src="https://res.cloudinary.com/kwy031820/video/upload/v1596717511/mihihkbh5lhedu7rfq5d10obvwob.mp4"/>
-          Your browser does not support the video tag.
+          <source src="https://res.cloudinary.com/kwy031820/video/upload/v1596717511/<%= @job_application.video.key %>.mp4"/>
+         Your browser does not support the video tag.
         </video>
         <div class="transcript">transcirpt</div>
         <div class ="video-transcript">
