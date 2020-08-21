@@ -37,7 +37,7 @@ class AnalysisVideoJob < ApplicationJob
       job_application.save!
       puts "Finish the video transcript!"
              CreateNotification.call(
-        contents: { 'en' => '1 Video is uploaded!！' },
+        contents: { 'en' => 'One video has uploaded!！' },
         type: 'job_applications#update'
       )
 
@@ -48,7 +48,8 @@ class AnalysisVideoJob < ApplicationJob
     job_application.status = 3
     job_application.save!
     puts "Finish analysing"
-               CreateNotification.call(
+      sleep(15)
+      CreateNotification.call(
       contents: { 'en' => 'Analysis Report is done!' },
       type: 'job_applications#update'
     )
