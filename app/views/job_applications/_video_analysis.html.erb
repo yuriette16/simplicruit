@@ -16,7 +16,8 @@
     <div class="personality output-stats-column">
       <div class="overall-score">
         <div class="over-score-header">
-          <div><h5>Overall Score: <b><%= @overall_score %>/100pt</b> (Passing score: <%= @job_application.position.passing_score %>pt)</div>
+            <h5>Overall Score:&thinsp;<%= @overall_score %>/100pt</h5>
+            <p>(Passing score: <%= @job_application.position.passing_score %>pt)</p>
         </div>
       </div>
 
@@ -43,19 +44,16 @@
           <% expected_score =  skill_requirement.minimum_score * 10 %>
 
           <div class="percent-bar-and-score">
-            <div class="personality-name percent-bar-main d-flex bd-highlight mb-3">
-              <div class ="p-2 bd-highlight"><%= name %></div>
-              <div class ="ml-auto p-2 bd-highlight .text-danger">
+            <div class="personality-name percent-bar-main d-flex justify-content-start align-items-center">
               <% if percentile >= 80 %>
-                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-medal" style="color: #1347af"></i>
               <% end %>
               <%if percentile < 80 %>
                   <% if percentile - expected_score < 20 %>
-                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-exclamation-circle", style="color: #999b9b"></i>
                   <% end %>
-                <% end %>
-              </div>
-
+              <% end %>
+              <div class ="p-2 bd-highlight"><%= name %></div>
             </div>
             <div class="percent-bar">
               <div class="percent-bar--meter" style="-webkit-transform: translate(<%= skill_requirement.minimum_score * 10 %>%); transform: translate(<%= skill_requirement.minimum_score * 10 %>%)">
@@ -69,11 +67,7 @@
             </div>
           </div>
         <% end %>
-      <% else %>
-      Sorry, the candidate has not submitted the video yet.
-      <% end %>
       </div>
-
       <div class = "video-content">
         <video class= "video-center" width="460" height="240" controls="controls" style="text-align:center;">
           <source src="https://res.cloudinary.com/kwy031820/video/upload/v1596717511/mihihkbh5lhedu7rfq5d10obvwob.mp4"/>
@@ -84,7 +78,9 @@
           <%= simple_format @job_application.videotranscript %>
         </div>
       </div>
-
+      <% else %>
+      Sorry, the candidate has not submitted the video yet.
+      <% end %>
     </div>
 
     </div>
