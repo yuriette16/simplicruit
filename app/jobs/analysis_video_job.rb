@@ -18,22 +18,28 @@ class AnalysisVideoJob < ApplicationJob
     job_application.status = 0
     job_application.save!
 
-    sleep(180)
-
-    export = HappyScribeDownload.new
-    p download = export.transcript_export(export_id)
-    require 'open-uri'
-    result = []
-    open(download["download_link"]) do |file|
-      result << file.read
+    result_export = "pending"
+    until result_export == "ready"
+      puts "transcript is not ready!"
+      sleep(15)
+      export = HappyScribeDownload.new
+      p download = export.transcript_export(export_id)
+      result_export = download["state"]
     end
-    job_application.videotranscript = result[0]
-    job_application.save!
-    puts "Finish the video transcript!"
-           CreateNotification.call(
-      contents: { 'en' => '1 Video is uploaded!！' },
-      type: 'job_applications#update'
-    )
+
+   puts "export the transcript"
+    require 'open-uri'
+      result = []
+      open(download["download_link"]) do |file|
+        result << file.read
+      end
+      job_application.videotranscript = result[0]
+      job_application.save!
+      puts "Finish the video transcript!"
+             CreateNotification.call(
+        contents: { 'en' => '1 Video is uploaded!！' },
+        type: 'job_applications#update'
+      )
 
     puts "Analysising the video"
     applicant = PersonalityInsightsService.new

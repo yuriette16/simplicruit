@@ -3,12 +3,8 @@ class InterviewBookedJob < ApplicationJob
     puts "Doing the loading"
     application = JobApplication.find(job_application_id)
     NotificationMailer.interview_invitation(application.candidate_name).deliver
-    application.interview_date = DateTime.new(2020, 8, 29, 12)
+    application.interview_date = DateTime.new(2020, 8, 28, 12)
     application.status = 1
-    # CreateNotification.call(
-    #   contents: { 'en' => 'Candidate booked the interview!' },
-    #   type: 'job_applications#show'
-    # )
     application.save!
     puts "Finished"
   end

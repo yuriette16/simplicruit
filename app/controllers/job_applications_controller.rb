@@ -42,6 +42,13 @@ class JobApplicationsController < ApplicationController
     if @job_application.interview_date.nil? && @job_application.video_result.present? && @job_application.video_score > @job_application.position.passing_score
       InterviewBookedJob.perform_now(@job_application.id)
     end
+
+    # if @job_application.interview_date.present
+    #   CreateNotification.call(
+    #   contents: { 'en' => 'Candidate booked this interview!' },
+    #   type: 'job_applications#show'
+    # )
+    # end
   end
 
   private
