@@ -45,11 +45,14 @@
 }
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
-#progressbar li.active:before,  #progressbar li.active:after{
+#progressbar li.active:before {
   background: #1d6fd0;
   color: white;
 }
 
+ #progressbar li.active:after{
+  background: #9ebff3;
+ }
 
 .progressBar{
 

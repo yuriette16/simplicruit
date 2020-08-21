@@ -3,12 +3,27 @@
   <div class="applicant-main-info">
     <div class ="applicant-name "><b><%= @job_application.position.title %></b>:&thinsp;<%= @job_application.candidate_name %></div>
 <hr>
-    <div class='progressBar'>
-   <!-- <span><b> status:&emsp;</b></span> -->
+
+
+  <div class='progressBar'>
     <ul id="progressbar">
-      <li class="active">Screening interview completed</li>
+      <% if @job_application.status == 'pending' %>
+      <li>Screening interview completed</li>
+      <% else %>
+       <li class="active">Screening interview completed</li>
+      <% end %>
+
+      <% if @job_application.video_result.present? %>
+      <li class="active">AI analysis completed</li>
+      <% else %>
       <li>AI analysis completed</li>
+      <% end %>
+       <% if @job_application.interview_date.present? %>
+
+      <li class="active">2nd interview reserved</li>
+      <% else %>
       <li>2nd interview reserved</li>
+      <% end %>
     </ul>
     <% if @job_application.interview_date.present? %><div class='interview-date'>Upcoming interview:&thinsp;<b style='color:#03273e;'><%= @job_application.interview_date.strftime("%b %d %Y %H:%M") %></b></div><% end %>
 
