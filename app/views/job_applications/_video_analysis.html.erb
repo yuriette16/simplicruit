@@ -1,73 +1,75 @@
 <div class="video-analysis-overall">
-<% if @job_application.videotranscript.present? && @job_application.video_result.nil? %>
-  <div class="video-analysis-result">
-    <div class="personality output-stats-column">
-      <div class="overall-score">
+  <% if @job_application.videotranscript.present? && @job_application.video_result.nil? %>
+    <div class="video-analysis-result">
+      <div class="personality output-stats-column">
+        <div class="overall-score">
           <div class="over-score-header">
-          <div><h5>Overall Score: <b><%= @overall_score %> /100pt</b> (Passing score: <%= @job_application.position.passing_score %>pt)</h5></div>
+            <div><h5>Overall Score: <b><%= @overall_score %> /100pt</b> (Passing score: <%= @job_application.position.passing_score %>pt)</h5></div>
           </div>
           <p><h1><i class="fas fa-spinner fa-pulse"></i>&thinsp;&thinsp;&thinsp;AI is analysing.....</h1><p>
         </div>
       </div>
     </div>
-  </div>
+
   <% elsif @job_application.video_result.present? %>
-  <div class="video-analysis-result">
-    <div class="personality output-stats-column">
-      <div class="overall-score">
-        <div class="over-score-header">
+    <div class="video-analysis-result">
+      <div class="personality output-stats-column">
+        <div class="overall-score">
+          <div class="over-score-header">
             <h5>Overall Score:&thinsp;<%= @job_application.video_score %>/100pt</h5>
             <p>(Passing score: <%= @job_application.position.passing_score %>pt)</p>
-        </div>
-      </div>
-
-      <div class="screening-result-section">
-
-      <div class="personality-insights-bar">
-        <div class="explanation-wrapper">
-          <div class="percent-bar--ball-expected-explain skill_requirement_parcent"></div><div>&thinsp;Expected score&thinsp;&thinsp;</div>
-          <div class="actuall-bar-ball-explain"></div><div>&thinsp;Actual score</div>
-        </div>
-        <span><p id="percentile">*%</p></span>
-        <% @skill_names_array.each do |skill|  %>
-          <% if skill[:name] == 'Susceptible to stress' %>
-            <% name = 'Stress Resistance' %>
-          <% else %>
-            <% name = skill[:name] %>
-          <% end%>
-          <% if skill[:name] == 'Susceptible to stress' %>
-            <% percentile = (100 - (skill[:percentile] * 100).round(1)) %>
-          <% else %>
-            <%  percentile = (skill[:percentile] * 100).round(1) %>
-          <% end%>
-          <% skill_requirement = @job_application.position.skill_requirements.where(skill_name: name).first%>
-          <% expected_score =  skill_requirement.minimum_score * 10 %>
-
-          <div class="percent-bar-and-score">
-            <div class="personality-name percent-bar-main d-flex justify-content-start align-items-center">
-              <% if percentile >= 80 %>
-                <i class="fas fa-medal" style="color: #1347af"></i>
-              <% end %>
-              <%if percentile < 80 %>
-                  <% if percentile - expected_score < 20 %>
-                    <i class="fas fa-exclamation-circle", style="color: #999b9b"></i>
-                  <% end %>
-              <% end %>
-              <div class ="p-2 bd-highlight"><%= name %></div>
-            </div>
-            <div class="percent-bar">
-              <div class="percent-bar--meter" style="-webkit-transform: translate(<%= skill_requirement.minimum_score * 10 %>%); transform: translate(<%= skill_requirement.minimum_score * 10 %>%)">
-                <div class="percent-bar--ball-expected"></div>
-                <div class="percent-bar-and-score--number skill_requirement_parcent"><%= skill_requirement.minimum_score * 10 %></div>
-              </div>
-              <div class="percent-bar--meter" style="-webkit-transform: translate(<%= percentile %>%); transform: translate(<%= percentile %>%)">
-                <div class="percent-bar--ball"></div>
-                <div class="percent-bar-and-score--number"><%= percentile %></div>
-              </div>
-            </div>
           </div>
-        <% end %>
+        </div>
+
+        <div class="personality-insights-bar">
+          <div class="explanation-wrapper">
+            <div class="percent-bar--ball-expected-explain skill_requirement_parcent"></div><div>&thinsp;Expected score&thinsp;&thinsp;</div>
+            <div class="actuall-bar-ball-explain"></div><div>&thinsp;Actual score</div>
+          </div>
+          <span><p id="percentile">*%</p></span>
+          <% @skill_names_array.each do |skill|  %>
+            <% if skill[:name] == 'Susceptible to stress' %>
+              <% name = 'Stress Resistance' %>
+            <% else %>
+              <% name = skill[:name] %>
+            <% end%>
+            <% if skill[:name] == 'Susceptible to stress' %>
+              <% percentile = (100 - (skill[:percentile] * 100).round(1)) %>
+            <% else %>
+              <%  percentile = (skill[:percentile] * 100).round(1) %>
+            <% end%>
+            <% skill_requirement = @job_application.position.skill_requirements.where(skill_name: name).first%>
+            <% expected_score =  skill_requirement.minimum_score * 10 %>
+
+            <div class="percent-bar-and-score">
+              <div class="personality-name percent-bar-main d-flex justify-content-start align-items-center">
+                <% if percentile >= 80 %>
+                  <i class="fas fa-medal" style="color: #1347af"></i>
+                <% end %>
+                <%if percentile < 80 %>
+                    <% if percentile - expected_score < 20 %>
+                      <i class="fas fa-exclamation-circle", style="color: #999b9b"></i>
+                    <% end %>
+                <% end %>
+                <div class ="p-2 bd-highlight"><%= name %></div>
+              </div>
+
+              <div class="percent-bar">
+                <div class="percent-bar--meter" style="-webkit-transform: translate(<%= skill_requirement.minimum_score * 10 %>%); transform: translate(<%= skill_requirement.minimum_score * 10 %>%)">
+                  <div class="percent-bar--ball-expected"></div>
+                  <div class="percent-bar-and-score--number skill_requirement_parcent"><%= skill_requirement.minimum_score * 10 %></div>
+                </div>
+                <div class="percent-bar--meter" style="-webkit-transform: translate(<%= percentile %>%); transform: translate(<%= percentile %>%)">
+                  <div class="percent-bar--ball"></div>
+                  <div class="percent-bar-and-score--number"><%= percentile %></div>
+                </div>
+              </div>
+            </div>
+
+          <% end %>
+        </div>
       </div>
+
       <div class = "video-content">
         <video class= "video-center" width="460" height="240" controls="controls" style="text-align:center;">
           <source src="https://res.cloudinary.com/kwy031820/video/upload/v1596717511/<%= @job_application.video.key %>.mp4"/>
@@ -78,12 +80,8 @@
           <%= simple_format @job_application.videotranscript %>
         </div>
       </div>
-      <% else %>
-      Sorry, the candidate has not submitted the video yet.
-      <% end %>
     </div>
-
-    </div>
-
-  </div>
+  <% else %>
+    Sorry, the candidate has not submitted the video yet.
+  <% end %>
 </div>
