@@ -2,6 +2,7 @@ require 'json'
 
 class JobApplicationsController < ApplicationController
   before_action :find_job_application, only: [:show, :edit, :update]
+  skip_before_action :verify_authenticity_token, only: [:update]
 
   def index
     @job_applications = policy_scope(JobApplication).order(status: :asc).order(video_score: :desc)
@@ -11,9 +12,10 @@ class JobApplicationsController < ApplicationController
   end
 
   def update
+    # raise
     if @job_application.update(job_application_params)
       AnalysisVideoJob.perform_now(@job_application.id)
-      redirect_to positions_path
+      redirect_to root_path
     else
       render :edit
     end

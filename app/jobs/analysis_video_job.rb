@@ -5,7 +5,7 @@ class AnalysisVideoJob < ApplicationJob
 
     puts "HappyScribe"
     video = HappyScribe.new
-    transcript = video.video_transcript("https://res.cloudinary.com/kwy031820/video/upload/#{job_application.video.key}.wav")
+    transcript = video.video_transcript("https://res.cloudinary.com/kwy031820/video/upload/#{job_application.video.key}.webm")
     json = JSON.parse(transcript)
     p trascript_id = json["id"]
     puts "Finish upload the video"
@@ -21,7 +21,7 @@ class AnalysisVideoJob < ApplicationJob
     result_export = "pending"
     until result_export == "ready"
       puts "transcript is not ready!"
-      sleep(15)
+      sleep(30)
       export = HappyScribeDownload.new
       p download = export.transcript_export(export_id)
       result_export = download["state"]
