@@ -24,12 +24,12 @@
   </div>
     <div class="card-head">
       <div class="card-row-info">
-        <div class="card-info">applications: <%= position.job_applications.count %><i class="fas fa-user"></i></div>
+        <div class="card-info">Candidates: <%= position.job_applications.count %><i class="fas fa-user"></i></div>
 
         <div class="card-duedate">Due:<%= position.due_date.strftime("%b %d %Y") %></div>
       </div>
       <div class="card-row-info">
-        <div class="card-info">number of new hires: <%= position.target_hire_number  %><i class="fas fa-user"></i></div>
+        <div class="card-info">Target number of hire: <%= position.target_hire_number  %><i class="fas fa-user"></i></div>
         <!-- <div class="card-info"><%= link_to 'Score Setting', position_skill_requirement_edit_all_path(position)%></div> -->
       </div>
     </div>

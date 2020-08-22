@@ -10,8 +10,10 @@
       <div class="modal-body">
         <%= simple_form_for [@category, @question] do |q| %>
           <%= q.input :question %>
+
           <%= q.input :category, input_html: { value: @category.name }, disabled: true %>
           <div class="actions button-edit-score"><%= q.submit 'Done', class: "btn-save-questions" %></div>
+
         <% end %>
       </div>
     </div>

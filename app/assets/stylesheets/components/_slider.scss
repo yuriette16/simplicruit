@@ -1,6 +1,6 @@
 // Base Colors
-$shade-10: #0F4572 !default;
-$shade-1: #d3deea !default;
+$shade-10: #365e9e !default;
+$shade-1: #d2e4f9 !default;
 $shade-0: #fff !default;
 $blue: #7fbfff !default;
 
@@ -34,6 +34,8 @@ $range-label-width: 60px !default;
 
 .range-slider {
   width: $range-width;
+  padding-left:16px;
+  padding-right:24px;
 }
 
 .range-slider__range {
