@@ -4,7 +4,8 @@
       <div class="personality output-stats-column">
         <div class="overall-score">
           <div class="over-score-header">
-            <div><h5>Overall Score: <b><%= @overall_score %> /100pt</b> (Passing score: <%= @job_application.position.passing_score %>pt)</h5></div>
+            <div><h5>Overall Score: <b><%= @overall_score %> /100pt</b></h5></div>
+            <div>(Passing score: <%= @job_application.position.passing_score %>pt)</div>
           </div>
           <p><h1><i class="fas fa-spinner fa-pulse"></i>&thinsp;&thinsp;&thinsp;AI is analysing.....</h1><p>
         </div>
