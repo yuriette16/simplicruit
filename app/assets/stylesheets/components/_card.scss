@@ -68,7 +68,7 @@
 
 .card-title {
   font-size:16px;
-  color: #004572;
+  color: #00253e;
   padding:6px 0;
   border-radius:4px;
 
@@ -129,7 +129,7 @@
 }
 
 .fa-edit {
-  color:#4c4c4c;
+  color:#004572;
 }
 
 .fa-user {
@@ -139,8 +139,15 @@
   color: #34465ae3;
   margin-left: 4px;
   }
-.fa-check, .fa-times, .fa-circle-notch {
- color: #004572;
+.fa-circle-notch {
+ color:orange;
+}
+
+.fa-check{
+  color:green;
+}
+.fa-times{
+color:#f14848;
 }
   .fa-angle-right {
     margin-right:6px;
