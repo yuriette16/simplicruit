@@ -64,6 +64,7 @@ const changeQuestionMode = () => {
   const trashIcons = document.querySelectorAll(".a-trash-alt");
   const questionFields = document.querySelectorAll(".question-field");
   const trashicons = document.querySelectorAll(".trash-icon");
+  const btnSaveEvaluation = document.querySelector('.btn-save-evaluation');
   if (editQuestionMode) {
     editQuestionMode.addEventListener("click", (event) => {
       answerFields.forEach((answerField) => {
@@ -80,6 +81,8 @@ const changeQuestionMode = () => {
 
   if (inputQuestionMode) {
     inputQuestionMode.addEventListener("click", (event) => {
+      btnSaveEvaluation.style.display = "block";
+      editQuestionMode.style.display = "none";
       answerFields.forEach((answerField) => {
         answerField.style.display = "block";
       });
