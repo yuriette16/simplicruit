@@ -4,9 +4,9 @@
     address: 'smtp.gmail.com',
     domain: 'gmail.com',
     port: 587,
-    user_name: 'recruit.farrah@gmail.com',
-    password: "#{ENV['GOOGLE_PASSWORD']}",
-    authentication: 'plain',
+    user_name: ENV['GOOGLE_EMAIL'],
+    password: ENV['GOOGLE_PASSWORD'],
+    authentication: :login,
     enable_starttls_auto: true
   }
 # elsif Rails.env.development?
