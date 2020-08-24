@@ -1,24 +1,35 @@
 require 'json'
 
 class JobApplicationsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:edit]
   before_action :find_job_application, only: [:show, :edit, :update]
   skip_before_action :verify_authenticity_token, only: [:update]
+
 
   def index
     @job_applications = policy_scope(JobApplication).order(status: :asc).order(video_score: :desc)
   end
 
   def edit
+    @nosidebar = 'nosidebar'
+    @nonavbar = 'nonavbar'
   end
 
   def update
     # raise
     if @job_application.update(job_application_params)
-      AnalysisVideoJob.perform_now(@job_application.id)
-      redirect_to root_path
+      #demo only
+      UploadVideoTranscriptJob.perform_now(@job_application)
+      redirect_to uploaded_path
     else
       render :edit
     end
+  end
+
+  def uploaded
+    @job_application = JobApplication.find(params[:id])
+    @nosidebar = 'nosidebar'
+    @nonavbar = 'nonavbar'
   end
 
   def show
@@ -39,18 +50,14 @@ class JobApplicationsController < ApplicationController
 
     end
     @questionnaire = Questionnaire.new
-    # @job_application.score = @overall_score
-    # @job_application.save!
-    if @job_application.interview_date.nil? && @job_application.status != "invited" && @job_application.video_result.present? && @job_application.video_score > @job_application.position.passing_score
-      InterviewBookedJob.perform_now(@job_application.id)
-    end
 
-    # if @job_application.interview_date.present
-    #   CreateNotification.call(
-    #   contents: { 'en' => 'Candidate booked this interview!' },
-    #   type: 'job_applications#show'
-    # )
-    # end
+    if @job_application.interview_date.nil? && @job_application.status != "invited" && @job_application.video_result.present? && @job_application.video_score > @job_application.position.passing_score
+      InterviewBookedJob.perform_now(@job_application)
+    end
+  #demo only
+    if @job_application.video.attached?
+      UploadVideoResultJob.perform_later(@job_application)
+    end
   end
 
   private

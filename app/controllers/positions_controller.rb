@@ -5,13 +5,19 @@ class PositionsController < ApplicationController
     @positions.each do |position|
       StatusJob.perform_now(position)
     end
+  #######for demo only######
+    @positions.each do |position|
+      if position.job_applications.first.nil?
+        CreateOneApplicationJob.perform_later(position.id)
+      end
+    end
 
     @positions.each do |position|
       if position.skill_requirements.first.nil?
         CreateDefaultSkillRequirementJob.perform_now(position.id)
       end
     end
-
+  ##########################
     @position = Position.new
   end
 

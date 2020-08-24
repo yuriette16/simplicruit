@@ -5,7 +5,7 @@ class GenerateQuestion
     # pick category
     auto_questions_categories = []
     skill_names_array.each do |skill_name_watson|
-      next if (skill_name_watson[:percentile] * 10).round >= 8
+      next if (skill_name_watson[:percentile] * 10).round >= 9
 
       required_skills.each do |required_skill|
         if skill_name_watson[:name] == required_skill.json_name
@@ -34,7 +34,7 @@ class GenerateQuestion
     auto_questions_categories.each do |auto_questions_category|
       id = Category.find_by(name: auto_questions_category).id
       picked_questions_array = Question.where(category_id: id)
-      picked_questions << picked_questions_array.sample(2)
+      picked_questions << picked_questions_array.sample(3)
     end
     return picked_questions.flatten!
   end

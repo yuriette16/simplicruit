@@ -1,67 +1,27 @@
-<section class ="content-area">
-
-<div class="left">
-  <div id="startButton" class="button">
-    Start
-  </div>
-  <h2>Preview</h2>
-  <video id="preview" width="800" height="600" autoplay muted></video>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand" do %>
+    <%= image_tag "navbar_logo.png" %>
+    <% end %>
 </div>
-<div class="right">
-  <div id="stopButton" class="button">
-    Stop
-  </div>
+<div class = "record-container text-center">
+  <h3>Video Recording Interview - CallBest</h3>
+  <h5>Job title: <%= @job_application.position.title %></h5>
+  <div class="topic-border">
+  Please briefly introduce yourself and define a quality customer service in your past experience.</div>
+  <video id="preview" width="640" height="400" autoplay muted></video>
+  <p>
+    <div id="startButton" class="btn btn-gradient">
+      <i class="fas fa-video"></i>&thinsp;Start
+    </div>
+    <div id="stopButton" class="btn btn-gradient">
+      <i class="fas fa-upload"></i>&thinsp;Finish
+    </div>
+  </p>
 </div>
-<div class="bottom">
+<div class="card">
   <pre id="log"></pre>
 </div>
-<style>
-  body {
-  font: 14px "Open Sans", "Arial", sans-serif;
-}
 
-video {
-  margin-top: 2px;
-  border: 1px solid black;
-}
-
-.button {
-  cursor: pointer;
-  display: block;
-  width: 160px;
-  border: 1px solid black;
-  font-size: 16px;
-  text-align: center;
-  padding-top: 2px;
-  padding-bottom: 4px;
-  color: white;
-  background-color: darkgreen;
-  text-decoration: none;
-}
-
-h2 {
-  margin-bottom: 4px;
-}
-
-.left {
-  margin-right: 10px;
-  float: left;
-  width: 160px;
-  padding: 0px;
-}
-
-.right {
-  margin-left: 10px;
-  float: left;
-  width: 160px;
-  padding: 0px;
-}
-
-.bottom {
-  clear: both;
-  padding-top: 10px;
-}
-</style>
 <script type="text/javascript">
   let preview = document.getElementById("preview");
 // let recording = document.getElementById("recording");
@@ -131,8 +91,7 @@ startButton.addEventListener("click", function() {
     });
     // downloadButton.download = "RecordedVideo.webm";
 
-    log("Successfully recorded " + recordedBlob.size + " bytes of " +
-        recordedBlob.type + " media.");
+    log("The video is uploaded! Thanks for your apply! We will soon contact you about the result!");
   })
   .catch(log);
 }, false);
@@ -140,5 +99,3 @@ startButton.addEventListener("click", function() {
 //   stop(preview.srcObject);
 // }, false);
 </script>
-
-</section>
