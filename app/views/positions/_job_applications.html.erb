@@ -3,12 +3,18 @@
   <div class="modal-dialog">
     <div class="modal-table modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"> <%= position.title %> (Passing Score: <%= position.passing_score %>)</h5>&emsp;<span> <%= position.job_applications.count %><i class="fas fa-user"></i></span>
+        <div class='modal-column'>
+        <h5 class="job-app-title modal-title" id="exampleModalLabel"> <%= position.title %></h5>&emsp;<div> Passing Score for Screening: <big><%= position.passing_score %></big>pt </div>
 
+         <span>Current Number of Candidates: <%= position.job_applications.count %><i class="fas fa-user"></i></span>
+         </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+
+
       </div>
+
       <div class="modal-body"  style="height:600px; width:auto; overflow-y:scroll; scrollbar-base-color:#99ff66 ; scrollbar-arrow-color:#ff0000;" >
         <table>
         <tr>

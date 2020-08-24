@@ -158,6 +158,8 @@
 }
 
 .over-score-header{
+  display: flex;
+  justify-content: space-around;
   text-align: center;
   h5{
   font-weight:bold;

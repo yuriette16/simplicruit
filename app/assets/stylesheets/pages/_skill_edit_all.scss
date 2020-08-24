@@ -1,16 +1,15 @@
 .right-align-area {
   position:relative;
-  left:200px;
+  left:185px;
   width:820px;
 }
 
 #select-position-edit {
   height: 32px;
   position:relative;
-  bottom:4px;
   border-radius: 5px;
   padding: 4px 10px 4px 6px;
-  margin-right:8px;
+  border-color:#92c0f780;
 }
 
 
@@ -26,13 +25,27 @@
 }
 
 .score-edit-table {
-
+  background-color:white;
+  border: 1px solid rgba(22, 127, 251, 0.29);
+  border-radius: 2px;
   margin-top: 20px;
   margin-left: 20px;
+  padding-bottom:18px;
 }
 
 .score-edit-table td {
   width:-1px;
+  background-color:white;
+  padding-left:30px;
+  padding-bottom:18px;
+  font-weight:600;
+}
+
+
+.score-edit-table th {
+background-color:white;
+font-weight:400;
+padding:16px 0 16px 30px;
 }
 
 #skill-name select, #importance select {
@@ -82,6 +95,15 @@ th {
 }
 
 .score-grid{
- text-shadow: 1px 1px 0px rgba(0,0,0,0.1), 1px 1px 0px rgba(0,0,0,0.15);
+
  text-align: center;
 }
+
+.head-row-select {
+  align-items:center;
+}
+
+// .skill-form{
+//   background-color: white;
+//   border: 2px solid rgba(22, 127, 251, 0.29);
+// }

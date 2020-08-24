@@ -77,3 +77,15 @@
   flex: 0 0 5%;
   text-align: center;
 }
+
+.btn-save-questions{
+  padding:7px 18px;
+  border-radius:6px;
+  border:none;
+  background:#1e67bd;
+  color:white;
+   margin:16px 0 40px 0;
+&:hover{
+  background:#0e488c;
+  }
+}

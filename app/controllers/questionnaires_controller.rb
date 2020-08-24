@@ -12,9 +12,9 @@ class QuestionnairesController < ApplicationController
     @questionnaire.job_application = @job_application
     authorize @questionnaire
     if @questionnaire.save
-      redirect_to job_application_path(@job_application)
+      redirect_to job_application_path(@job_application, tab: "evaluation")
     else
-      redirect_to job_application_path(@job_application)
+      redirect_to job_application_path(@job_application, tab: "evaluation")
       flash.alert = 'Sorry, something goes wrong!'
     end
   end

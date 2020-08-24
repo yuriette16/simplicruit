@@ -61,3 +61,13 @@ tr{
 }
 
 
+.modal-column {
+  display:flex;
+  flex-direction:column;
+}
+
+
+.job-app-title {
+  margin-bottom:-16px;
+  font-weight:600;
+}

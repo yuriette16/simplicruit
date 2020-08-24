@@ -5,14 +5,14 @@
 @media all and (min-width: 768px) {
   .answer-field {
     width:100%;
-    border: solid 1px rgb(190,216,253);
+    border: solid 1px #567cb1;
   }
 }
 
 @media all and (min-width: 1240px) {
   .answer-field {
     width:100%;
-    border: solid 1px rgb(190,216,253);
+    border: solid 1px #567cb1;
   }
 }
 
@@ -56,8 +56,9 @@
   background-color: #004572;
   color: white;
   border-radius:4px;
- padding:8px 36px;
+  padding:8px 36px;
   border:none;
+  display: none;
 }
 
 .evaluation-form-overall {
@@ -76,14 +77,18 @@
 
 .mode-change{
   padding: 8px 12px;
-  background-color: rgb(59,91,179);
+  background-color: #1d6ed0;;
   color: white;
   border-radius: 4px;
   border: none;
   font-size: 16px;
   &:hover{
-    background-color: rgb(117,135,195);
+    background-color: rgb(64,164,228);
   }
+}
+
+.edit-question-mode{
+  display: none;
 }
 
 // .btn-application-analysis:before{
