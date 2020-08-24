@@ -5,7 +5,7 @@ class AnalysisVideoJob < ApplicationJob
 
     puts "HappyScribe"
     video = HappyScribe.new
-    transcript = video.video_transcript("https://res.cloudinary.com/kwy031820/video/upload/#{job_application.video.key}.webm")
+    transcript = video.video_transcript("https://res.cloudinary.com/kwy031820/raw/upload/v1598078659/#{job_application.video.key}.webm")
     json = JSON.parse(transcript)
     p trascript_id = json["id"]
     puts "Finish upload the video"
