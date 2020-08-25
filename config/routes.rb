@@ -24,5 +24,4 @@ Rails.application.routes.draw do
   end
 
   get "job_applications/:id/uploaded", to: "job_applications#uploaded", as: 'uploaded'
-
 end
