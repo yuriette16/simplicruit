@@ -1,5 +1,6 @@
 class CreateOneApplicationJob < ApplicationJob
   def perform(postion_id)
+    sleep(5)
     puts "application creating..."
     positions = JobApplication.create(
       candidate_name: 'Linlu Liu',
@@ -10,8 +11,6 @@ class CreateOneApplicationJob < ApplicationJob
       position_id: postion_id
     )
     puts "finish created"
-
-    sleep(1)
 
     puts "sending email"
     application = JobApplication.last
