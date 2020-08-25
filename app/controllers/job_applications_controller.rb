@@ -5,9 +5,13 @@ class JobApplicationsController < ApplicationController
   before_action :find_job_application, only: [:show, :edit, :update]
   skip_before_action :verify_authenticity_token, only: [:update]
 
-
   def index
-    @job_applications = policy_scope(JobApplication).order(status: :asc).order(video_score: :desc)
+    if params[:name].present?
+      @job_application = policy_scope(JobApplication).find_by(candidate_name: params[:name])
+      redirect_to job_application_path(@job_application)
+    else
+      @job_applications = policy_scope(JobApplication).order(status: :asc).order(video_score: :desc)
+    end
   end
 
   def edit
