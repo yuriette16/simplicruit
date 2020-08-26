@@ -47,9 +47,9 @@
               <% name = skill[:name] %>
             <% end%>
             <% if skill[:name] == 'Susceptible to stress' %>
-              <% percentile = (100 - (skill[:percentile] * 100).round(1)) %>
+              <% percentile = (100 - (skill[:percentile] * 100).round) %>
             <% else %>
-              <%  percentile = (skill[:percentile] * 100).round(1) %>
+              <%  percentile = (skill[:percentile] * 100).round %>
             <% end%>
             <% skill_requirement = @job_application.position.skill_requirements.where(skill_name: name).first%>
             <% expected_score =  skill_requirement.minimum_score * 10 %>

@@ -1,6 +1,6 @@
 class UploadVideoResultJob < ApplicationJob
   def perform(job_application)
-    sleep(15)
+    sleep(10)
     puts "Analysising the video"
     require 'json'
     json = File.read(Rails.root.join('lib','seeds','final_personality.json'))

@@ -17,4 +17,8 @@ class JobApplicationPolicy < ApplicationPolicy
     true
   end
 
+  def uploaded?
+    true
+  end
+
 end

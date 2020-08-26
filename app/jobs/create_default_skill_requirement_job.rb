@@ -5,6 +5,7 @@ class CreateDefaultSkillRequirementJob < ApplicationJob
   skill_requirement = SkillRequirement.create(
       position_id: position_id,
       weight: 1,
+      minimum_score: 5,
       category_id: (Category.all).first.id + i
     )
     skill_requirement.save!

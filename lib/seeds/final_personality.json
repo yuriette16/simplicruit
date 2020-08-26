@@ -74,7 +74,7 @@
       "name": "Stability",
       "category": "needs",
       "trait_id": "need_stability",
-      "percentile": 0.34894238923533544,
+      "percentile": 0.5314030131341401,
       "significant": true
     },
     {
@@ -111,7 +111,7 @@
       "name": "Self-enhancement",
       "category": "values",
       "trait_id": "value_self_enhancement",
-      "percentile": 0.350526474242843,
+      "percentile": 0.61214081230002303,
       "significant": true
     },
     {
@@ -196,7 +196,7 @@
           "name": "Cautiousness",
           "category": "personality",
           "trait_id": "facet_cautiousness",
-          "percentile": 0.9015351563918772,
+          "percentile": 0.8823239153413422,
           "significant": true
         },
         {
@@ -240,7 +240,7 @@
           "name": "Activity level",
           "category": "personality",
           "trait_id": "facet_activity_level",
-          "percentile": 0.9953665054319234,
+          "percentile": 0.9712310238023123,
           "significant": true
         },
         {
@@ -298,7 +298,7 @@
           "name": "Cooperation",
           "category": "personality",
           "trait_id": "facet_cooperation",
-          "percentile": 0.9057714368028846,
+          "percentile": 0.7812312312312923,
           "significant": true
         },
         {
@@ -377,7 +377,7 @@
           "name": "Susceptible to stress",
           "category": "personality",
           "trait_id": "facet_vulnerability",
-          "percentile": 0.18615849207938373,
+          "percentile": 0.24243314093843144,
           "significant": true
         }
       ],

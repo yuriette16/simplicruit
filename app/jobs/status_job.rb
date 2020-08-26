@@ -16,7 +16,13 @@ class StatusJob < ApplicationJob
         if job_application.video_score.nil?
           job_application.status = 4
         elsif job_application.video_score.to_i < position.passing_score
-          job_application.status = 5 if job_application.status != "on_hold"
+          #demo
+          if job_application.video_score.to_i <= 30
+            job_application.status = 5
+          #demo
+          else
+            job_application.status = 5 if job_application.status != "on_hold"
+          end
         elsif job_application.video_score.to_i >= position.passing_score
           if job_application.interview_date.present?
             job_application.status = 1

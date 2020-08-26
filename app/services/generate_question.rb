@@ -34,7 +34,7 @@ class GenerateQuestion
     auto_questions_categories.each do |auto_questions_category|
       id = Category.find_by(name: auto_questions_category).id
       picked_questions_array = Question.where(category_id: id)
-      picked_questions << picked_questions_array.sample(3)
+      picked_questions << picked_questions_array.sample(2)
     end
     return picked_questions.flatten!
   end

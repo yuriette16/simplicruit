@@ -14,6 +14,7 @@ class SkillRequirementsController < ApplicationController
 
   def edit_all
     @skill_requirements = @position.skill_requirements.order(category_id: :asc)
+    authorize @skill_requirements
     if @skill_requirements.first.nil?
       redirect_to position_skill_requirements_path(@position)
     else
@@ -28,6 +29,7 @@ class SkillRequirementsController < ApplicationController
     end
 
     @skill_requirements = @position.skill_requirements.order(category_id: :asc)
+    skip_authorization
     if @skill_requirements.first.nil?
       redirect_to position_skill_requirements_path(@position)
     else

@@ -32,6 +32,7 @@ class JobApplicationsController < ApplicationController
 
   def uploaded
     @job_application = JobApplication.find(params[:id])
+    authorize @job_application
     @nosidebar = 'nosidebar'
     @nonavbar = 'nonavbar'
   end
