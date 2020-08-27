@@ -86,11 +86,6 @@ startButton.addEventListener("click", function() {
   }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
   .then (recordedChunks => {
     console.log("upload");
-    recordBtn.classList.remove('record-on');
-    loadingBtn.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>&thinsp;Uploading`;
-    startButton.classList.remove('disabled');
-    msg.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>&thinsp;Thank you! we are uploading the video, please wait a moment.&thinsp;<i class="fas fa-spinner fa-pulse"></i>`;
-
     let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
     // recording.src = URL.createObjectURL(recordedBlob);
     // downloadButton.href = recording.src;
@@ -106,6 +101,11 @@ startButton.addEventListener("click", function() {
     // downloadButton.download = "RecordedVideo.webm";
 
     log("The video is uploaded! Thanks for your apply! We will soon contact you about the result!");
+    // recordBtn.classList.remove('record-on');
+    // loadingBtn.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>&thinsp;Uploading`;
+    // startButton.classList.remove('disabled');
+    // msg.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>&thinsp;Thank you! we are uploading the video, please wait a moment.&thinsp;<i class="fas fa-spinner fa-pulse"></i>`;
+
   })
   .catch(log);
 }, false);
