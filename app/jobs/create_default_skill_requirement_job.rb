@@ -22,7 +22,7 @@ class CreateDefaultSkillRequirementJob < ApplicationJob
     end
 
     position = Position.find(position_id)
-    position.passing_score = 0
+    position.passing_score = 50
     position.save!
     end
 
