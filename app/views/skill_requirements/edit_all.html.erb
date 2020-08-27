@@ -13,11 +13,11 @@
 </div>
 <light style="font-size:14px;color:#004572;">The expected score of each skill will be used for the screening interview analysis.</light>
 <hr>
- <div class="score-grid"><h4>Current Passing Score:<b style="color:#012d4a;"><%= @passing_score %>/100</b><small>pt</small></h4></div>
+ <div class="score-grid"><h4>Current Passing Score:<b style="color:#012d4a;"><span id="passing-score"><%= @passing_score %></span>/100</b><small>pt</small></h4></div>
 <%= simple_form_for :skill_requirement, :url => position_skill_requirement_update_all_path, :html => { :method => :patch , class: 'skill-form'}, remote: true do %>
  <table class = "score-edit-table">
     <tr>
-      <th>Skill Name&thinsp;</th>
+      <th>Skill Name&thinsp;<i class="fas fa-edit" style="color:#167FFB;"></i></th>
       <th>Expected score</th>
     </tr>
     <% @skill_requirements.each do |skill_requirement| %>
@@ -29,13 +29,14 @@
       <% end %>
     <% end %>
   </table>
+
   <div class="actions button-edit-score">
   <%= button_tag :type => "submit", data: { toggle: "modal" , target: "#exampleModalCenter" } do %>
 Save the Score
   <% end %>
   <%= render 'redirect' %>
   </div>
-
 <% end %>
+
 </section>
 

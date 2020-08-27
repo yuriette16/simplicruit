@@ -26,22 +26,26 @@
 
 .score-edit-table {
   background-color:white;
+  border: 1px solid rgba(22, 127, 251, 0.29);
+  border-radius: 2px;
   margin-top: 20px;
   margin-left: 20px;
+  padding-bottom:18px;
 }
 
 .score-edit-table td {
   width:-1px;
   background-color:white;
   padding-left:30px;
+  padding-bottom:18px;
   font-weight:600;
 }
 
 
 .score-edit-table th {
-
+background-color:white;
 font-weight:400;
-  padding:16px 0 16px 30px;
+padding:16px 0 16px 30px;
 }
 
 #skill-name select, #importance select {
@@ -99,3 +103,7 @@ th {
   align-items:center;
 }
 
+// .skill-form{
+//   background-color: white;
+//   border: 2px solid rgba(22, 127, 251, 0.29);
+// }

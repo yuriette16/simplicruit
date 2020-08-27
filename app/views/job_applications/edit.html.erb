@@ -1,7 +1,101 @@
-<section class ="content-area">
-<%= simple_form_for(@job_application) do |f| %>
-  <%= f.input :video , as: :file %>
-  <%= f.hidden_field :status, value: "pending" %>
-  <%= f.submit %>
-<% end %>
-</section>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand" do %>
+    <%= image_tag "navbar_logo.png" %>
+    <% end %>
+</div>
+<div class = "record-container text-center">
+  <h3>Video Recording Interview - CallBest</h3>
+  <h5>Job title: <%= @job_application.position.title %></h5>
+  <div class="topic-border">
+  Please briefly introduce yourself and define a quality customer service in your past experience.</div>
+  <video id="preview" width="640" height="400" autoplay muted></video>
+  <p>
+    <div id="startButton" class="btn btn-gradient">
+      <i class="fas fa-video"></i>&thinsp;Start
+    </div>
+    <div id="stopButton" class="btn btn-gradient">
+      <i class="fas fa-upload"></i>&thinsp;Finish
+    </div>
+  </p>
+</div>
+<div class="card">
+  <pre id="log"></pre>
+</div>
+
+<script type="text/javascript">
+  let preview = document.getElementById("preview");
+// let recording = document.getElementById("recording");
+let startButton = document.getElementById("startButton");
+let stopButton = document.getElementById("stopButton");
+// let downloadButton = document.getElementById("downloadButton");
+let logElement = document.getElementById("log");
+let videoUpload = document.querySelector('.video-upload');
+
+let recordingTimeMS = 3600000;
+function log(msg) {
+  logElement.innerHTML += msg + "\n";
+}
+function clickStop(delayInMS) {
+  return new Promise(resolve => stopButton.addEventListener("click", resolve));
+}
+function startRecording(stream, lengthInMS) {
+  let recorder = new MediaRecorder(stream);
+  let data = [];
+
+  recorder.ondataavailable = event => data.push(event.data);
+  recorder.start();
+  log(recorder.state + " for " + (lengthInMS/1000) + " seconds...");
+
+  let stopped = new Promise((resolve, reject) => {
+    recorder.onstop = resolve;
+    recorder.onerror = event => reject(event.name);
+  });
+
+  let recorded = clickStop(lengthInMS).then(
+    () => recorder.state == "recording" && recorder.stop()
+  );
+
+  return Promise.all([
+    stopped,
+    recorded
+  ])
+  .then(() => data);
+}
+function stop(stream) {
+  stream.getTracks().forEach(track => track.stop());
+}
+startButton.addEventListener("click", function() {
+  navigator.mediaDevices.getUserMedia({
+    video: true,
+    audio: true
+  }).then(stream => {
+    preview.srcObject = stream;
+    // downloadButton.href = stream;
+
+    preview.captureStream = preview.captureStream || preview.mozCaptureStream;
+    return new Promise(resolve => preview.onplaying = resolve);
+  }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
+  .then (recordedChunks => {
+    console.log("test");
+    let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
+    // recording.src = URL.createObjectURL(recordedBlob);
+    // downloadButton.href = recording.src;
+    // window.mysrc = recording.src;
+    var formData = new FormData();
+    formData.append('job_application[video]', recordedBlob, "video.webm");
+    Rails.ajax({
+      url: `/job_applications/<%= @job_application.id %>`,
+      headers: { contentType: "application/json"},
+      type: "patch",
+      data: formData
+    });
+    // downloadButton.download = "RecordedVideo.webm";
+
+    log("The video is uploaded! Thanks for your apply! We will soon contact you about the result!");
+  })
+  .catch(log);
+}, false);
+// stopButton.addEventListener("click", function() {
+//   stop(preview.srcObject);
+// }, false);
+</script>

@@ -1,11 +1,10 @@
 class InterviewBookedJob < ApplicationJob
-  def perform(job_application_id)
+  def perform(job_application)
     puts "Doing the loading"
-    application = JobApplication.find(job_application_id)
-    NotificationMailer.interview_invitation(application.candidate_name).deliver
-    application.interview_date = DateTime.new(2020, 8, 28, 12)
-    application.status = 1
-    application.save!
+    NotificationMailer.interview_invitation(job_application.candidate_name).deliver
+    job_application.interview_date = DateTime.new(2020, 8, 28, 12)
+    job_application.status = 1
+    job_application.save!
     puts "Finished"
   end
 end

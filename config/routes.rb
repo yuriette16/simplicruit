@@ -23,7 +23,5 @@ Rails.application.routes.draw do
      resources :questions, only:[:index, :create, :edit, :update]
   end
 
-
-
-get "restaurants", to: "restaurants#index"
+  get "job_applications/:id/uploaded", to: "job_applications#uploaded", as: 'uploaded'
 end

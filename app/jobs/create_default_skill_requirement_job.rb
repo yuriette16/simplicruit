@@ -5,6 +5,7 @@ class CreateDefaultSkillRequirementJob < ApplicationJob
   skill_requirement = SkillRequirement.create(
       position_id: position_id,
       weight: 1,
+      minimum_score: 5,
       category_id: (Category.all).first.id + i
     )
     skill_requirement.save!
@@ -21,7 +22,7 @@ class CreateDefaultSkillRequirementJob < ApplicationJob
     end
 
     position = Position.find(position_id)
-    position.passing_score = 0
+    position.passing_score = 50
     position.save!
     end
 
