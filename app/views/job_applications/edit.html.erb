@@ -35,7 +35,6 @@ let stopButton = document.getElementById("stopButton");
 let logElement = document.getElementById("log");
 let videoUpload = document.querySelector('.video-upload');
 const recordBtn = document.querySelector('.record-button');
-const loadingBtn = document.querySelector('#stopButton');
 const msg = document.querySelector('.topic-border');
 
 let recordingTimeMS = 3600000;
@@ -86,11 +85,6 @@ startButton.addEventListener("click", function() {
   }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
   .then (recordedChunks => {
     console.log("upload");
-    recordBtn.classList.remove('record-on');
-    loadingBtn.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>&thinsp;Uploading`;
-    startButton.classList.remove('disabled');
-    msg.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>&thinsp;Thank you! we are uploading the video, please wait a moment.&thinsp;<i class="fas fa-spinner fa-pulse"></i>`;
-
     let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
     // recording.src = URL.createObjectURL(recordedBlob);
     // downloadButton.href = recording.src;
