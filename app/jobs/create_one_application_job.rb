@@ -1,6 +1,6 @@
 class CreateOneApplicationJob < ApplicationJob
   def perform(postion_id)
-    sleep(5)
+    sleep(3)
     puts "application creating..."
     positions = JobApplication.create(
       candidate_name: 'Linlu Liu',
