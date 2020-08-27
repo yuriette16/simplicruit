@@ -8,7 +8,11 @@
   <h5>Job title: <%= @job_application.position.title %></h5>
   <div class="topic-border">
   Please briefly introduce yourself and define a quality customer service in your past experience.</div>
-  <video id="preview" width="640" height="400" autoplay muted></video>
+  <div style="position: relative">
+    <div class="record-button">REC</div>
+    <video id="preview" width="640" height="400" autoplay muted>
+    </video>
+  </div>
   <p>
     <div id="startButton" class="btn btn-gradient">
       <i class="fas fa-video"></i>&thinsp;Start
@@ -23,13 +27,16 @@
 </div>
 
 <script type="text/javascript">
-  let preview = document.getElementById("preview");
+let preview = document.getElementById("preview");
 // let recording = document.getElementById("recording");
 let startButton = document.getElementById("startButton");
 let stopButton = document.getElementById("stopButton");
 // let downloadButton = document.getElementById("downloadButton");
 let logElement = document.getElementById("log");
 let videoUpload = document.querySelector('.video-upload');
+const recordBtn = document.querySelector('.record-button');
+const loadingBtn = document.querySelector('#stopButton');
+const msg = document.querySelector('.topic-border');
 
 let recordingTimeMS = 3600000;
 function log(msg) {
@@ -44,7 +51,7 @@ function startRecording(stream, lengthInMS) {
 
   recorder.ondataavailable = event => data.push(event.data);
   recorder.start();
-  log(recorder.state + " for " + (lengthInMS/1000) + " seconds...");
+  log("It start taking the video.");
 
   let stopped = new Promise((resolve, reject) => {
     recorder.onstop = resolve;
@@ -73,10 +80,17 @@ startButton.addEventListener("click", function() {
     // downloadButton.href = stream;
 
     preview.captureStream = preview.captureStream || preview.mozCaptureStream;
+    recordBtn.classList.add('record-on');
+    startButton.classList.add('disabled');
     return new Promise(resolve => preview.onplaying = resolve);
   }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
   .then (recordedChunks => {
-    console.log("test");
+    console.log("upload");
+    recordBtn.classList.remove('record-on');
+    loadingBtn.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>&thinsp;Uploading`;
+    startButton.classList.remove('disabled');
+    msg.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>&thinsp;Thank you! we are uploading the video, please wait a moment.&thinsp;<i class="fas fa-spinner fa-pulse"></i>`;
+
     let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
     // recording.src = URL.createObjectURL(recordedBlob);
     // downloadButton.href = recording.src;

@@ -217,14 +217,14 @@
           "name": "Self-discipline",
           "category": "personality",
           "trait_id": "facet_self_discipline",
-          "percentile": 0.9643265069646005,
+          "percentile": 0.92320123089890801,
           "significant": true
         },
         {
           "name": "Self-efficacy",
           "category": "personality",
           "trait_id": "facet_self_efficacy",
-          "percentile": 0.9500761931958874,
+          "percentile": 0.852139029318023012,
           "significant": true
         }
       ],
@@ -240,7 +240,7 @@
           "name": "Activity level",
           "category": "personality",
           "trait_id": "facet_activity_level",
-          "percentile": 0.9712310238023123,
+          "percentile": 0.80293123102938,
           "significant": true
         },
         {
@@ -377,7 +377,7 @@
           "name": "Susceptible to stress",
           "category": "personality",
           "trait_id": "facet_vulnerability",
-          "percentile": 0.24243314093843144,
+          "percentile": 0.35135134143192931,
           "significant": true
         }
       ],

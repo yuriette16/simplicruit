@@ -23,7 +23,7 @@ class UploadVideoTranscriptJob < ApplicationJob
     puts 'Create a invited job_application for Customer Service Representative ...'
     1.times do
       job = JobApplication.create(
-      candidate_name: Faker::Name.name,
+      candidate_name: 'Jason Smith',
       email: Faker::Internet.email,
       address: Faker::Address.full_address,
       phone: Faker::PhoneNumber.cell_phone,

@@ -4,7 +4,7 @@ class CreateOneApplicationJob < ApplicationJob
     puts "application creating..."
     positions = JobApplication.create(
       candidate_name: 'Linlu Liu',
-      email: 'linlu606@yahoo.com',
+      email: 'linluuliu@gmail.com',
       address: '1-chōme-2 Takadanobaba, Shinjuku City, Tōkyō-to 169-0075',
       phone: '020-1231-2492',
       gender: 'female',
