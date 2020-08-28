@@ -9,7 +9,7 @@ class CreateOneApplicationJob < ApplicationJob
       phone: '020-1231-2492',
       gender: 'female',
       position_id: position_id,
-      stauts: "processing"
+      status: "processing"
     )
     puts "finish created"
 

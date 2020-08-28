@@ -15,7 +15,11 @@
       </div>
       <div class = "video-content">
         <video class= "video-center" width="460" height="240" controls="controls" style="text-align:center;">
-          <source src="https://res.cloudinary.com/kwy031820/raw/upload/v1596717511/<%= @job_application.video.key %>.webm"/>
+          <% if @job_application.id = 10 %>
+            <source src="https://res.cloudinary.com/kwy031820/video/upload/v1598594459/dritj0qhjpm5epma4sqltvzqi6do.mp4"/>
+          <% else %>
+            <source src="https://res.cloudinary.com/kwy031820/raw/upload/v1596717511/<%= @job_application.video.key %>.webm"/>
+          <% end %>
          Your browser does not support the video tag.
         </video>
         <div class="transcript">Transcript</div>
@@ -85,8 +89,11 @@
 
       <div class = "video-content">
         <video class= "video-center" width="460" height="240" controls="controls" style="text-align:center;">
-          <source src="https://res.cloudinary.com/kwy031820/raw/upload/v1596717511/<%= @job_application.video.key %>.webm"/>
-         Your browser does not support the video tag.
+          <% if @job_application.id = 10 %>
+            <source src="https://res.cloudinary.com/kwy031820/video/upload/v1598594459/dritj0qhjpm5epma4sqltvzqi6do.mp4"/>
+          <% else %>
+            <source src="https://res.cloudinary.com/kwy031820/raw/upload/v1596717511/<%= @job_application.video.key %>.webm"/>
+          <% end %> Your browser does not support the video tag.
         </video>
         <div class="transcript">Transcript</div>
         <div class ="video-transcript">
