@@ -26,7 +26,7 @@ class CreateOneApplicationJob < ApplicationJob
       phone: Faker::PhoneNumber.cell_phone,
       gender: ['male', 'female'].sample
       )
-      job.position_id = job_application.position_id
+      job.position_id = position_id
       job.save!
     end
     puts 'Finished'
@@ -42,7 +42,7 @@ class CreateOneApplicationJob < ApplicationJob
       video_score: [25,27,28,26,29].sample,
       status: "unqualified"
       )
-      job.position_id = job_application.position_id
+      job.position_id = position_id
       job.save!
     end
 
@@ -57,7 +57,7 @@ class CreateOneApplicationJob < ApplicationJob
       video_score: [70, 75, 71, 73].sample,
       status: "invited"
       )
-      job.position_id = job_application.position_id
+      job.position_id = position_id
       job.save!
     end
     puts 'Finished'
