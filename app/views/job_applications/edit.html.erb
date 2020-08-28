@@ -17,9 +17,10 @@
     <div id="startButton" class="btn btn-gradient">
       <i class="fas fa-video"></i>&thinsp;Start
     </div>
-    <div id="stopButton" class="btn btn-gradient" >
+    <div id="stopButton" class="btn btn-gradient" data-toggle="modal" data-target="#successModalCenter">
       <i class="fas fa-upload"></i>&thinsp;Finish
     </div>
+      <%= render 'success_modal' %>
   </p>
 </div>
 <div class="card">
@@ -103,7 +104,7 @@ startButton.addEventListener("click", function() {
     recordBtn.classList.remove('record-on');
     stopButton.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>&thinsp;Uploading`;
     startButton.classList.remove('disabled');
-    msg.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>&thinsp;Thank you! we are uploading the video, please wait a moment.&thinsp;<i class="fas fa-spinner fa-pulse"></i>`;
+    msg.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>&thinsp;Thank you! we are uploading the video, please wait.&thinsp;<i class="fas fa-spinner fa-pulse"></i>`;
 
   })
   .catch(log);

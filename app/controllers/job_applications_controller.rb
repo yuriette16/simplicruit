@@ -24,7 +24,7 @@ class JobApplicationsController < ApplicationController
     if @job_application.update(job_application_params)
       #demo only
       UploadVideoTranscriptJob.perform_now(@job_application)
-      redirect_to uploaded_path
+      redirect_to positions_path
     else
       render :edit
     end
